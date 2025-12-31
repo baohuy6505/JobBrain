@@ -1,0 +1,39 @@
+# --- Dependency Directories ---
+# Không bao giờ push thư mục này lên vì nó cực nặng và có thể cài lại bằng npm install
+node_modules/
+jspm_packages/
+
+# --- Build Outputs ---
+# Các tệp sinh ra sau khi build dự án
+dist/
+build/
+.ext/
+
+# --- Environment Variables ---
+# Tuyệt đối không push file này vì chứa mật khẩu Database và Secret Key
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# --- Logs ---
+# Các file ghi nhật ký lỗi
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# --- Editor & OS Files ---
+# Các file cấu hình riêng của máy tính hoặc trình soạn thảo
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# --- Testing ---
+# Các báo cáo thử nghiệm
+coverage/
+
+# --- Vite/React Specific ---
+.vite/

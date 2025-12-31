@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #1e40af; /* Màu xanh đậm cho JobBrain */
+}
+
+/* Reset lại toàn bộ định dạng mặc định để Tailwind làm chủ */
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  background-color: #f8fafc; /* Màu nền xám nhạt cho toàn trang */
+  color: #1e293b;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: block; /* Quan trọng: Xóa bỏ flex center của Vite */
+  width: 100%;
+  min-height: 100vh;
+}
+
+#root {
+  width: 100%;
+}
