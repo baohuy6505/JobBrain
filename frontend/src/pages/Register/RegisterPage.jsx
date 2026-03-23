@@ -1,5 +1,5 @@
 import React from "react";
-import RegisterForm from "../../Components/Register/RegisterForm"; // Check kỹ đường dẫn này
+import RegisterForm from "../../Components/auth/Register/RegisterForm"; // Check kỹ đường dẫn này
 
 const RegisterPage = () => {
   return (
