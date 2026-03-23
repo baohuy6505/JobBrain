@@ -2,7 +2,8 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import MainLayout from "./layouts/MainLayout";
-import Home from './pages/Home';
+import Home from "./pages/Home";
+import LoginPage from "./pages/Login/loginPage";
 // import Dashboard from './pages/Dashboard';
 
 function App() {
@@ -11,10 +12,7 @@ function App() {
       <Routes>
         <Route path="/" element={<MainLayout />}>
           <Route index element={<Home />} />
-          <Route
-            path="login"
-            element={<div className="p-10 text-black">🔑 Trang Đăng nhập</div>}
-          />
+          <Route path="login" element={<LoginPage />} />
         </Route>
       </Routes>
     </Router>
