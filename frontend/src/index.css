@@ -17,6 +17,7 @@ body {
   display: block; /* Quan trọng: Xóa bỏ flex center của Vite */
   width: 100%;
   min-height: 100vh;
+  background: rgb(243, 242, 238);
 }
 
 #root {

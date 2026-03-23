@@ -8,14 +8,12 @@ import LoginPage from "./pages/Login/loginPage";
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<MainLayout />}>
-          <Route index element={<Home />} />
-          <Route path="login" element={<LoginPage />} />
-        </Route>
-      </Routes>
-    </Router>
+    <Routes>
+      <Route path="/" element={<MainLayout />}>
+        <Route index element={<Home />} />
+      </Route>
+      <Route path="/login" element={<LoginPage />} />
+    </Routes>
   );
 }
 

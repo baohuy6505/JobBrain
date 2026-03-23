@@ -1,43 +1,76 @@
+import { Link } from "react-router-dom";
+import PasswordInput from "../../common/PasswordInput";
+import { useState } from "react";
 const LoginForm = () => {
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
   return (
-    <div>
-      <form action="">
-        <h2 className="form__title">ĐĂNG NHẬP</h2>
-        <p className="form__desc">Chào mừng trở lại</p>
-        <div className="form__email">
-          <label htmlFor="">Email</label>
-          <input type="text" />
-        </div>
-        <div className="form__password">
-          <label htmlFor="">Mật khẩu</label>
-          <input type="password" />
-        </div>
+    <div className="bg-white p-8 rounded-lg shadow-md max-w-md w-full">
+      <form onSubmit={(e) => e.preventDefault()}>
+        <h2 className="text-lg font-bold">ĐĂNG NHẬP</h2>
+        <p className="text-sm text-slate-600">Chào mừng trở lại</p>
 
-        <div className="form__options">
-          <label htmlFor="">
-            <input type="checkbox" />
-            Nhớ đăng nhập
+        <div className="form__email mt-3">
+          <label htmlFor="email" className="mb-2 block">
+            Email
           </label>
-
-          <Link to="">Quên mật khẩu</Link>
+          <input
+            type="email"
+            id="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Nhập email ở đây nhaaaa"
+            className="block w-full border border-slate-400 outline-none rounded-sm py-2 px-4"
+          />
         </div>
 
-        <button type="submit" class="">
+        <div className="form__password mt-2">
+          <label htmlFor="password" className="mb-2 block">
+            Mật khẩu
+          </label>
+          <PasswordInput
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Nhập mật khẩu"
+          />
+        </div>
+
+        <div className="form__options flex justify-between mt-1">
+          <label>
+            <input type="checkbox" /> Nhớ đăng nhập
+          </label>
+          <Link to="/forgot-password" className="text-blue-400">
+            Quên mật khẩu ?
+          </Link>
+        </div>
+
+        <button
+          type="submit"
+          className="btn-login w-full bg-blue-600 text-center mt-4 py-3 text-white rounded cursor-pointer"
+        >
           Đăng nhập
         </button>
-        <div class="divider">
-          <span>hoặc</span>
+
+        <div className="flex items-center my-6">
+          <div className="flex-grow border-t border-slate-200"></div>
+          <span className="flex-shrink mx-4 text-slate-400 text-sm">hoặc</span>
+          <div className="flex-grow border-t border-slate-200"></div>
         </div>
 
-        <button type="button" class="btn-google">
+        <button
+          type="button"
+          className="cursor-pointer flex items-center justify-center w-full gap-3 py-2.5 border border-slate-300 rounded-lg bg-white text-slate-700 font-medium hover:bg-slate-50 hover:border-slate-400 transition-all duration-200"
+        >
           <img
             src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
             alt="Google icon"
+            className="w-5 h-5"
           />
-          Tiếp tục với Google
+          <span>Tiếp tục với Google</span>
         </button>
       </form>
     </div>
   );
 };
+
 export default LoginForm;
