@@ -1,11 +1,11 @@
-import React from "react";
+import AuthLayout from "../../layouts/auth/AuthLayout";
 import RegisterForm from "../../Components/auth/Register/RegisterForm"; // Check kỹ đường dẫn này
 
 const RegisterPage = () => {
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
+    <AuthLayout>
       <RegisterForm />
-    </div>
+    </AuthLayout>
   );
 };
 

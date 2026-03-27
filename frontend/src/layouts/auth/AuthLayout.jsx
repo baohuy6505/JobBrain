@@ -4,10 +4,10 @@ const AuthLayout = ({ children }) => {
   const location = useLocation();
   const isLoginPage = location.pathname === "/login";
   return (
-    <div className="flex items-center justify-center h-screen flex-col px-4">
-      <h1 className="text-4xl font-bold mb-4">JOBBRAIN</h1>
+    <div className="flex items-center justify-center min-h-screen flex-col px-4">
+      <h1 className="text-3xl my-6 font-bold">JOBBRAIN</h1>
       {children}
-      <div className="mt-6 text-center">
+      <div className="my-6 text-center">
         {isLoginPage ? (
           <p className="text-slate-600 text-base">
             Chưa có tài khoản?{" "}
