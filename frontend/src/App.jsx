@@ -1,18 +1,18 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import MainLayout from "./layouts/MainLayout";
-import AuthLayout from "./layouts/auth/AuthLayout";
-import Home from "./pages/Home";
+// import Home from "./pages/Home";
 import LoginPage from "./pages/Login/LoginPage";
 import RegisterPage from "./pages/Register/RegisterPage";
+import HomePage from "./pages/Home/Homepage";
+import Admin from "./pages/Admin";
 
 function App() {
   return (
     <Routes>
-      {/* Nhóm trang chủ */}
       <Route path="/" element={<MainLayout />}>
-        <Route index element={<Home />} />
+        <Route index element={<HomePage />} />
+        <Route path="admin" element={<Admin />} />
       </Route>
-
       <Route path="login" element={<LoginPage />} />
       <Route path="register" element={<RegisterPage />} />
     </Routes>

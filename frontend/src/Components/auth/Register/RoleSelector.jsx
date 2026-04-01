@@ -1,7 +1,6 @@
-import React from "react";
 import { FaUser, FaBuilding } from "react-icons/fa";
 // Gọi cái khuôn từ thư mục common/Register ra
-import RoleOptionCard from "../../common/Register/RoleOptionCard";
+import RoleOptionCard from "./RoleOptionCard";
 
 const RoleSelector = ({ role, setRole }) => {
   return (
