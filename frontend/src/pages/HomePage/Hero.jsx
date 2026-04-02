@@ -9,11 +9,8 @@ const Hero = () => {
       bg-[#11132d] 
       text-white 
       flex items-center justify-center
-      /* 1. Đẩy xuống để không bị Header che mất */
       mt-16 
-      /* 2. Tính toán chiều cao: 100dvh trừ đi 64px của Header */
       h-[calc(100dvh-64px)] 
-      /* 3. Đảm bảo không bị vỡ nội dung trên màn hình cực nhỏ */
       min-h-[500px] 
     "
     >
@@ -22,10 +19,17 @@ const Hero = () => {
           Home
         </p>
 
-        <h1 className="text-4xl md:text-7xl font-bold mb-6 text-center leading-tight">
+        <h1 className="text-4xl md:text-6xl font-bold mb-6 text-center leading-tight">
           Tìm kiếm cơ hội nghề nghiệp <br className="hidden md:block" /> lý
           tưởng của bạn
         </h1>
+
+        {/* --- PHẦN NỘI DUNG MỚI CHÈN VÀO --- */}
+        <p className="text-gray-400 text-center max-w-2xl mb-10 text-sm md:text-base leading-relaxed">
+          Khám phá hàng ngàn công việc từ các công ty hàng đầu và kết nối với
+          cộng đồng chuyên gia chuyên nghiệp.
+        </p>
+        {/* ---------------------------------- */}
 
         <Search />
 
