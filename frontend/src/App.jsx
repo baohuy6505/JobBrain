@@ -6,6 +6,7 @@ import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import HomePage from "./pages/HomePage/Homepage";
 import Admin from "./pages/Admin";
 import MessagesPage from "./pages/MessagesPage/MessagesPage";
+import NotificationsPage from "./pages/NotificationsPage/NotificationsPage";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Route path="/" element={<MainLayout />}>
         <Route index element={<HomePage />} />
         <Route path="messages" element={<MessagesPage />} />
+        <Route path="notifications" element={<NotificationsPage />} />
         <Route path="admin" element={<Admin />} />
       </Route>
       <Route path="login" element={<LoginPage />} />

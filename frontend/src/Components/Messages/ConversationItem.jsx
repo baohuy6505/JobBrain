@@ -45,5 +45,4 @@ const ConversationItem = ({ data, isActive }) => {
     </div>
   );
 };
-
 export default ConversationItem;

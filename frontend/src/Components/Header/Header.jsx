@@ -3,7 +3,7 @@ import { HiOutlineBell, HiOutlineMoon, HiOutlineSun } from "react-icons/hi";
 import { Link, NavLink } from "react-router-dom";
 
 const Header = () => {
-  // State người dùng (Để null nếu muốn test trạng thái chưa đăng nhập)
+  // State người dùng
   const [user, setUser] = useState({
     name: "Vinh Hà",
     age: 21,
@@ -46,14 +46,18 @@ const Header = () => {
       <div className="flex items-center space-x-5">
         {user ? (
           <div className="flex items-center space-x-4">
-            {/* Notifications */}
-            <button className="text-gray-500 hover:text-[#6344ff] text-xl relative p-1">
+            {/* CẬP NHẬT: Notifications chuyển thành Link */}
+            <Link
+              to="/notifications"
+              className="text-gray-500 hover:text-[#6344ff] text-xl relative p-1 transition-colors"
+            >
               <HiOutlineBell />
+              {/* Dấu chấm đỏ thông báo */}
               <span className="absolute top-1 right-1 block h-2 w-2 rounded-full bg-red-500 ring-2 ring-white"></span>
-            </button>
+            </Link>
 
             {/* Dark Mode Toggle */}
-            <button className="text-gray-500 hover:text-[#6344ff] text-xl p-1">
+            <button className="text-gray-500 hover:text-[#6344ff] text-xl p-1 transition-colors">
               <HiOutlineMoon />
             </button>
 
@@ -85,7 +89,6 @@ const Header = () => {
             </div>
           </div>
         ) : (
-          /* Trường hợp: CHƯA ĐĂNG NHẬP */
           <div className="flex items-center space-x-2">
             <Link
               to="/login"
