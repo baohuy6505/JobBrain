@@ -1,15 +1,20 @@
 import React, { useState } from "react";
-import { HiOutlineBell, HiOutlineMoon, HiOutlineSun } from "react-icons/hi";
+import { HiOutlineBell, HiOutlineMoon } from "react-icons/hi";
 import { Link, NavLink } from "react-router-dom";
+// Import hook để lấy dữ liệu từ Redux Store
+import { useSelector } from "react-redux";
 
 const Header = () => {
-  // State người dùng
+  // State người dùng (giả lập)
   const [user, setUser] = useState({
     name: "Vinh Hà",
     age: 21,
     avatar: "https://i.pravatar.cc/150?u=vinhha",
     address: "Đà Nẵng, Việt Nam",
   });
+
+  // LẤY DỮ LIỆU TỪ REDUX: Theo dõi số lượng thông báo chưa đọc
+  const unreadCount = useSelector((state) => state.notification.unreadCount);
 
   const logout = () => setUser(null);
 
@@ -46,17 +51,17 @@ const Header = () => {
       <div className="flex items-center space-x-5">
         {user ? (
           <div className="flex items-center space-x-4">
-            {/* CẬP NHẬT: Notifications chuyển thành Link */}
             <Link
               to="/notifications"
               className="text-gray-500 hover:text-[#6344ff] text-xl relative p-1 transition-colors"
             >
               <HiOutlineBell />
-              {/* Dấu chấm đỏ thông báo */}
-              <span className="absolute top-1 right-1 block h-2 w-2 rounded-full bg-red-500 ring-2 ring-white"></span>
+              {/* Dấu chấm đỏ thông báo: Tự động ẩn hiện dựa trên unreadCount từ Redux */}
+              {unreadCount > 0 && (
+                <span className="absolute top-1 right-1 block h-2 w-2 rounded-full bg-red-500 ring-2 ring-white animate-pulse"></span>
+              )}
             </Link>
 
-            {/* Dark Mode Toggle */}
             <button className="text-gray-500 hover:text-[#6344ff] text-xl p-1 transition-colors">
               <HiOutlineMoon />
             </button>
@@ -90,15 +95,12 @@ const Header = () => {
           </div>
         ) : (
           <div className="flex items-center space-x-2">
-            <Link
-              to="/login"
-              className="px-4 py-2 text-gray-600 font-medium hover:text-[#6344ff] transition"
-            >
+            <Link to="/login" className="px-4 py-2 text-gray-600 font-medium">
               Đăng nhập
             </Link>
             <Link
               to="/register"
-              className="px-5 py-2 bg-[#6344ff] text-white rounded-xl font-bold hover:bg-[#5235d9] transition shadow-lg shadow-purple-100 active:scale-95"
+              className="px-5 py-2 bg-[#6344ff] text-white rounded-xl font-bold transition shadow-lg shadow-purple-100 active:scale-95"
             >
               Đăng ký
             </Link>

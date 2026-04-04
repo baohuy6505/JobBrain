@@ -8,15 +8,12 @@ const MainLayout = () => {
 
   // 2. Kiểm tra xem trang hiện tại có phải là trang tin nhắn không
   const isMessagesPage = location.pathname === "/messages";
-
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
       <Header />
-
       <main className="flex-grow w-full">
         <Outlet />
       </main>
-
       {/* 3. Chỉ hiển thị Footer nếu KHÔNG PHẢI là trang tin nhắn */}
       {!isMessagesPage && <Footer />}
     </div>
