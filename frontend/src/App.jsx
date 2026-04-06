@@ -7,6 +7,7 @@ import HomePage from "./pages/HomePage/Homepage";
 import Admin from "./pages/Admin";
 import MessagesPage from "./pages/MessagesPage/MessagesPage";
 import JobBoard from "./pages/JobsPage/jobBoard";
+import JobDetail from "./pages/JobDetailPage/JobDetail";
 function App() {
   return (
     <Routes>
@@ -14,6 +15,7 @@ function App() {
         <Route index element={<HomePage />} />
         <Route path="messages" element={<MessagesPage />} />
         <Route path="list-job" element={<JobBoard />} />
+        <Route path="job/:id" element={<JobDetail />} />
         <Route path="admin" element={<Admin />} />
       </Route>
       <Route path="login" element={<LoginPage />} />

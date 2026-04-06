@@ -1,46 +1,18 @@
-const ALL_JOBS = Array.from({ length: 45 }, (_, i) => {
-  const isNegotiable = i % 5 === 0;
-  const isEven = i % 2 === 0;
-
-  return {
-    id: i + 1,
-    title: isEven ? "Senior Project Architect" : "UI/UX Designer",
-    company: isEven ? "Foster & Partners" : "Metropolis Lab",
-    location: i % 3 === 0 ? "TP. Hồ Chí Minh" : "Hà Nội",
-    isFeatured: i % 3 === 0,
-    // Dữ liệu lương dùng để lọc (Mảng [min, max] hoặc null)
-    salaryData: isNegotiable ? null : isEven ? [140, 185] : [15, 45],
-    // Chữ hiển thị trên giao diện
-    salaryText: isNegotiable
-      ? "Thỏa thuận"
-      : isEven
-        ? "140M - 185M"
-        : "15M - 45M",
-
-    type: isEven ? "Full-time" : "Remote",
-    category: isEven ? "UI/UX Design" : "Software Engineering",
-    experience: isEven ? "Middle / Senior" : "Fresher / Junior",
-    desc: "Leading the technical execution of a high-profile skyscraper with sustainable materials...",
-    tags: isEven
-      ? ["Revit Expert", "Sustainable Design", "Leadership"]
-      : ["Figma", "Web Design", "Prototyping"],
-  };
-});
+import { ALL_JOBS } from "./JobData";
 
 export const getJobsApi = async (params) => {
-  // Giả lập độ trễ mạng 500ms
-  await new Promise((resolve) => setTimeout(resolve, 500));
+  await new Promise((resolve) => setTimeout(resolve, 5000));
 
   let filtered = [...ALL_JOBS];
 
-  // 1. Lọc Lĩnh vực (Array)
+  // 1. Lọc Lĩnh vực
   if (params.categories?.length > 0) {
     filtered = filtered.filter((job) =>
       params.categories.includes(job.category),
     );
   }
 
-  // 2. Lọc Địa điểm (Search tương đối)
+  // 2. Lọc Địa điểm
   if (params.location) {
     const search = params.location.toLowerCase();
     filtered = filtered.filter((job) =>
@@ -48,13 +20,15 @@ export const getJobsApi = async (params) => {
     );
   }
 
-  // 3. Lọc Mức lương (Logic dải lương giao nhau)
+  // 3. Lọc Mức lương (Quy đổi dải lương từ User sang triệu đồng để so sánh)
   if (params.salaryRange) {
-    const [uMin, uMax] = params.salaryRange;
+    const [uMin, uMax] = params.salaryRange; // Ví dụ: [20, 50] triệu
+    const userMinTotal = uMin * 1000000;
+    const userMaxTotal = uMax * 1000000;
+
     filtered = filtered.filter((job) => {
-      if (!job.salaryData) return true; // Job "Thỏa thuận" luôn hiện
-      const [jMin, jMax] = job.salaryData;
-      return jMin <= uMax && jMax >= uMin;
+      // Logic: Lương của Job nằm trong khoảng User kéo
+      return job.minSalary <= userMaxTotal && job.maxSalary >= userMinTotal;
     });
   }
 
@@ -63,7 +37,7 @@ export const getJobsApi = async (params) => {
     filtered = filtered.filter((job) => job.experience === params.experience);
   }
 
-  // 5. Lọc Loại hình (Array)
+  // 5. Lọc Loại hình
   if (params.jobType?.length > 0) {
     filtered = filtered.filter((job) => params.jobType.includes(job.type));
   }

@@ -16,7 +16,7 @@ const JobCard = ({ job, urgent }) => {
         <div className="w-12 h-12 rounded-full overflow-hidden mb-4 border border-gray-50 flex items-center justify-center bg-gray-50">
           <img
             src={job.logo}
-            alt={job.company}
+            alt={job.company.logo}
             className="w-8 h-8 object-contain"
           />
         </div>
