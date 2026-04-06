@@ -7,11 +7,12 @@ import HomePage from "./pages/HomePage/Homepage";
 import Admin from "./pages/Admin";
 import JobPosts from "./pages/JobPosts/JobPosts";
 import MessagesPage from "./pages/MessagesPage/MessagesPage";
-
 import DashboardLayout from "./layouts/Dashboard/DashboardLayout";
 import MyJobsPage from "./pages/Dashboard/MyJobsPage";
 import MyJobsActivePage from "./pages/Dashboard/MyJobsActivePage";
 import CandidatesBoardPage from "./pages/Dashboard/CandidatesBoardPage";
+import JobBoard from "./pages/JobsPage/jobBoard";
+import JobDetail from "./pages/JobDetailPage/JobDetail";
 
 function App() {
   return (
@@ -20,6 +21,8 @@ function App() {
         <Route index element={<HomePage />} />
         <Route path="job-posts" element={<JobPosts />} />
         <Route path="messages" element={<MessagesPage />} />
+        <Route path="list-job" element={<JobBoard />} />
+        <Route path="job/:id" element={<JobDetail />} />
         <Route path="admin" element={<Admin />} />
         <Route path="dashboard" element={<DashboardLayout />}>
         <Route path="my-jobs" element={<MyJobsPage />} />

@@ -30,11 +30,11 @@ const Header = () => {
         </Link>
 
         <nav className="hidden md:flex space-x-6 font-medium">
-          <NavLink to="/jobs" className={navLinkClass}>
-            Jobs
+          <NavLink to="/" className={navLinkClass}>
+            Home
           </NavLink>
-          <NavLink to="/companies" className={navLinkClass}>
-            Companies
+          <NavLink to="/list-job" className={navLinkClass}>
+            Jobs
           </NavLink>
           <NavLink to="/messages" className={navLinkClass}>
             Messages

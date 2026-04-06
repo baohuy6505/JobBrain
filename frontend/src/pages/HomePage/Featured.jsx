@@ -1,5 +1,5 @@
 import { HiChevronRight } from "react-icons/hi";
-import JobCard from "../../Components/Home/JobCard"; // Import cái thẻ lẻ ở trên vào
+import JobCard from "../../Components/Home/JobCardFeatured"; // Import cái thẻ lẻ ở trên vào
 const Featured = () => {
   const jobsFromBackend = [
     {
