@@ -23,7 +23,7 @@ const userSlice = createSlice({
       state.isAuthenticated = false;
     },
   },
+  
 });
-
-export const { login, logout } = userSlice;
+export const { login, logout } = userSlice.actions;
 export default userSlice.reducer;

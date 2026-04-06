@@ -20,7 +20,9 @@ import CompanyDetail from "./pages/CompanyPage/CompanyDetail";
 
 // import { Provider } from "react-redux";
 // import { store } from ".././src/app/store";
-
+ // cai route nay them vao nho sửa để có layout admin 
+ import RoleSetting from "./pages/Admin/RoleSetting";
+ import SystemConfig from "./pages/Admin/SystemConfig";
 function App() {
   return (
     <Routes>
@@ -47,7 +49,11 @@ function App() {
       </Route>
       <Route path="login" element={<LoginPage />} />
       <Route path="register" element={<RegisterPage />} />
+      
+      <Route path="/admin/role" element={<RoleSetting />} />
+      <Route path="/admin/config" element={<SystemConfig />} />
     </Routes>
+    
   );
 }
 

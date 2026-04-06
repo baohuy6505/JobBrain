@@ -66,7 +66,7 @@ export default function JobCard({
       <div className="my-6 border-t border-gray-100" />
 
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-        <div className="flex items-center gap-8 text-gray-600">
+          <div className="flex flex-wrap items-center gap-4 sm:gap-8 text-gray-600">
           <button className="flex items-center gap-2 text-sm font-medium hover:text-indigo-600">
             <FiEdit2 size={15} />
             Sửa
