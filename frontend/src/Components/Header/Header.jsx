@@ -1,24 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 import { HiOutlineBell, HiOutlineMoon } from "react-icons/hi";
 import { Link, NavLink } from "react-router-dom";
-// Import hook để lấy dữ liệu từ Redux Store
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { logout } from "../../mock/userSlice";
 
 const Header = () => {
-  // State người dùng (giả lập)
-  const [user, setUser] = useState({
-    name: "Vinh Hà",
-    age: 21,
-    avatar: "https://i.pravatar.cc/150?u=vinhha",
-    address: "Đà Nẵng, Việt Nam",
-  });
+  const dispatch = useDispatch();
 
-  // LẤY DỮ LIỆU TỪ REDUX: Theo dõi số lượng thông báo chưa đọc
-  const unreadCount = useSelector((state) => state.notification.unreadCount);
+  // Lấy data từ Redux
+  const user = useSelector((state) => state.user.userInfo);
+  const isAuthenticated = useSelector((state) => state.user.isAuthenticated);
+  const unreadCount = useSelector(
+    (state) => state.notification?.unreadCount || 0,
+  );
 
-  const logout = () => setUser(null);
-
-  // Style cho các link khi được kích hoạt (Active)
   const navLinkClass = ({ isActive }) =>
     isActive
       ? "text-[#6344ff] border-b-2 border-[#6344ff] pb-1 font-bold"
@@ -26,15 +21,16 @@ const Header = () => {
 
   return (
     <header className="fixed top-0 left-0 w-full bg-white border-b border-gray-200 px-6 py-3 flex items-center justify-between shadow-sm z-50">
-      {/* LEFT: Logo & Navigation */}
       <div className="flex items-center space-x-8">
         <Link to="/" className="flex items-center">
-          <h1 className="text-black-600 text-2xl font-bold cursor-pointer tracking-tight">
+          <h1 className="text-black text-2xl font-bold tracking-tight">
             Job<span className="text-[#6344ff]">Brain</span>
           </h1>
         </Link>
-
         <nav className="hidden md:flex space-x-6 font-medium">
+          <NavLink to="/home" className={navLinkClass}>
+            Home
+          </NavLink>
           <NavLink to="/jobs" className={navLinkClass}>
             Jobs
           </NavLink>
@@ -47,47 +43,39 @@ const Header = () => {
         </nav>
       </div>
 
-      {/* RIGHT: Actions / User Profile */}
       <div className="flex items-center space-x-5">
-        {user ? (
+        {isAuthenticated && user ? (
           <div className="flex items-center space-x-4">
             <Link
               to="/notifications"
-              className="text-gray-500 hover:text-[#6344ff] text-xl relative p-1 transition-colors"
+              className="text-gray-500 hover:text-[#6344ff] text-xl relative p-1"
             >
               <HiOutlineBell />
-              {/* Dấu chấm đỏ thông báo: Tự động ẩn hiện dựa trên unreadCount từ Redux */}
               {unreadCount > 0 && (
-                <span className="absolute top-1 right-1 block h-2 w-2 rounded-full bg-red-500 ring-2 ring-white animate-pulse"></span>
+                <span className="absolute top-1 right-1 h-2 w-2 rounded-full bg-red-500 animate-pulse"></span>
               )}
             </Link>
-
-            <button className="text-gray-500 hover:text-[#6344ff] text-xl p-1 transition-colors">
+            <button className="text-gray-500 hover:text-[#6344ff] text-xl p-1">
               <HiOutlineMoon />
             </button>
 
-            {/* User Info & Avatar */}
             <div className="flex items-center space-x-3 ml-2 border-l pl-4 border-gray-200">
               <div className="text-right hidden sm:block">
-                <p className="text-sm font-semibold text-gray-800 leading-none">
+                <p className="text-sm font-semibold text-gray-800">
                   {user.name}
                 </p>
-                <p className="text-[10px] text-gray-400 mt-1 uppercase tracking-wider">
+                <p className="text-[10px] text-gray-400 uppercase tracking-wider">
                   {user.address}
                 </p>
               </div>
-
-              <div className="relative group">
-                <img
-                  src={user.avatar}
-                  alt="User Avatar"
-                  className="h-10 w-10 rounded-full object-cover border border-gray-100 cursor-pointer hover:ring-2 hover:ring-[#6344ff] transition-all"
-                />
-              </div>
-
+              <img
+                src={user.avatar}
+                className="h-10 w-10 rounded-full object-cover border"
+                alt="Avatar"
+              />
               <button
-                onClick={logout}
-                className="text-xs text-red-500 font-medium hover:bg-red-50 px-2 py-1 rounded-md transition-colors"
+                onClick={() => dispatch(logout())}
+                className="text-xs text-red-500 font-medium hover:bg-red-50 px-2 py-1 rounded-md"
               >
                 Thoát
               </button>
@@ -100,7 +88,7 @@ const Header = () => {
             </Link>
             <Link
               to="/register"
-              className="px-5 py-2 bg-[#6344ff] text-white rounded-xl font-bold transition shadow-lg shadow-purple-100 active:scale-95"
+              className="px-5 py-2 bg-[#6344ff] text-white rounded-xl font-bold transition shadow-lg"
             >
               Đăng ký
             </Link>

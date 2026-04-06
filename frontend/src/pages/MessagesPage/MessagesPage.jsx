@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { setActiveChat, addMessage } from "../../features/store/messageSlice";
+import { setActiveChat, addMessage } from "../../mock/messageSlice";
 import {
   HiOutlineSearch,
   HiOutlineVideoCamera,
