@@ -11,8 +11,6 @@ createRoot(document.getElementById("root")).render(
   <StrictMode>
     <Provider store={store}>
       <BrowserRouter>
-        {" "}
-        {/* Bọc App vào đây */}
         <App />
       </BrowserRouter>
     </Provider>

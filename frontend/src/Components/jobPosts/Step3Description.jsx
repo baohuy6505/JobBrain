@@ -83,11 +83,6 @@ const Step3Description = ({ formData, setFormData }) => {
           Yêu cầu công việc <span className="text-red-500">*</span>
         </label>
         <div className="border border-gray-200 rounded-xl overflow-hidden bg-white focus-within:border-blue-500 focus-within:ring-1 focus-within:ring-blue-500 transition-all">
-          <div className="flex items-center gap-4 bg-[#F8FAFC] border-b border-gray-200 px-4 py-2.5 text-gray-500">
-            <button type="button" className="hover:text-slate-800"><FiBold className="w-4 h-4 stroke-[3]" /></button>
-            <button type="button" className="hover:text-slate-800"><FiItalic className="w-4 h-4 stroke-[3]" /></button>
-            <button type="button" className="hover:text-slate-800"><FiList className="w-4 h-4" /></button>
-          </div>
           <textarea
             className="w-full p-4 min-h-[120px] outline-none text-slate-800 placeholder:text-gray-400 resize-y"
             placeholder="Yêu cầu về kinh nghiệm, kỹ năng chuyên môn, bằng cấp..."

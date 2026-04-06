@@ -10,7 +10,6 @@ import {
   FiInfo,
 } from "react-icons/fi";
 const Step4Review = ({ formData, onEdit, onSubmit }) => {
-  // Lấy dữ liệu từ form, nếu trống thì dùng data mẫu theo hình
   const jobTitle = formData?.title;
   const location = formData?.location;
   const salary =
@@ -21,7 +20,6 @@ const Step4Review = ({ formData, onEdit, onSubmit }) => {
   const level = formData?.level;
   const quantity = formData?.quantity;
   const dayLimit = formData?.dayLimit;
-  // Hàm render nội dung có xuống dòng (do dùng textarea ở bước 3)
   const renderText = (text, defaultText) => {
     const content = text || defaultText;
     return content.split("\n").map((line, index) => (
@@ -50,9 +48,6 @@ const Step4Review = ({ formData, onEdit, onSubmit }) => {
       <div className="border border-gray-200 rounded-2xl overflow-hidden bg-white shadow-sm">
         <div className="p-6 md:p-8 border-b border-gray-100 flex gap-6">
           <div className="w-20 h-20 md:w-24 md:h-24 bg-[#0a192f] rounded-xl flex items-center justify-center shrink-0 shadow-inner">
-            {/* <div className="w-10 h-10 border-2 border-[#64ffda] rotate-45 flex items-center justify-center">
-              <div className="w-4 h-4 bg-[#64ffda] -rotate-45"></div>
-            </div> */}
             <img src="https://i.pravatar.cc/150?u=vinhha" alt="" />
           </div>
 
@@ -93,7 +88,7 @@ const Step4Review = ({ formData, onEdit, onSubmit }) => {
               <div className="pl-4 text-sm">
                 {renderText(
                   formData?.description,
-                  "Chúng tôi đang tìm kiếm một Senior Fullstack Engineer tài năng để gia nhập đội ngũ phát triển sản phẩm cốt lõi...\n- Phát triển các API chất lượng cao sử dụng Node.js và NestJS.\n- Xây dựng giao diện người dùng mượt mà, tối ưu hiệu suất với React và Next.js.",
+                  {}
                 )}
               </div>
             </section>
@@ -121,9 +116,7 @@ const Step4Review = ({ formData, onEdit, onSubmit }) => {
                   {formData?.benefits && formData.benefits.length > 0 ? (
                     formData.benefits.map((b, i) => <li key={i}>- {b}</li>)
                   ) : (
-                    <>
-                                              <li>- { }</li>
-                    </>
+                   <li>Chưa có thông tin về quyền lợi</li>
                   )}
                 </ul>
               </div>

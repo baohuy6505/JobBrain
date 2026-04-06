@@ -21,7 +21,8 @@ const Step2Salary = ({ formData, setFormData }) => {
       setFormData({ ...formData, quantity: currentQty + 1 });
     }
   };
-
+  const levels = ["Intern", "Fresher", "Junior", "Mid-level", "Senior", "Manager"];
+  const experiences = ["Chưa có kinh nghiệm", "Dưới 1 năm", "1-3 năm", "3-5 năm", "Trên 5 năm"];
   return (
     <div className="space-y-8 animate-in fade-in duration-500">
       <div>
@@ -32,7 +33,11 @@ const Step2Salary = ({ formData, setFormData }) => {
             type="range"
             min="1"
             max="50"
-            defaultValue="15"
+            value={(formData?.minSalary / 1000000) || 15}
+            onChange={(e) => {
+              const trieu = e.target.value * 1000000;
+              setFormData({...formData, minSalary: trieu})
+            }}
             className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer 
             [&::-webkit-slider-thumb]:appearance-none 
     [&::-webkit-slider-thumb]:w-5 
@@ -45,8 +50,8 @@ const Step2Salary = ({ formData, setFormData }) => {
                   />
                   {/* Sử dụng để chỉnh lương */}
           <div className="flex justify-between mt-3 text-sm font-bold text-[#0044ff]">
-            <span>8 triệu</span>
-            <span>15 triệu</span>
+            <span>1 triệu</span>
+            <span>50 triệu</span>
           </div>
         </div>
 
@@ -59,7 +64,7 @@ const Step2Salary = ({ formData, setFormData }) => {
               type="text"
               className="w-full bg-transparent text-xl font-bold text-slate-900 outline-none placeholder:text-gray-400"
               placeholder="0"
-              value={formatCurrency(formData?.minSalary || "8000000")}
+              value={formatCurrency(formData?.minSalary || "1000000")}
               onChange={(e) => handleSalaryChange("minSalary", e.target.value)}
             />
           </div>
@@ -74,7 +79,7 @@ const Step2Salary = ({ formData, setFormData }) => {
               type="text"
               className="w-full bg-transparent text-xl font-bold text-slate-900 outline-none placeholder:text-gray-400"
               placeholder="0"
-              value={formatCurrency(formData?.maxSalary || "15000000")}
+              value={formatCurrency(formData?.maxSalary || "50000000")}
               onChange={(e) => handleSalaryChange("maxSalary", e.target.value)}
             />
           </div>
@@ -93,11 +98,11 @@ const Step2Salary = ({ formData, setFormData }) => {
                 setFormData({ ...formData, experience: e.target.value })
               }
             >
-              <option value="Chưa có kinh nghiệm">Chưa có kinh nghiệm</option>
-              <option value="Dưới 1 năm">Dưới 1 năm</option>
-              <option value="1-3 năm">1-3 năm</option>
-              <option value="3-5 năm">3-5 năm</option>
-              <option value="Trên 5 năm">Trên 5 năm</option>
+              {experiences.map((exp) => (
+                <option key={exp} value={exp}>
+                  {exp}
+                </option>
+              ))}
             </select>
             <HiOutlineChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 w-5 h-5 pointer-events-none" />
           </div>
@@ -113,12 +118,11 @@ const Step2Salary = ({ formData, setFormData }) => {
                 setFormData({ ...formData, level: e.target.value })
               }
             >
-              <option value="Intern">Intern / Thực tập sinh</option>
-              <option value="Fresher">Fresher</option>
-              <option value="Junior">Junior</option>
-              <option value="Mid-level">Mid-level</option>
-              <option value="Senior">Senior</option>
-              <option value="Manager">Manager</option>
+              {levels.map((level) => (
+                <option key={level} value={level}>
+                  {level}
+                </option>
+              ))}
             </select>
             <HiOutlineChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 w-5 h-5 pointer-events-none" />
           </div>
