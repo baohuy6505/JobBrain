@@ -13,6 +13,13 @@ import MyJobsActivePage from "./pages/Dashboard/MyJobsActivePage";
 import CandidatesBoardPage from "./pages/Dashboard/CandidatesBoardPage";
 import JobBoard from "./pages/JobsPage/jobBoard";
 import JobDetail from "./pages/JobDetailPage/JobDetail";
+import NotificationsPage from "./pages/NotificationsPage/NotificationsPage";
+import Dashboard from "./pages/Admin/DashBoarb";
+import CompanyPage from "./pages/CompanyPage/CompaniesPage";
+import CompanyDetail from "./pages/CompanyPage/CompanyDetail";
+
+// import { Provider } from "react-redux";
+// import { store } from ".././src/app/store";
 
 function App() {
   return (
@@ -25,15 +32,45 @@ function App() {
         <Route path="job/:id" element={<JobDetail />} />
         <Route path="admin" element={<Admin />} />
         <Route path="dashboard" element={<DashboardLayout />}>
-        <Route path="my-jobs" element={<MyJobsPage />} />
-        <Route path="my-jobs-active" element={<MyJobsActivePage />} />
-        <Route path="candidates-board" element={<CandidatesBoardPage />} />
-      </Route>
+          <Route path="my-jobs" element={<MyJobsPage />} />
+          <Route path="my-jobs-active" element={<MyJobsActivePage />} />
+          <Route path="candidates-board" element={<CandidatesBoardPage />} />
+          <Route index element={<HomePage />} />
+          <Route path="home" element={<HomePage />} />
+          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="messages" element={<MessagesPage />} />
+          <Route path="notifications" element={<NotificationsPage />} />
+          <Route path="companies" element={<CompanyPage />} />
+          <Route path="companies/:id" element={<CompanyDetail />} />
+          <Route path="admin" element={<Admin />} />
+        </Route>
       </Route>
       <Route path="login" element={<LoginPage />} />
       <Route path="register" element={<RegisterPage />} />
     </Routes>
   );
 }
+
+// function App() {
+//   return (
+//     <Provider store={store}>
+//       <Routes>
+//         <Route path="/" element={<MainLayout />}>
+//           <Route index element={<HomePage />} />
+//           <Route path="home" element={<HomePage />} />
+//           <Route path="dashboard" element={<Dashboard />} />
+//           <Route path="messages" element={<MessagesPage />} />
+//           <Route path="notifications" element={<NotificationsPage />} />
+//           <Route path="companies" element={<CompanyPage />} />
+//           <Route path="companies/:id" element={<CompanyDetail />} />
+
+//           <Route path="admin" element={<Admin />} />
+//         </Route>
+//         <Route path="login" element={<LoginPage />} />
+//         <Route path="register" element={<RegisterPage />} />
+//       </Routes>
+//     </Provider>
+//   );
+// }
 
 export default App;
