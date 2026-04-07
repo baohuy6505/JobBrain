@@ -16,12 +16,13 @@ import CompanyPage from "./pages/CompanyPage/CompaniesPage";
 import CompanyDetail from "./pages/CompanyPage/CompanyDetail";
 
 // Dashboard Pages
-// import MyJobsPage from "./pages/Manager/Dashboard/MyJobsPage";
 import MyJobsActivePage from "./pages/Manager/Dashboard/MyJobsActivePage";
 import CandidatesBoardPage from "./pages/Manager/Dashboard/CandidatesBoardPage";
 
 // Admin Pages
 import AdminDashboard from "./pages/Admin/Dashboard/AdminDashboard";
+import RolePage from "./pages/Admin/Role/RolePage";
+import ConfigPage from "./pages/Admin/Config/ConfigPage";
 
 // Authentication Pages
 import LoginPage from "./pages/LoginPage/LoginPage";
@@ -48,12 +49,13 @@ function App() {
         <Route path="job-posts" element={<JobPosts />} />
         <Route path="my-jobs-active" element={<MyJobsActivePage />} />
         <Route path="candidates-board" element={<CandidatesBoardPage />} />
-        {/* <Route path="dashboard" element={<Dashboard />} /> */}
       </Route>
 
       {/* 3. Nhóm Admin Layout */}
       <Route path="admin" element={<AdminLayout />}>
         <Route path="dashboard" element={<AdminDashboard />} />
+        <Route path="role" element={<RolePage />} />
+        <Route path="config" element={<ConfigPage />} />
       </Route>
 
       {/* 4. Nhóm Authentication */}
