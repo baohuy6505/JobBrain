@@ -1,6 +1,6 @@
-import JobsHeaderManager from "../../../Components/Header/HeaderManager";
-import DashboardStats from "../../../Components/manager/dashboard/DashboardStats";
-import JobCard from "../../../Components/manager/dashboard/JobCard";
+import JobsHeaderManager from "../../../Components/manager/myjobsManager/HeaderManager";
+import DashboardStats from "../../../Components/manager/myjobsManager/DashboardStats";
+import JobCard from "../../../Components/manager/myjobsManager/JobCard";
 
 export default function MyJobsActivePage() {
   const jobs = [
@@ -21,7 +21,6 @@ export default function MyJobsActivePage() {
     approved: 2,
     liveMessage: "Vị trí ưu tiên tuyển dụng",
     category: "AI",
-    highlighted: true,
   },
   {
     title: "Frontend Developer (React/Vue)",
@@ -49,7 +48,6 @@ export default function MyJobsActivePage() {
     approved: 18,
     liveMessage: "Hệ thống đang nhận hồ sơ mạnh mẽ",
     category: "Fullstack",
-    highlighted: true,
   },
   {
     title: "Senior Fullstack Web & AI Developer",
@@ -68,7 +66,6 @@ export default function MyJobsActivePage() {
     approved: 45,
     liveMessage: "Tin đăng hot (12 ứng viên đang xem)",
     category: "Fullstack",
-    highlighted: true,
   }
 ];
   return (

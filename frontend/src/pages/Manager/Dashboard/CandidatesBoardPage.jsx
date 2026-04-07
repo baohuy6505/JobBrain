@@ -46,7 +46,6 @@ export default function CandidatesBoardPage() {
         tags: ["Today, 2:30 PM", "Quảng Nam"],
         match: "94% Match",
         time: "1d ago",
-        highlighted: true,
       },
       {
         name: "Nguyễn Bảo Huy",
@@ -67,7 +66,6 @@ export default function CandidatesBoardPage() {
         tags: ["Offer Sent - Pending", "Quảng Ngãi"],
         match: "99% Match",
         time: "1w ago",
-        highlighted: true,
       },
     ],
   },
@@ -75,8 +73,6 @@ export default function CandidatesBoardPage() {
 
   return (
     <div className="w-full">
-      <CandidatesHeaderManager />
-
       <div className="grid grid-cols-1 gap-4 xl:grid-cols-4">
         {columns.map((column) => (
           <CandidateColumn

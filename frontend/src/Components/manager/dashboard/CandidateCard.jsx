@@ -9,11 +9,7 @@ export default function CandidateCard({
   highlighted = false,
 }) {
   return (
-    <div
-      className={`rounded-xl border bg-white p-4 shadow-sm ${
-        highlighted ? "border-indigo-500 shadow-[0_0_0_1px_#4f46e5]" : "border-gray-200"
-      }`}
-    >
+     <div className="rounded-xl border border-gray-200 bg-white p-4 shadow-sm" >
       <div className="mb-3 flex items-start justify-between gap-2">
         <div className="flex items-center gap-3">
           <div className="h-10 w-10 rounded-lg bg-slate-800" />
