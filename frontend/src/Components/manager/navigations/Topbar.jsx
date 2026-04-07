@@ -6,9 +6,9 @@ export default function Topbar() {
   return (
     <header className="flex items-center justify-between border-b border-gray-200 bg-white px-8 py-4">
       <div className="flex items-center gap-10">
-        <h1 className="text-3xl font-bold text-indigo-600">RecruitDirect</h1>
+        <h1 className="text-3xl font-bold text-indigo-600">Manager</h1>
 
-        <nav className="flex items-center gap-8">
+        {/* <nav className="flex items-center gap-8">
           {tabs.map((tab) => (
             <button
               key={tab}
@@ -21,7 +21,7 @@ export default function Topbar() {
               {tab}
             </button>
           ))}
-        </nav>
+        </nav> */}
       </div>
 
       <div className="flex items-center gap-5">

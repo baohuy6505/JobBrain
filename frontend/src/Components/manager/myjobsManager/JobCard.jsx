@@ -16,21 +16,20 @@ export default function JobCard({
   highlighted = false,
 }) {
   return (
-    <div
-      className={`rounded-2xl border border-gray-200 bg-white px-6 py-5 shadow-sm ${
-        highlighted ? "border-l-4 border-l-indigo-600" : ""
-      }`}
-    >
+    // <div
+    //   className={`rounded-2xl border border-gray-200 bg-white px-6 py-5 shadow-sm ${
+    //     highlighted ? "border-l-4 border-l-indigo-600" : ""
+    //   }`}
+    // >
+    <div className="rounded-2xl border border-gray-200 bg-white px-6 py-5 shadow-sm ">
       <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
         <div className="flex items-start gap-4">
           <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-black text-[9px] font-bold text-white">
-            LINKSTACK
+          MMM
           </div>
 
           <div>
-            <h3 className="text-[18px] font-semibold text-gray-900">
-              {title}
-            </h3>
+            <h3 className="text-[18px] font-semibold text-gray-900">{title}</h3>
 
             <div className="mt-1 flex flex-wrap items-center gap-2 text-sm text-gray-500">
               <span>{company}</span>
@@ -50,11 +49,13 @@ export default function JobCard({
 
       <div className="mt-6 flex flex-wrap items-center gap-4">
         <div className="rounded-xl bg-gray-100 px-4 py-3 text-sm text-gray-600">
-          Nộp: <span className="font-semibold text-indigo-600">{submitted}</span>
+          Nộp:{" "}
+          <span className="font-semibold text-indigo-600">{submitted}</span>
         </div>
 
         <div className="rounded-xl bg-gray-100 px-4 py-3 text-sm text-gray-600">
-          Duyệt: <span className="font-semibold text-indigo-600">{approved}</span>
+          Duyệt:{" "}
+          <span className="font-semibold text-indigo-600">{approved}</span>
         </div>
 
         <div className="flex items-center gap-2 rounded-xl border border-orange-200 bg-orange-50 px-4 py-3 text-sm text-orange-700">
