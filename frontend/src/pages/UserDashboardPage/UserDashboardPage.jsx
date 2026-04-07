@@ -1,8 +1,8 @@
 import React from "react";
-import ProfileBanner from "../DashboardPage/ProfileBanner";
-import StatsGrid from "../DashboardPage/Stats";
-import AppliedJobs from "../../Components/Dashboard/AppliedJobs";
-import Sidebar from "../DashboardPage/Sidebar";
+import ProfileBanner from "../../Components/UserDashboard/ProfileBanner";
+import StatsGrid from "../../Components/UserDashboard/Stats";
+import AppliedJobs from "../../Components/UserDashboard/AppliedJobs";
+import Sidebar from "../../Components/UserDashboard/Sidebar";
 
 const DashboardPage = () => {
   return (

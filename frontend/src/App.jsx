@@ -18,7 +18,7 @@ import Dashboard from "./pages/Admin/DashBoarb";
 import CompanyPage from "./pages/CompanyPage/CompaniesPage";
 import CompanyDetail from "./pages/CompanyPage/CompanyDetail";
 
-import DashboardPage from "./pages/DashboardPage/DashboardPage";
+import UserDashboardPage from "./pages/UserDashboardPage/UserDashboardPage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import WalletPage from "./pages/WalletPage/WalletPage";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
@@ -34,7 +34,7 @@ function App() {
         <Route path="list-job" element={<JobBoard />} />
         <Route path="job/:id" element={<JobDetail />} />
 
-        <Route path="dashboard-page" element={<DashboardPage />} />
+        <Route path="user-dashboard" element={<UserDashboardPage />} />
         <Route path="profile" element={<ProfilePage />} />
         <Route path="notifications" element={<NotificationsPage />} />
 
