@@ -1,0 +1,15 @@
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80" # Bạn truy cập ở máy local qua http://localhost:3000
+    environment:
+      - VITE_API_URL=http://localhost:5000 # Sau này sửa thành URL Backend của bạn
+    restart: always
+
+  # Sau này khi bạn có Backend, chỉ cần thêm service vào đây
+  # backend:
+  #   build: ./backend
+  #   ...
