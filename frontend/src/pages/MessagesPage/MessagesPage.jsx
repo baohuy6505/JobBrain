@@ -12,7 +12,7 @@ import {
   HiOutlineBriefcase,
 } from "react-icons/hi";
 import { FiSend } from "react-icons/fi";
-import ConversationItem from "../../Components/Messages/ConversationItem";
+import ConversationItem from "../../Components/messages/ConversationItem";
 
 // --- MODAL HỒ SƠ ---
 const UserProfileModal = ({ isOpen, onClose, user }) => {

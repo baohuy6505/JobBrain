@@ -3,11 +3,12 @@ import StatsGrid from "../common/StatsGrid";
 import { HiOutlineDocumentText, HiOutlineEye, HiOutlineCalendar, HiOutlineChartBar } from "react-icons/hi";
 import { mockUserData } from "../../mock/userData";
 
+// 1. TỪ ĐIỂN ĐÃ BỎ MÀU MÈ: Chỉ còn lưu đúng Icon
 const statConfig = {
-  "APPLIED_JOBS": { icon: HiOutlineDocumentText, iconColor: "text-blue-600", bgColor: "bg-blue-50" },
-  "PROFILE_VIEWS": { icon: HiOutlineEye, iconColor: "text-purple-600", bgColor: "bg-purple-50" },
-  "INTERVIEW_INVITES": { icon: HiOutlineCalendar, iconColor: "text-orange-600", bgColor: "bg-orange-50" },
-  "RESPONSE_RATE": { icon: HiOutlineChartBar, iconColor: "text-emerald-600", bgColor: "bg-emerald-50" }
+  "APPLIED_JOBS": { icon: HiOutlineDocumentText },
+  "PROFILE_VIEWS": { icon: HiOutlineEye },
+  "INTERVIEW_INVITES": { icon: HiOutlineCalendar },
+  "RESPONSE_RATE": { icon: HiOutlineChartBar }
 };
 
 const CandidateStats = () => {
@@ -16,17 +17,18 @@ const CandidateStats = () => {
   const gridItems = statsData.map((stat) => {
     const config = statConfig[stat.type] || statConfig["APPLIED_JOBS"];
 
-    let badgeUI = null;
+      let badgeUI = null;
     if (stat.badgeMode) {
       badgeUI = (
-        <span className="bg-red-50 text-red-600 border border-red-100 text-[10px] font-bold px-2.5 py-1 rounded-full tracking-wide">
+        <span className="text-[10px] font-bold text-blue-600 uppercase tracking-wider bg-blue-50 px-2 py-0.5 rounded-md">
           MỚI
         </span>
       );
     } else if (stat.percent) {
+      
       badgeUI = (
-        <span className={`text-xs font-bold px-2 py-1 rounded-md flex items-center gap-1 ${stat.isIncrease ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-700'}`}>
-          {stat.isIncrease ? '↗' : '↘'} {stat.percent}
+        <span className={`text-xs font-medium flex items-center gap-0.5 ${stat.isIncrease ? 'text-emerald-600' : 'text-rose-600'}`}>
+          {stat.isIncrease ? '↑' : '↓'} {stat.percent}
         </span>
       );
     }
@@ -36,9 +38,9 @@ const CandidateStats = () => {
       title: stat.title,
       value: stat.value,
       icon: config.icon,
-      iconColor: config.iconColor,
-      iconBgColor: config.bgColor,
-      badge: badgeUI // Truyền nguyên khối HTML xuống
+      iconColor: "text-gray-700",
+      iconBgColor: "bg-gray-100",
+      badge: badgeUI 
     };
   });
 

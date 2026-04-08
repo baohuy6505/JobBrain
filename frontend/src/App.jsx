@@ -14,14 +14,14 @@ import MessagesPage from "./pages/MessagesPage/MessagesPage";
 import NotificationsPage from "./pages/NotificationsPage/NotificationsPage";
 import CompanyPage from "./pages/CompanyPage/CompaniesPage";
 import CompanyDetail from "./pages/CompanyPage/CompanyDetail";
-import UserDashboard from "./pages/UserDashboardPage/UserDashboardPage";
+import UserDashboardPage from "./pages/UserDashboardPage/UserDashboardPage";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
-import UserProfile from "./pages/UserProfilePage/UserProfilePage";
+import UserProfilePage from "./pages/UserProfilePage/UserProfilePage";
+
 // Dashboard Pages
-// import MyJobsPage from "./pages/Manager/Dashboard/MyJobsPage";
 import MyJobsActivePage from "./pages/Manager/Dashboard/MyJobsActivePage";
 import CandidatesBoardPage from "./pages/Manager/Dashboard/CandidatesBoardPage";
-import Wallet from "./pages/WalletPage/WalletPage"
+import WalletPage from "./pages/WalletPage/WalletPage"
 
 // Admin Pages
 import AdminDashboard from "./pages/Admin/Dashboard/AdminDashboard";
@@ -45,14 +45,14 @@ function App() {
         <Route path="notifications" element={<NotificationsPage />} />
         <Route path="companies" element={<CompanyPage />} />
         <Route path="companies/:id" element={<CompanyDetail />} />
-        <Route path="dashboard/:id" element={<UserDashboard />} />
-        <Route path="profile/:id" element={<UserProfile />} />
+        <Route path="dashboard/:id" element={<UserDashboardPage />} />
+        <Route path="dashboard/profile/:id" element={<UserProfilePage />} />
       </Route>
 
       {/* 2. Nhóm Dashboard (Nằm trong Main Layout) */}
       <Route path="manager" element={<ManagerLayout />}>
         <Route path="job-posts" element={<JobPosts />} />
-        <Route path="wallet" element={<Wallet />} />
+        <Route path="wallet" element={<WalletPage />} />
         <Route path="my-jobs-active" element={<MyJobsActivePage />} />
         <Route path="candidates-board" element={<CandidatesBoardPage />} />
       </Route>

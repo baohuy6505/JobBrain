@@ -4,7 +4,7 @@ import {
   HiOutlineAdjustments,
   HiChevronDown,
 } from "react-icons/hi";
-import NotificationCard from "../../Components/Notification/NotificationCard";
+import NotificationCard from "../../Components/notification/NotificationCard";
 import { useDispatch, useSelector } from "react-redux";
 import {
   setNotifications,

@@ -1,28 +1,25 @@
-import React, { useState, useEffect } from "react";
-import BalanceCard from "../../Components/Wallet/BalanceCard";
-import TopUpForm from "../../Components/Wallet/TopUpForm";
-import TransactionHistory from "../../Components/Wallet/TransactionHistory";
+import React from "react";
+import { useSelector } from "react-redux"; // Import Hook của Redux
 
-// LƯU Ý: Import phải có ngoặc nhọn {} và đúng tên hàm
-import { mockFetchWalletData } from "../../mock/userData";
+import BalanceCard from "../../Components/wallet/BalanceCard";
+import TopUpForm from "../../Components/wallet/TopUpForm";
+import TransactionHistory from "../../Components/wallet/TransactionHistory";
 
 const WalletPage = () => {
-  const [walletData, setWalletData] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
+  // 1. MÓC DỮ LIỆU TỪ REDUX RA
+  const { userInfo } = useSelector((state) => state.user);
 
-  useEffect(() => {
-    const loadData = async () => {
-      const data = await mockFetchWalletData();
-      setWalletData(data);
-      setIsLoading(false);
-    };
-    loadData();
-  }, []);
+  // 2. TÌM ĐƯỜNG DẪN VÀO TẬN CÁI VÍ CỦA CÔNG TY
+  // Dùng Optional Chaining '?.' để nếu lỡ chưa load kịp thì không bị crash web
+  const walletData = userInfo?.company?.wallet;
+  const companyName = userInfo?.company?.companyName;
 
-  if (isLoading) {
+  // 3. MÀN HÌNH LOADING (Phòng hờ trường hợp F5 tải lại trang)
+  if (!walletData) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#f8f9fb]">
+      <div className="min-h-screen flex flex-col items-center justify-center bg-[#f8f9fb] gap-3">
         <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-blue-600"></div>
+        <p className="text-gray-500 font-medium">Đang tải dữ liệu ví...</p>
       </div>
     );
   }
@@ -34,17 +31,20 @@ const WalletPage = () => {
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-2xl font-bold text-gray-900">Wallet & Billing</h1>
-          <p className="text-sm text-gray-500 mt-1">Manage your company balance and recruitment credits.</p>
+          <p className="text-sm text-gray-500 mt-1">
+            Quản lý số dư và tín dụng tuyển dụng của công ty <span className="font-bold text-blue-600">{companyName || "bạn"}</span>.
+          </p>
         </div>
 
         {/* Top Section: Card & Top-up Form */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+          {/* Truyền accountInfo lấy từ Redux xuống BalanceCard */}
           <BalanceCard info={walletData.accountInfo} />
           <TopUpForm />
         </div>
 
         {/* Bottom Section: Table */}
-        {/* Dữ liệu transactions được truyền xuống đây rất chuẩn xác */}
+        {/* Truyền transactions lấy từ Redux xuống TransactionHistory */}
         <TransactionHistory transactions={walletData.transactions} />
 
       </div>

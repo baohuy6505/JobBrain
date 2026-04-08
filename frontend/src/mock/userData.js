@@ -113,24 +113,24 @@ export const mockProfileData = {
 };
 
 
-export const mockFetchWalletData = () => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve({
-        accountInfo: {
-          balance: "25.000.000",
-          currency: "VND",
-          companyName: "QuangVu Bank",
-          cardNumber: "**** **** 8888"
-        },
-        transactions: [
-          { id: 1, date: "Oct 24, 2023", desc: "Funds Deposit - Wire Transfer", type: "DEPOSIT", amount: "+$2,500.00", status: "Success" },
-          { id: 2, date: "Oct 22, 2023", desc: "Job Post: Senior Product Designer", type: "JOB POST", amount: "-$299.00", status: "Success" },
-          { id: 3, date: "Oct 20, 2023", desc: "Candidate Refund - Ref #9021", type: "REFUND", amount: "+$45.00", status: "Success" },
-          { id: 4, date: "Oct 18, 2023", desc: "Job Post: Backend Engineer (London)", type: "JOB POST", amount: "-$350.00", status: "Pending" },
-          { id: 5, date: "Oct 15, 2023", desc: "Subscription Renewal - Enterprise", type: "SUBSCRIPTION", amount: "-$1,200.00", status: "Failed" }
-        ]
-      });
-    }, 600); // Load mất 0.6s
-  });
-};
+// export const mockFetchWalletData = () => {
+//   return new Promise((resolve) => {
+//     setTimeout(() => {
+//       resolve({
+//         accountInfo: {
+//           balance: "25.000.000",
+//           currency: "VND",
+//           companyName: "QuangVu Bank",
+//           cardNumber: "**** **** 8888"
+//         },
+//         transactions: [
+//           { id: 1, date: "Oct 24, 2023", desc: "Funds Deposit - Wire Transfer", type: "DEPOSIT", amount: "+$2,500.00", status: "Success" },
+//           { id: 2, date: "Oct 22, 2023", desc: "Job Post: Senior Product Designer", type: "JOB POST", amount: "-$299.00", status: "Success" },
+//           { id: 3, date: "Oct 20, 2023", desc: "Candidate Refund - Ref #9021", type: "REFUND", amount: "+$45.00", status: "Success" },
+//           { id: 4, date: "Oct 18, 2023", desc: "Job Post: Backend Engineer (London)", type: "JOB POST", amount: "-$350.00", status: "Pending" },
+//           { id: 5, date: "Oct 15, 2023", desc: "Subscription Renewal - Enterprise", type: "SUBSCRIPTION", amount: "-$1,200.00", status: "Failed" }
+//         ]
+//       });
+//     }, 600); // Load mất 0.6s
+//   });
+// };

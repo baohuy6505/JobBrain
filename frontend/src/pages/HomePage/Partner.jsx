@@ -1,5 +1,5 @@
 import React from "react";
-import LogoItem from "../../Components/Home/LogoItem";
+import LogoItem from "../../Components/home/LogoItem";
 
 const PartnerSection = () => {
   // Danh sách đối tác - sau này Backend trả về 10 cái nó tự dàn hàng

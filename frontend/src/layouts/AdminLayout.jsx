@@ -2,7 +2,7 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 // import Sidebar from '../components/layout/Sidebar';
 // import Header from '../components/layout/Header';
-import Header from '../Components/Header/Header';
+import Header from '../Components/header/Header';
 const AdminLayout = () => {
   return (
     <div className="flex h-screen bg-slate-50">

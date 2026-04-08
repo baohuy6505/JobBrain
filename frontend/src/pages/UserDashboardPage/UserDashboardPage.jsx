@@ -2,17 +2,14 @@ import React from "react";
 import { useParams, Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-// Import các component con của bạn
-import ProfileBanner from "../../Components/UserDashboard/ProfileBanner";
-import Stats from "../../Components/UserDashboard/Stats";
-import AppliedJobs from "../../Components/UserDashboard/AppliedJobs";
-import Sidebar from "../../Components/UserDashboard/Sidebar";
+import ProfileBanner from "../../Components/userDashboard/ProfileBanner";
+import Stats from "../../Components/userDashboard/Stats";
+import AppliedJobs from "../../Components/userDashboard/AppliedJobs";
+import Sidebar from "../../Components/userDashboard/Sidebar";
 
 const UserDashboardPage = () => {
-  // 1. Lấy id từ URL (ví dụ: /dashboard/123 thì id = "123")
   const { id } = useParams();
 
-  // 2. Lấy thông tin user hiện tại từ Redux
   const { userInfo, isAuthenticated } = useSelector((state) => state.user);
 
   // 3. LOGIC KIỂM TRA BẢO MẬT:
@@ -31,11 +28,10 @@ const UserDashboardPage = () => {
     //   </div>
     // );
 
-    // Cách 2: Tự động đá người dùng về lại trang chủ (Nếu thích cách này thì bỏ comment dòng dưới, xóa Cách 1)
+    // Cách 2: Tự động đá người dùng về lại notfound
     return <Navigate to="*" replace />;
   }
 
-  // 4. Nếu qua được vòng kiểm tra trên (ID khớp nhau), thì mới render nội dung Dashboard
   return (
     <div className="min-h-screen bg-[#f8f9fb] mt-12 pb-12 pt-6">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -43,7 +39,6 @@ const UserDashboardPage = () => {
           <span>Home</span> <span className="mx-2">{'>'}</span> <span className="text-gray-900 font-medium">Dashboard</span>
         </div>
 
-        {/* Nội dung Dashboard của bạn */}
         <ProfileBanner />
         <Stats />
         

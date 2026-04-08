@@ -1,4 +1,4 @@
-import JobsHeaderManager from "../../../Components/Header/HeaderManager";
+import JobsHeaderManager from "../../../Components/header/HeaderManager";
 import DashboardStats from "../../../Components/manager/dashboard/DashboardStats";
 import JobCard from "../../../Components/manager/dashboard/JobCard";
 

@@ -3,11 +3,11 @@ import { useParams } from "react-router-dom";
 import { ALL_JOBS } from "../../mock/JobData"; // Điều chỉnh đường dẫn file fake của bạn
 
 // Import các component con
-import JobHeader from "../../Components/JobDetail/JobHeader";
-import JobActionSidebar from "../../Components/JobDetail/JobActionSidebar";
-import JobDetailBody from "../../Components/JobDetail/JobDetailBody";
-import CompanyInfo from "../../Components/JobDetail/CompanyInfo";
-import RelatedJobs from "../../Components/JobDetail/RelatedJobs";
+import JobHeader from "../../Components/jobDetail/JobHeader";
+import JobActionSidebar from "../../Components/jobDetail/JobActionSidebar";
+import JobDetailBody from "../../Components/jobDetail/JobDetailBody";
+import CompanyInfo from "../../Components/jobDetail/CompanyInfo";
+import RelatedJobs from "../../Components/jobDetail/RelatedJobs";
 const JobDetailPage = () => {
   const { id } = useParams();
 
