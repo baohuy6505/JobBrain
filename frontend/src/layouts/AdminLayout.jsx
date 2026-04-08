@@ -8,7 +8,11 @@ export default function AdminLayout() {
   const location = useLocation();
 
   const pageTitle = useMemo(() => {
-    if (location.pathname.includes("/admin/role")) return "ROLEMANAGEMENT";
+    if (location.pathname.includes("/admin/dashboard")) return "System Performance";
+    if (location.pathname.includes("/admin/jobs")) return "Job Management";
+    if (location.pathname.includes("/admin/candidates")) return "Candidate Management";
+    if (location.pathname.includes("/admin/analytics")) return "Employer Analytics";
+    if (location.pathname.includes("/admin/role")) return "Role Management";
     if (location.pathname.includes("/admin/config")) return "System Configuration";
     return "Admin Dashboard";
   }, [location.pathname]);
