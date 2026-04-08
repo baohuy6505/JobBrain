@@ -10,7 +10,7 @@ const InfoBox = ({ icon, label, value, colorClass, isLink = false }) => (
         {label}
       </p>
       <p
-        className={`text-sm font-bold truncate ${isLink ? "text-[#6344ff] underline cursor-pointer" : "text-slate-800"}`}
+        className={`text-sm font-bold truncate ${isLink ? "text-[#3b82f6] underline cursor-pointer" : "text-slate-800"}`}
       >
         {value}
       </p>

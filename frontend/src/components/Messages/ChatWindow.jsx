@@ -97,8 +97,8 @@ const ChatWindow = ({ activeChat, setSidebarOpen }) => {
           </div>
         </div>
         <div className="flex items-center gap-4 text-gray-400">
-          <HiOutlineVideoCamera className="text-xl cursor-pointer hover:text-[#6344ff] transition-colors" />
-          <HiOutlinePhone className="text-xl cursor-pointer hover:text-[#6344ff] transition-colors" />
+          <HiOutlineVideoCamera className="text-xl cursor-pointer hover:text-[#3b82f6] transition-colors" />
+          <HiOutlinePhone className="text-xl cursor-pointer hover:text-[#3b82f6] transition-colors" />
         </div>
       </div>
 
@@ -127,7 +127,7 @@ const ChatWindow = ({ activeChat, setSidebarOpen }) => {
                 <div
                   className={`p-3 rounded-2xl text-[13px] shadow-sm leading-relaxed ${
                     isMe
-                      ? "bg-[#6344ff] text-white rounded-tr-none"
+                      ? "bg-[#3b82f6] text-white rounded-tr-none"
                       : "bg-white text-gray-700 border border-gray-100 rounded-tl-none"
                   }`}
                 >
@@ -146,7 +146,7 @@ const ChatWindow = ({ activeChat, setSidebarOpen }) => {
 
       {/* --- Input: Ô nhập tin nhắn --- */}
       <div className="p-4 border-t border-gray-100 bg-white shadow-[0_-4px_10px_rgba(0,0,0,0.02)]">
-        <div className="flex items-center bg-gray-50 rounded-2xl p-2 gap-2 border border-transparent focus-within:border-[#6344ff] focus-within:bg-white transition-all">
+        <div className="flex items-center bg-gray-50 rounded-2xl p-2 gap-2 border border-transparent focus-within:border-[#3b82f6] focus-within:bg-white transition-all">
           <input
             type="text"
             value={messageText}
@@ -157,7 +157,7 @@ const ChatWindow = ({ activeChat, setSidebarOpen }) => {
           />
           <button
             onClick={handleSendMessage}
-            className="bg-[#6344ff] text-white p-3 rounded-xl hover:bg-[#5235e5] transition-all shadow-md active:scale-95 flex items-center justify-center"
+            className="bg-[#3b82f6] text-white p-3 rounded-xl hover:bg-[#60a5fa] transition-all shadow-md active:scale-95 flex items-center justify-center"
           >
             <FiSend className="text-lg" />
           </button>

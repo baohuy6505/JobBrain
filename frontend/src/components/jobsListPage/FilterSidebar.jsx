@@ -16,7 +16,6 @@ export const FilterSidebar = ({ params, onParamChange }) => {
 
   return (
     <div className="shrink-0 space-y-4">
-      {/* 1. BỘ LỌC ĐÃ CHỌN */}
       <div className="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm">
         <div className="flex justify-between items-center mb-4 text-sm font-bold">
           <span className="text-gray-800 font-black">Bộ lọc đã chọn</span>
@@ -178,7 +177,7 @@ export const FilterSidebar = ({ params, onParamChange }) => {
         <div className="p-5">
           <h4 className="font-bold text-sm text-gray-800 mb-4">Loại hình</h4>
           <div className="space-y-3">
-            {["Full-time", "Remote"].map((item) => (
+            {["Full-time", "Part-time"].map((item) => (
               <label
                 key={item}
                 className="flex items-center gap-3 cursor-pointer group"

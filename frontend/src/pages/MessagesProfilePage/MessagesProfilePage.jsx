@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 
 const MessagesProfilePage = () => {
-  const { id } = useParams(); // Lấy ID từ URL (ví dụ: /profile/2)
+  const { id } = useParams();
   const dispatch = useDispatch();
 
   // 1. Lấy dữ liệu từ Redux
@@ -37,8 +37,6 @@ const MessagesProfilePage = () => {
     );
   }
 
-  // 4. TÌM KIẾM THÔNG MINH (SỬA LỖI Ở ĐÂY)
-  // Chúng ta so sánh id trên URL với cả 'id' và 'userId' trong data cho chắc chắn
   const userProfile = conversations.find(
     (u) => u.id === Number(id) || u.userId === Number(id),
   );

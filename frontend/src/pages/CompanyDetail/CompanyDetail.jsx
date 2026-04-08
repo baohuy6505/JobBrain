@@ -27,7 +27,7 @@ const CompanyDetail = () => {
         extraBadge="Top Employer"
         subTitle={
           <>
-            <HiOutlineLocationMarker className="text-[#6344ff] text-xl" />
+            <HiOutlineLocationMarker className="text-[#3b82f6] text-xl" />
             <span>{company.location}</span>
           </>
         }
@@ -46,7 +46,7 @@ const CompanyDetail = () => {
             icon={<HiOutlineGlobeAlt />}
             label="Website"
             value={company.website}
-            colorClass="bg-indigo-50 text-[#6344ff]"
+            colorClass="bg-indigo-50 text-[#3b82f6]"
             isLink
           />
           <InfoBox
@@ -68,7 +68,7 @@ const CompanyDetail = () => {
           <div className="col-span-12 lg:col-span-8 space-y-8">
             <div className="bg-white rounded-[2.5rem] p-8 md:p-10 shadow-sm border border-slate-100 text-left">
               <h3 className="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3">
-                <span className="w-2 h-8 bg-[#6344ff] rounded-full"></span> Về
+                <span className="w-2 h-8 bg-[#3b82f6] rounded-full"></span> Về
                 chúng tôi
               </h3>
               <p className="text-slate-600 leading-relaxed whitespace-pre-line">

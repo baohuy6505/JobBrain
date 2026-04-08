@@ -13,14 +13,13 @@ const Dropdown = ({ options = [], value, onChange, icon }) => {
   return (
     <div className="relative flex items-center flex-1 px-3 md:px-4 w-full min-w-0">
       {icon && (
-        <div className="text-blue-600 text-xl md:text-2xl shrink-0 mr-1">
+        <div className="text-blue-400 text-xl md:text-2xl shrink-0 mr-1">
           {icon}
         </div>
       )}
 
       <Listbox value={value} onChange={onChange}>
         <div className="relative w-full">
-          {/* Đổi thành ListboxButton */}
           <ListboxButton className="relative w-full p-3 md:p-4 text-left text-gray-800 text-sm md:text-base cursor-pointer bg-transparent focus:outline-none flex justify-between items-center select-none border-none">
             <span className="block truncate">
               {selectedItem?.label || "Chọn..."}
@@ -28,13 +27,11 @@ const Dropdown = ({ options = [], value, onChange, icon }) => {
             <HiChevronDown className="w-5 h-5 text-gray-400 transition-transform duration-200 ui-open:rotate-180" />
           </ListboxButton>
 
-          {/* Đổi thành ListboxOptions */}
           <ListboxOptions
             transition
             className="absolute mt-2 max-h-60 w-full overflow-auto rounded-xl bg-white py-1 shadow-2xl ring-1 ring-black/5 focus:outline-none z-50 transition duration-200 ease-in-out data-[closed]:opacity-0 data-[closed]:scale-95"
           >
             {options.map((item) => (
-              /* Đổi thành ListboxOption */
               <ListboxOption
                 key={item.value}
                 value={item.value}
