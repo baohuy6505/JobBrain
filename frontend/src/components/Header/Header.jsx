@@ -50,7 +50,7 @@ const Header = () => {
             <NavLink to="/companies" className={navLinkClass}>
               Company
             </NavLink>
-            <NavLink to={`/messages/${user.id}`} className={navLinkClass}>
+            <NavLink to="/messages" className={navLinkClass}>
               Messages
             </NavLink>
           </nav>
