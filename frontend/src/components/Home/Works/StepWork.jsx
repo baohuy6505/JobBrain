@@ -53,19 +53,26 @@ const StepCard = ({ step }) => {
 
   return (
     <div className="flex flex-col items-center text-center px-4 relative group">
+      {/* Icon: Thu nhỏ xuống w-12 h-12 trên mobile, lên máy tính trả lại w-16 h-16 */}
       <div
-        className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shadow-sm transition-transform group-hover:-translate-y-2 duration-300 ${styles.bgColor}`}
+        className={`w-12 h-12 md:w-16 md:h-16 rounded-2xl flex items-center justify-center mb-4 md:mb-6 shadow-sm transition-transform group-hover:-translate-y-2 duration-300 ${styles.bgColor}`}
       >
         {styles.icon}
       </div>
 
-      <span className="text-5xl font-bold text-black mb-4 select-none">
+      {/* Số thứ tự: Mobile dùng text-4xl, máy tính dùng text-5xl */}
+      <span className="text-4xl md:text-5xl font-bold text-black mb-3 md:mb-4 select-none">
         {step.number}
       </span>
 
-      <div className="mt-8">
-        <h3 className="text-lg font-bold text-gray-900 mb-3">{step.title}</h3>
-        <p className="text-gray-500 text-sm leading-relaxed max-w-[250px]">
+      <div className="mt-6 md:mt-8">
+        {/* Tiêu đề: Mobile text-base, máy tính text-lg */}
+        <h3 className="text-base md:text-lg font-bold text-gray-900 mb-2 md:mb-3">
+          {step.title}
+        </h3>
+        
+        {/* Mô tả: Mobile text-xs (nhỏ hơn text-sm 1 xíu), máy tính text-sm */}
+        <p className="text-xs md:text-sm text-gray-500 leading-relaxed max-w-[250px]">
           {step.description}
         </p>
       </div>

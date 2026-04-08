@@ -1,5 +1,9 @@
 import React, { useState, useEffect, useMemo } from "react";
-import { HiOutlineCheck } from "react-icons/hi";
+import {
+  HiOutlineCheck,
+  HiOutlineAdjustments,
+  HiChevronDown,
+} from "react-icons/hi";
 import NotificationCard from "../../components/Notification/NotificationCard";
 import { useDispatch, useSelector } from "react-redux";
 import {

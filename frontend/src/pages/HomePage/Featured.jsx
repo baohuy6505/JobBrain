@@ -9,9 +9,10 @@ const Featured = () => {
     <section className="py-16 bg-[#f8f9fb]">
       <div className="max-w-6xl mx-auto px-6">
         {/* Header */}
-        <div className="flex justify-between items-center mb-10">
+       <div className="flex justify-between items-center mb-6 md:mb-10">
           <div className="relative group inline-block">
-            <h2 className="text-3xl font-bold text-gray-900">
+            {/* Chữ nhỏ ở mobile (text-xl), vừa ở tablet (sm:text-2xl), to ở PC (md:text-3xl) */}
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900">
               Việc làm nổi bật
             </h2>
 
@@ -20,9 +21,9 @@ const Featured = () => {
 
           <Link
             to="/list-job"
-            className="text-[#6344ff] font-semibold flex items-center gap-1 hover:gap-2 transition-all"
+            className="text-[#6344ff] font-semibold text-sm md:text-base flex items-center gap-1 hover:gap-2 transition-all"
           >
-            Xem tất cả <HiChevronRight className="text-xl" />
+            Xem tất cả <HiChevronRight className="text-lg md:text-xl" />
           </Link>
         </div>
 

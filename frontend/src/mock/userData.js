@@ -205,3 +205,27 @@ export const mockProfileData = {
 //     }, 600); // Load mất 0.6s
 //   });
 // };
+// // Thêm hàm này vào nơi chứa các hàm API giả lập của bạn
+// export const fetchTransactionsApi = async (allTransactions, params) => {
+//   // Giả lập độ trễ mạng để có hiệu ứng loading chân thực
+//   await new Promise((resolve) => setTimeout(resolve, 300));
+
+//   let filtered = [...(allTransactions || [])];
+
+//   // Nơi này sau này bạn có thể thêm logic Filter hoặc Search
+//   if (params.searchTerm) {
+//     const search = params.searchTerm.toLowerCase();
+//     filtered = filtered.filter(tx => tx.desc.toLowerCase().includes(search));
+//   }
+
+//   // Logic phân trang chuẩn
+//   const page = params.page || 1;
+//   const limit = params.limit || 4;
+//   const startIndex = (page - 1) * limit;
+
+//   return {
+//     items: filtered.slice(startIndex, startIndex + limit), // Chỉ lấy đúng số dòng của trang đó
+//     totalItems: filtered.length,
+//     totalPages: Math.ceil(filtered.length / limit),
+//   };
+// };

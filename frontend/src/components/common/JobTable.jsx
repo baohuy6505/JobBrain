@@ -1,6 +1,6 @@
 import React from "react";
 
-const DataTable = ({ columns, data }) => {
+const JobTable = ({ columns, data }) => {
   return (
     <div className="overflow-x-auto">
       <table className="w-full text-left border-collapse">
@@ -41,4 +41,4 @@ const DataTable = ({ columns, data }) => {
   );
 };
 
-export default DataTable;
+export default JobTable;

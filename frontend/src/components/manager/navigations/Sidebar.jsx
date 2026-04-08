@@ -16,8 +16,7 @@ const menuItems = [
   { name: "Candidates", icon: FiUsers, to: "/manager/candidates-board" },
   { name: "Interviews", icon: FiCalendar, to: "/manager/interviews" },
   { name: "Messages", icon: FiMessageCircle, to: "/manager/messages" },
-  { name: "Wallet & Billing", icon: FiFileText, to: "/dashboard/wallet" },
-      { name: "Settings", icon: FiSettings, to: "/dashboard/settings" },
+  { name: "Wallet & Billing", icon: FiFileText, to: "/manager/wallet" },
 ];
 
 export default function Sidebar() {

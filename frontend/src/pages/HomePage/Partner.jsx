@@ -7,7 +7,8 @@ const PartnerSection = () => {
         {/* Title */}
         <div className="text-center mb-10">
           <div className="relative inline-block group">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-1">
+            {/* Đổi text-3xl thành text-2xl cho mobile, thêm lg:text-4xl cho PC */}
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-1">
               Đối tác chiến lược
             </h2>
 

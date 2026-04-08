@@ -1,8 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { HiOutlineHome, HiOutlineBriefcase } from "react-icons/hi";
-// import ErrorIllustration from "../../components/NotFound/ErrorIllustration";
-// import ErrorDetails from "../../components/NotFound/ErrorDetails";
+
 
 const NotFoundPage = () => {
   return (
