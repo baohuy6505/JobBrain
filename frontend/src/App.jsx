@@ -14,13 +14,15 @@ import NotificationsPage from "./pages/NotificationsPage/NotificationsPage";
 import CompanyPage from "./pages/CompanyPage/CompaniesPage";
 import CompanyDetail from "./pages/CompanyPage/CompanyDetail";
 import UserDashboardPage from "./pages/UserDashboardPage/UserDashboardPage";
-import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 import UserProfilePage from "./pages/UserProfilePage/UserProfilePage";
 
 // Dashboard Pages
 import MyJobsActivePage from "./pages/Manager/Dashboard/MyJobsActivePage";
 import CandidatesBoardPage from "./pages/Manager/Dashboard/CandidatesBoardPage";
-import WalletPage from "./pages/WalletPage/WalletPage"
+import WalletPage from "./pages/WalletPage/WalletPage";
+import InterviewManager from "./pages/Manager/Interviews/InterviewManager";
+import JobPosts from "./pages/Manager/JobPosts/JobPosts";
+
 
 // Admin Pages
 import AdminDashboard from "./pages/Admin/Dashboard/AdminDashboard";
@@ -79,7 +81,7 @@ function App() {
         <Route path="list-job" element={<JobBoard />} />
         <Route path="job/:id" element={<JobDetail />} />
         <Route path="notifications" element={<NotificationsPage />} />
-    </Route>
+      </Route>
 
       {/* AUTH */}
       <Route path="login" element={<LoginPage />} />

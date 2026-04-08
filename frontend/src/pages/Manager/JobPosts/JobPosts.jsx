@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { FiX, FiArrowRight } from "react-icons/fi";
-import Stepper from "../../Components/jobPosts/Stepper";
-import Step1GeneralInfo from "../../Components/jobPosts/Step1GeneralInfo";
-import Step2Salary from "../../Components/jobPosts/Step2Salary";
-import Step3Description from "../../Components/jobPosts/Step3Description";
-import Step4Review from "../../Components/jobPosts/Step4Review";
+import Stepper from "../../../Components/jobPosts/Stepper";
+import Step1GeneralInfo from "../../../Components/jobPosts/Step1GeneralInfo";
+import Step2Salary from "../../../Components/jobPosts/Step2Salary";
+import Step3Description from "../../../Components/jobPosts/Step3Description";
+import Step4Review from "../../../Components/jobPosts/Step4Review";
 const JobPosts = () => {
   const [currentStep, setCurrentStep] = useState(1);
 
