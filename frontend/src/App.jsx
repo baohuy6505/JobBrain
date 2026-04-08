@@ -60,7 +60,7 @@ function App() {
       <Route path="manager" element={<ManagerLayout />}>
         <Route path="job-posts" element={<JobPosts />} />
         <Route path="wallet" element={<WalletPage />} />
-        <Route path="my-jobs-active" element={<MyJobsActivePage />} />
+        <Route index element={<MyJobsActivePage />} />
         <Route path="candidates-board" element={<CandidatesBoardPage />} />
         <Route path="interviews" element={<InterviewManager />} />
       </Route>

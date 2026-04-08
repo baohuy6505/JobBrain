@@ -12,7 +12,7 @@ import { NavLink, useLocation } from "react-router-dom";
 
 const menuItems = [
   { name: "Overview", icon: FiGrid, to: "/manager/overview" },
-  { name: "My Jobs", icon: FiBriefcase, to: "/manager/my-jobs-active" },
+  { name: "My Jobs", icon: FiBriefcase, to: "" },
   { name: "Candidates", icon: FiUsers, to: "/manager/candidates-board" },
   { name: "Interviews", icon: FiCalendar, to: "/manager/interviews" },
   { name: "Messages", icon: FiMessageCircle, to: "/manager/messages" },
