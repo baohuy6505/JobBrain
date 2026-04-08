@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-import ProfileCompletion from "../../Components/UserProfile/ProfileCompletion";
-import TechnicalSkills from "../../Components/UserProfile/TechnicalSkills";
-import CurriculumVitae from "../../Components/UserProfile/CurriculumVitae";
-import ProfessionalTimeline from "../../Components/UserProfile/ProfessionalTimeline";
-import PromoBanner from "../../Components/UserProfile/PromoBanner";
-import PersonalInfo from "../../Components/UserProfile/PersonalInfo";
+import ProfileCompletion from "../../Components/userProfile/ProfileCompletion";
+import TechnicalSkills from "../../Components/userProfile/TechnicalSkills";
+import CurriculumVitae from "../../Components/userProfile/CurriculumVitae";
+import ProfessionalTimeline from "../../Components/userProfile/ProfessionalTimeline";
+import PromoBanner from "../../Components/userProfile/PromoBanner";
+import PersonalInfo from "../../Components/userProfile/PersonalInfo";
 import { HiOutlineSave, HiCheck } from "react-icons/hi";
 
 import { mockProfileData } from "../../mock/userData"; 
@@ -16,7 +16,6 @@ const UserProfilePage = () => {
   const { id } = useParams();
   const { userInfo, isAuthenticated } = useSelector((state) => state.user);
 
-  // GIỎ CHỨA DỮ LIỆU TỔNG (DRAFT DATA)
   const [draftData, setDraftData] = useState({
     user: null,
     profile: null
@@ -29,7 +28,6 @@ const UserProfilePage = () => {
       const loadData = async () => {
         await new Promise((resolve) => setTimeout(resolve, 800));
         
-        // Đổ dữ liệu vào giỏ tổng
         setDraftData({
           user: userInfo, // Dữ liệu từ Redux
           profile: mockProfileData // Dữ liệu từ API/Mock
@@ -45,14 +43,12 @@ const UserProfilePage = () => {
     setTimeout(() => {
       const jsonToSave = JSON.stringify(draftData, null, 2);
     
-      // Hiển thị ra màn hình để kiểm tra
       // alert("Dữ liệu JSON chuẩn bị gửi lên DB:\n\n" + jsonToSave);
       console.log("SENDING TO DB:", jsonToSave);
       setIsSaving(false);
     }, 600); // Giả lập thời gian lưu 0.6s
   };
 
- // --- CÁC HÀM CẬP NHẬT DỮ LIỆU TỪ COMPONENT CON TRUYỀN LÊN ---
   const handleUserChange = (field, value) => {
     setDraftData((prev) => ({
       ...prev,
@@ -67,7 +63,6 @@ const UserProfilePage = () => {
     }));
   };
 
-  // 1. Hàm hứng dữ liệu CV mới
   const handleCVChange = (newCVData) => {
     setDraftData((prev) => ({
       ...prev,
@@ -75,7 +70,6 @@ const UserProfilePage = () => {
     }));
   };
 
-  // 2. Hàm hứng dữ liệu Timeline mới
   const handleTimelineChange = (newTimelineData) => {
     setDraftData((prev) => ({
       ...prev,
@@ -83,7 +77,6 @@ const UserProfilePage = () => {
     }));
   };
 
-  // --- KIỂM TRA BẢO MẬT & LOADING ---
 
   if (!isAuthenticated || !userInfo || String(userInfo.userId) !== id) {
     return (
@@ -106,14 +99,11 @@ const UserProfilePage = () => {
     <div className="min-h-screen bg-[#f8f9fb] pt-20 pb-16">
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
         
-        {/* --- HEADER PROFILE CHUẨN UX --- */}
         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 mb-6 overflow-hidden">
-          {/* Cover Photo */}
           <div className="h-32 sm:h-48 bg-gradient-to-r from-white to-black-800 relative">
             <div className="absolute inset-0 bg-black/10"></div>
           </div>
           
-          {/* Avatar & Actions */}
           <div className="px-6 sm:px-8 pb-6 relative">
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 -mt-12 sm:-mt-16 mb-4">
               <div className="relative">
@@ -129,7 +119,7 @@ const UserProfilePage = () => {
               <button 
                 onClick={handleSaveAll}
                 disabled={isSaving}
-                className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2.5 px-6 rounded-xl shadow-sm flex items-center justify-center gap-2 transition-all active:scale-95 disabled:bg-purple-400"
+                className="bg-blue-600 hover:bg-purple-700 text-white font-bold py-2.5 px-6 rounded-xl shadow-sm flex items-center justify-center gap-2 transition-all active:scale-95 disabled:bg-purple-400"
               >
                 {isSaving ? <span className="animate-pulse flex items-center gap-2"><div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div> Saving...</span> 
                           : <><HiOutlineSave className="text-lg" /> Save Profile</>}
@@ -143,8 +133,6 @@ const UserProfilePage = () => {
           </div>
         </div>
 
-        {/* --- CÁC WIDGET BÊN DƯỚI --- */}
-        {/* <ProfileCompletion rate={draftData.profile.completionRate} /> */}
 
         <div className="mt-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
           <div className="lg:col-span-1 space-y-6">

@@ -12,7 +12,7 @@ const BalanceCard = ({ info }) => {
         <div>
           <p className="text-blue-200 text-xs font-semibold tracking-wider uppercase mb-1">Current Balance</p>
           <div className="flex items-baseline gap-2">
-            <h2 className="text-4xl md:text-5xl font-bold">{info.balance}</h2>
+            <h2 className="text-4xl  md:text-5xl font-bold">{info.balance}</h2>
             <span className="text-xl font-medium text-blue-100">{info.currency}</span>
           </div>
         </div>

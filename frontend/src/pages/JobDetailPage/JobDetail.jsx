@@ -14,7 +14,7 @@ const JobDetailPage = () => {
   const [relatedJobs, setRelatedJobs] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
+  useEffect(() => { 
     const fetchAllData = async () => {
       // 1. Reset trạng thái khi chuyển giữa các Job
       setJob(null);

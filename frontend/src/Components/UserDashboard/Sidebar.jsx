@@ -6,110 +6,109 @@ import {
   HiOutlineUser, 
   HiOutlineLockClosed, 
   HiOutlineBell, 
-  HiOutlineLogout 
+  HiOutlineLogout,
+  HiOutlineQuestionMarkCircle
 } from "react-icons/hi";
 import { mockUserData } from "../../mock/userData"; 
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const Sidebar = () => {
-  // 1. ĐƯA HOOK VÀO BÊN TRONG COMPONENT
   const { userInfo } = useSelector((state) => state.user);
-
-  // Trích xuất mảng notifications từ mock data
   const notifications = mockUserData.notifications;
+  const userId = userInfo ? userInfo.userId : "";
 
-  // Hàm phụ trợ: Trả về đúng React Icon và màu sắc dựa vào ID của thông báo
+  // Dùng tông màu dịu, bớt rực rỡ để trông chuyên nghiệp hơn
   const getNotificationIcon = (id) => {
     switch (id) {
       case 1:
-        return <HiOutlineMailOpen className="text-blue-500 text-xl" />;
+        return <HiOutlineMailOpen className="text-blue-500 text-lg" />;
       case 2:
-        return <HiOutlineUsers className="text-purple-500 text-xl" />;
+        return <HiOutlineUsers className="text-indigo-500 text-lg" />;
       case 3:
-        return <HiOutlineLightBulb className="text-orange-500 text-xl" />;
+        return <HiOutlineLightBulb className="text-amber-500 text-lg" />;
       default:
-        return <HiOutlineBell className="text-gray-500 text-xl" />;
+        return <HiOutlineBell className="text-slate-500 text-lg" />;
     }
   };
 
-  // Đảm bảo không bị lỗi nếu userInfo chưa load kịp
-  const userId = userInfo ? userInfo.userId : "";
-
   return (
-    <>
-      {/* Widget Thông Báo */}
-      <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
-        <div className="flex justify-between items-center mb-6">
-          <h2 className="text-lg font-bold text-gray-900">Thông báo</h2>
-          <span className="bg-red-100 text-red-600 text-xs font-bold px-2 py-0.5 rounded-full">
-            {notifications.filter(n => n.active).length} MỚI
+    <div className="space-y-6">
+      
+      <div className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+        <div className="flex justify-between items-center p-5 border-b border-slate-100 bg-slate-50/50">
+          <h2 className="text-base font-semibold text-slate-800">Thông báo mới</h2>
+          <span className="bg-red-100 text-red-600 text-[10px] font-bold px-2 py-0.5 rounded-full tracking-wide">
+            {notifications.filter(n => n.active).length}
           </span>
         </div>
         
-        <div className="space-y-6">
+        <div className="divide-y divide-slate-100">
           {notifications.map((noti) => (
-            <div key={noti.id} className="flex gap-4">
-              <div className="mt-1">
+            <div key={noti.id} className="flex gap-4 p-5 hover:bg-slate-50 transition-colors cursor-pointer group">
+              <div className="mt-0.5 w-8 h-8 rounded-full bg-white border border-slate-100 shadow-sm flex items-center justify-center shrink-0">
                 {getNotificationIcon(noti.id)}
               </div>
               <div>
-                <p className="text-sm font-semibold text-gray-900">{noti.text}</p>
-                <p className="text-xs text-gray-500 mt-1">{noti.time}</p>
+                <p className={`text-sm leading-snug ${noti.active ? 'font-semibold text-slate-800' : 'text-slate-600'}`}>
+                  {noti.text}
+                </p>
+                <p className="text-xs text-slate-400 mt-1.5 font-medium">{noti.time}</p>
               </div>
+              
+              {noti.active && (
+                <div className="w-2 h-2 rounded-full bg-blue-500 mt-1.5 shrink-0 ml-auto"></div>
+              )}
             </div>
           ))}
         </div>
+        <div className="p-3 text-center border-t border-slate-100 bg-slate-50/50">
+          <button className="text-sm font-medium text-blue-600 hover:text-blue-700">Xem tất cả</button>
+        </div>
       </div>
 
-      {/* Widget Cài Đặt */}
-      <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 mt-8">
-        <h2 className="text-lg font-bold text-gray-900 mb-6">Cài đặt tài khoản</h2>
-        <ul className="space-y-2">
+      <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-3">
+        <h2 className="text-xs font-bold text-slate-400 uppercase tracking-wider px-3 py-2 mb-1">Cài đặt tài khoản</h2>
+        <ul className="space-y-0.5">
           <li>
-            {/* Link sang trang Profile kèm theo ID */}
             <Link 
-              to={`/profile/${userId}`} 
-              className="flex items-center gap-3 text-gray-600 hover:text-purple-600 hover:bg-purple-50 p-3 rounded-xl transition-colors"
+              to={`/dashboard/profile/${userId}`} 
+              className="flex items-center gap-3 text-slate-600 hover:text-slate-900 hover:bg-slate-100 px-3 py-2.5 rounded-lg transition-colors"
             >
-              <HiOutlineUser className="text-xl" /> <span className="font-medium text-sm">Chỉnh sửa hồ sơ</span>
+              <HiOutlineUser className="text-lg opacity-70" /> <span className="font-medium text-sm">Hồ sơ cá nhân</span>
             </Link>
           </li>
           <li>
-            <a href="#" className="flex items-center gap-3 text-gray-600 hover:text-purple-600 hover:bg-purple-50 p-3 rounded-xl transition-colors">
-              <HiOutlineLockClosed className="text-xl" /> <span className="font-medium text-sm">Mật khẩu & Bảo mật</span>
+            <a href="#" className="flex items-center gap-3 text-slate-600 hover:text-slate-900 hover:bg-slate-100 px-3 py-2.5 rounded-lg transition-colors">
+              <HiOutlineLockClosed className="text-lg opacity-70" /> <span className="font-medium text-sm">Bảo mật tài khoản</span>
             </a>
           </li>
           <li>
-            <a href="#" className="flex items-center gap-3 text-gray-600 hover:text-purple-600 hover:bg-purple-50 p-3 rounded-xl transition-colors">
-              <HiOutlineBell className="text-xl" /> <span className="font-medium text-sm">Tùy chọn thông báo</span>
+            <a href="#" className="flex items-center gap-3 text-slate-600 hover:text-slate-900 hover:bg-slate-100 px-3 py-2.5 rounded-lg transition-colors">
+              <HiOutlineBell className="text-lg opacity-70" /> <span className="font-medium text-sm">Cài đặt thông báo</span>
             </a>
           </li>
-          <li className="pt-2 mt-2 border-t border-gray-100">
-            <a href="#" className="flex items-center gap-3 text-red-500 hover:bg-red-50 p-3 rounded-xl transition-colors">
-              <HiOutlineLogout className="text-xl" /> <span className="font-medium text-sm">Đăng xuất</span>
+          <li className="pt-2 mt-2 border-t border-slate-100">
+            <a href="#" className="flex items-center gap-3 text-red-600 hover:bg-red-50 px-3 py-2.5 rounded-lg transition-colors">
+              <HiOutlineLogout className="text-lg opacity-70" /> <span className="font-medium text-sm">Đăng xuất</span>
             </a>
           </li>
         </ul>
       </div>
 
-      {/* Box Support */}
-      <div className="bg-[#7819c0] rounded-2xl shadow-lg p-6 text-white relative overflow-hidden mt-8">
-        <div className="absolute -bottom-6 -right-6 opacity-20">
-          <svg width="120" height="120" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
-          </svg>
-        </div>
-        
+      {/* Box Support (Thiết kế tối giản, thanh lịch) */}
+      <div className="bg-slate-50 rounded-xl border border-slate-200 p-5 relative overflow-hidden">
+        <HiOutlineQuestionMarkCircle className="absolute -right-4 -bottom-4 text-8xl text-slate-200 opacity-50" />
         <div className="relative z-10">
-          <h3 className="text-lg font-bold mb-2">Cần giúp đỡ?</h3>
-          <p className="text-sm text-blue-100 mb-6 leading-relaxed">Đội ngũ hỗ trợ của chúng tôi luôn sẵn sàng 24/7 để giúp bạn tìm việc tốt nhất.</p>
-          <button className="bg-white text-[#7819c0] font-bold py-2.5 px-6 rounded-lg text-sm hover:bg-gray-50 transition-colors">
-            Liên hệ ngay
+          <h3 className="text-sm font-bold text-slate-800 mb-1">Cần hỗ trợ?</h3>
+          <p className="text-xs text-slate-500 mb-4 leading-relaxed pr-4">Đội ngũ của chúng tôi luôn sẵn sàng giải đáp thắc mắc của bạn.</p>
+          <button className="w-full bg-white border border-slate-300 text-slate-700 font-medium py-2 px-4 rounded-lg text-sm hover:bg-slate-100 hover:text-slate-900 transition-colors shadow-sm">
+            Liên hệ CSKH
           </button>
         </div>
       </div>
-    </>
+
+    </div>
   );
 };
 
