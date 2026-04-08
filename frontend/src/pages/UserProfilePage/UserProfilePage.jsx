@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-import ProfileCompletion from "../../Components/userProfile/ProfileCompletion";
-import TechnicalSkills from "../../Components/userProfile/TechnicalSkills";
-import CurriculumVitae from "../../Components/userProfile/CurriculumVitae";
-import ProfessionalTimeline from "../../Components/userProfile/ProfessionalTimeline";
-import PromoBanner from "../../Components/userProfile/PromoBanner";
-import PersonalInfo from "../../Components/userProfile/PersonalInfo";
+import ProfileCompletion from "../../components/userProfile/ProfileCompletion";
+import TechnicalSkills from "../../components/userProfile/TechnicalSkills";
+import CurriculumVitae from "../../components/userProfile/CurriculumVitae";
+import ProfessionalTimeline from "../../components/userProfile/ProfessionalTimeline";
+import PromoBanner from "../../components/userProfile/PromoBanner";
+import PersonalInfo from "../../components/userProfile/PersonalInfo";
 import { HiOutlineSave, HiCheck } from "react-icons/hi";
 
 import { mockProfileData } from "../../mock/userData"; 

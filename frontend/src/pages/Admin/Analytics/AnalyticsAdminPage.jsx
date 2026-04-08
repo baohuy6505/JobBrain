@@ -24,7 +24,7 @@ import {
   Pie,
   Cell,
 } from "recharts";
-import SourceDonutChart from "../../../Components/admin/Analytics/SourceDonutChart";
+import SourceDonutChart from "../../../components/admin/Analytics/SourceDonutChart";
 // ==========================================
 // 1. MOCK DATA
 // ==========================================
@@ -65,7 +65,7 @@ const jobsData = [
 ];
 
 // ==========================================
-// 2. SUB-COMPONENTS
+// 2. SUB-components
 // ==========================================
 
 const KpiCard = ({ title, value, trend, trendType, icon }) => (

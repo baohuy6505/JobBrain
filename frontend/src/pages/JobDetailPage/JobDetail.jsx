@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getJobDetailApi, getRelatedJobsApi } from "../../mock/jobsService";
 
-import JobHeader from "../../Components/JobDetail/JobHeader";
-import JobActionSidebar from "../../Components/JobDetail/JobActionSidebar";
-import JobDetailBody from "../../Components/JobDetail/JobDetailBody";
-import CompanyInfo from "../../Components/JobDetail/CompanyInfo";
-import RelatedJobs from "../../Components/JobDetail/RelatedJobs";
+import JobHeader from "../../components/JobDetail/JobHeader";
+import JobActionSidebar from "../../components/JobDetail/JobActionSidebar";
+import JobDetailBody from "../../components/JobDetail/JobDetailBody";
+import CompanyInfo from "../../components/JobDetail/CompanyInfo";
+import RelatedJobs from "../../components/JobDetail/RelatedJobs";
 
 const JobDetailPage = () => {
   const { id } = useParams();

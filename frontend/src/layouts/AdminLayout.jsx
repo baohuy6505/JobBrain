@@ -1,7 +1,7 @@
 import { Outlet, useLocation } from "react-router-dom";
 import { useMemo, useState } from "react";
-import AdminSidebar from "../Components/admin/AdminSidebar";
-import AdminHeader from "../Components/admin/AdminHeader";
+import AdminSidebar from "../components/admin/AdminSidebar";
+import AdminHeader from "../components/admin/AdminHeader";
 
 export default function AdminLayout() {
   const [mobileOpen, setMobileOpen] = useState(false);

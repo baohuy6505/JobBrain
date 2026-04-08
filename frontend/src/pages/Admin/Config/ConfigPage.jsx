@@ -1,7 +1,7 @@
 import { useState } from "react";
-import SecuritySettings from "../../../Components/admin/Config/SecuritySettings";
-import ApiManagement from "../../../Components/admin/Config/ApiManagement";
-import BrandingSettings from "../../../Components/admin/Config/BrandingSettings";
+import SecuritySettings from "../../../components/admin/Config/SecuritySettings";
+import ApiManagement from "../../../components/admin/Config/ApiManagement";
+import BrandingSettings from "../../../components/admin/Config/BrandingSettings";
 import {
   apiKeysMock,
   configTabsMock,

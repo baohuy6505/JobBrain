@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { fetchCompaniesApi } from "../../mock/CompanyServices";
-import CompanyCard from "../../Components/companies/companyCard";
-import { Pagination } from "../../Components/common/Pagination";
-import CompanySearch from "../../Components/companies/CompanySearch";
-import CompanyFilter from "../../Components/companies/CompanyFilter";
+import CompanyCard from "../../components/companies/companyCard";
+import { Pagination } from "../../components/common/Pagination";
+import CompanySearch from "../../components/companies/CompanySearch";
+import CompanyFilter from "../../components/companies/CompanyFilter";
 
 const CompaniesPage = () => {
   const INITIAL_PARAMS = {

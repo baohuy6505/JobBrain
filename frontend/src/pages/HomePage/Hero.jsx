@@ -1,5 +1,5 @@
-import SearchHero from "../../Components/Home/Hero/SearchHero";
-import StatsHero from "../../Components/Home/Hero/StatsHero";
+import SearchHero from "../../components/Home/Hero/SearchHero";
+import StatsHero from "../../components/Home/Hero/StatsHero";
 const Hero = () => {
   return (
     <section

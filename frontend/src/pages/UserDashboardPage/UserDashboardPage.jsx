@@ -2,10 +2,10 @@ import React from "react";
 import { useParams, Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-import ProfileBanner from "../../Components/userDashboard/ProfileBanner";
-import Stats from "../../Components/userDashboard/Stats";
-import AppliedJobs from "../../Components/userDashboard/AppliedJobs";
-import Sidebar from "../../Components/userDashboard/Sidebar";
+import ProfileBanner from "../../components/userDashboard/ProfileBanner";
+import Stats from "../../components/userDashboard/Stats";
+import AppliedJobs from "../../components/userDashboard/AppliedJobs";
+import Sidebar from "../../components/userDashboard/Sidebar";
 
 const UserDashboardPage = () => {
   const { id } = useParams();

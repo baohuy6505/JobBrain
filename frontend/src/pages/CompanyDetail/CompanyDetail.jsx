@@ -8,10 +8,10 @@ import {
   HiOutlineUsers,
   HiCheckCircle,
 } from "react-icons/hi";
-import ProfileBanner from "../../Components/companyDetail/CompanyProfileBanner";
-import InfoBox from "../../Components/common/InfoBox";
-import CompanyReviews from "../../Components/companyDetail/CompanyDetailReviews";
-import CompanyContact from "../../Components/companyDetail/CompanyDetailContact";
+import ProfileBanner from "../../components/companyDetail/CompanyProfileBanner";
+import InfoBox from "../../components/common/InfoBox";
+import CompanyReviews from "../../components/companyDetail/CompanyDetailReviews";
+import CompanyContact from "../../components/companyDetail/CompanyDetailContact";
 
 const CompanyDetail = () => {
   const { id } = useParams();

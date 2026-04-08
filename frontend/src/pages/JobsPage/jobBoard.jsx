@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { getJobsApi } from "../../mock/jobsService";
-import { FilterSidebar } from "../../Components/jobsListPage/FilterSidebar";
-import { JobCard } from "../../Components/jobsListPage/Jobcard/JobCard";
-import { Pagination } from "../../Components/common/Pagination";
+import { FilterSidebar } from "../../components/jobsListPage/FilterSidebar";
+import { JobCard } from "../../components/jobsListPage/Jobcard/JobCard";
+import { Pagination } from "../../components/common/Pagination";
 import { FaListUl } from "react-icons/fa";
 import { HiViewGrid } from "react-icons/hi";
 import { FiFilter } from "react-icons/fi";
 import { IoMdClose } from "react-icons/io";
-import Dropdown from "../../Components/common/Dropdown";
+import Dropdown from "../../components/common/Dropdown";
 
 export default function JobBoard() {
   const INITIAL_PARAMS = {
