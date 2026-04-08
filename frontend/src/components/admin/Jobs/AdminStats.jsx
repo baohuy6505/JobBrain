@@ -1,7 +1,6 @@
 import React from "react";
 import StatsGrid from "../../common/StatsGrid";
 
-// Hàm phụ trợ: Tự động vẽ HTML/CSS cho Badge
 const renderBadge = (text, theme) => {
   if (!text) return null;
   switch (theme) {

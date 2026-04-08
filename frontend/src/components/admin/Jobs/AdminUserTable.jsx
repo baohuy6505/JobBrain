@@ -2,7 +2,6 @@ import React from "react";
 import JobTable from "../../common/JobTable";
 import { Pagination } from "../../common/Pagination";
 
-// Từ điển UI nội bộ cho Bảng
 const roleConfig = {
   "ADMIN": "bg-blue-100 text-blue-700",
   "EMPLOYER": "bg-purple-100 text-purple-700",
@@ -19,7 +18,6 @@ const statusConfig = {
 
 const AdminUserTable = ({ data, params, isLoading, onParamChange }) => {
   
-  // Định nghĩa cột
   const userColumns = [
     {
       key: "name",
