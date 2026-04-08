@@ -2,12 +2,12 @@ import CandidateCard from "./CandidateCard";
 
 export default function CandidateColumn({ title, count, candidates = [] }) {
   return (
-    <div className="min-w-[220px] flex-1">
-      <div className="mb-3 flex items-center justify-between">
-        <h3 className="text-sm font-semibold text-gray-800">
+    <div className="min-w-0">
+      <div className="mb-3 flex items-center justify-between gap-2">
+        <h3 className="truncate text-sm font-semibold text-gray-800">
           {title} <span className="text-gray-400">{count}</span>
         </h3>
-        <span className="text-gray-300">⋯</span>
+        <span className="shrink-0 text-gray-300">⋯</span>
       </div>
 
       <div className="space-y-3">
