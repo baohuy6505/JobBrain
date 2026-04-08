@@ -1,5 +1,6 @@
 import { FiChevronDown, FiPlus, FiSearch } from "react-icons/fi";
 import { Link, NavLink } from "react-router-dom";
+import Button from "../../common/Button";
 
 export default function JobsHeaderManager() {
   return (
@@ -23,12 +24,9 @@ export default function JobsHeaderManager() {
         </button>
       </div>
 
-      <button className="flex h-14 items-center justify-center gap-2 rounded-xl bg-indigo-600 px-6 font-semibold text-white shadow-[4px_4px_0px_#1e2875] transition hover:translate-y-[1px]">
-        <FiPlus size={18} />
-         <NavLink to="/manager/job-posts" className="flex items-center gap-2">
-            Đăng tin mới
-          </NavLink>
-      </button>
+      <Button to={"/manager/job-posts"} icon={<FiPlus />}>
+        Đăng tin mới
+      </Button>
     </div>
   );
 }

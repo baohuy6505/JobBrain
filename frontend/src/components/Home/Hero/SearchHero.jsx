@@ -15,7 +15,6 @@ const SearchHero = () => {
     { label: "TP.HCM", value: "hcm" },
   ];
 
-  // ✅ state
   const [keyword, setKeyword] = useState("");
   const [selectedLocation, setSelectedLocation] = useState(locations[0].value);
 
@@ -34,7 +33,7 @@ const SearchHero = () => {
       <div className="w-full bg-white p-1 md:p-2 rounded-2xl flex flex-col md:flex-row items-stretch md:items-center gap-2 shadow-2xl max-w-4xl mx-auto mt-6 md:mt-10">
         {/* INPUT */}
         <div className="flex items-center flex-[1.5] px-3 md:px-4 w-full border-b md:border-b-0 md:border-r border-gray-100 min-w-0">
-          <HiOutlineBriefcase className="text-blue-600 text-xl md:text-2xl shrink-0" />
+          <HiOutlineBriefcase className="text-blue-300 text-xl md:text-2xl shrink-0" />
 
           <input
             type="text"

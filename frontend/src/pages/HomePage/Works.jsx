@@ -16,7 +16,7 @@ const HowItWorks = () => {
             <div
               className="
                 absolute -bottom-2 left-1/2 -translate-x-1/2
-                h-1 bg-[#6344ff] rounded-full
+                h-1 bg-[#60a5fa] rounded-full
                 w-12
                 transition-all duration-500 ease-out
                 group-hover:w-full

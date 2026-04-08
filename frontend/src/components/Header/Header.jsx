@@ -23,8 +23,8 @@ const Header = () => {
   const navLinkClass = ({ isActive }) =>
     `relative px-1 h-full flex items-center text-[15px] font-medium whitespace-nowrap ${
       isActive
-        ? "text-[#6344ff] [text-shadow:_0.5px_0_0_currentcolor] after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[3px] after:bg-[#6344ff] after:z-10"
-        : "text-gray-500 hover:text-[#6344ff]"
+        ? "text-blue-400 [text-shadow:_0.5px_0_0_currentcolor] after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[3px] after:bg-[#60a5fa] after:z-10"
+        : "text-gray-500 hover:text-blue-400"
     }`;
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
@@ -36,7 +36,7 @@ const Header = () => {
         <div className="flex items-center space-x-8 h-full">
           <Link to="/" className="flex items-center shrink-0">
             <h1 className="text-black text-2xl font-bold tracking-tight">
-              Job<span className="text-[#6344ff]">Brain</span>
+              Job<span className="text-blue-400">Brain</span>
             </h1>
           </Link>
 
@@ -75,7 +75,10 @@ const Header = () => {
               </button>
 
               <div className="hidden md:flex items-center space-x-3 border-l pl-4 border-gray-200 h-full">
-                <Link to={`/dashboard/${user?.userId}`} className="flex items-center gap-3">
+                <Link
+                  to={`/dashboard/${user?.userId}`}
+                  className="flex items-center gap-3"
+                >
                   <div className="text-right hidden sm:block">
                     <p className="text-sm font-semibold text-gray-800">
                       {user?.name}
@@ -90,7 +93,6 @@ const Header = () => {
                     alt="Avatar"
                   />
                 </Link>
-                
               </div>
               <div>
                 <nav className="hidden md:flex space-x-6 font-medium h-full text-sm">
@@ -102,12 +104,12 @@ const Header = () => {
                   </NavLink>
                 </nav>
               </div>
-                <button
-                  onClick={() => dispatch(logout())}
-                  className="text-xs text-red-500 font-bold ml-2 hover:underline"
-                >
-                  Dang xuat
-                </button>
+              <button
+                onClick={() => dispatch(logout())}
+                className="text-l text-red-500 font-bold ml-2 hover:underline"
+              >
+                Đăng xuất
+              </button>
               <button
                 onClick={toggleMenu}
                 className="md:hidden text-2xl text-gray-600 p-1 focus:outline-none"
@@ -120,13 +122,13 @@ const Header = () => {
               <div className="hidden md:flex items-center gap-6">
                 <Link
                   to="/login"
-                  className="text-gray-600 font-bold text-sm hover:text-[#6344ff]"
+                  className="text-gray-600 font-bold text-sm hover:text-[#60a5fa]"
                 >
                   Đăng nhập
                 </Link>
                 <Link
                   to="/register"
-                  className="px-5 py-2 bg-[#6344ff] text-white rounded-xl font-bold text-sm shadow-md"
+                  className="px-5 py-2 bg-[#60a5fa] text-white rounded-xl font-bold text-sm shadow-md"
                 >
                   Đăng ký
                 </Link>
@@ -149,7 +151,6 @@ const Header = () => {
         onClick={toggleMenu}
       />
 
-      {/* Panel: Dùng hidden/block và bỏ hoàn toàn translate-x/transition */}
       <div
         className={`fixed top-0 right-0 h-full w-72 bg-white z-[70] md:hidden ${isMenuOpen ? "block" : "hidden"}`}
       >
@@ -165,18 +166,21 @@ const Header = () => {
 
           <div className="p-6 bg-slate-50 border-b border-slate-100">
             {isAuthenticated && user ? (
-              <Link to={`/dashboard/${user?.userId}`} className="flex items-center gap-3">
-              <div className="flex items-center gap-3">
-                <img
-                  src={user.avatar}
-                  className="h-12 w-12 rounded-full border-2 border-white shadow-sm"
-                  alt="Avatar"
-                />
-                <div>
-                  <p className="font-bold text-slate-900">{user.name}</p>
-                  <p className="text-xs text-slate-500">{user.address}</p>
+              <Link
+                to={`/dashboard/${user?.userId}`}
+                className="flex items-center gap-3"
+              >
+                <div className="flex items-center gap-3">
+                  <img
+                    src={user.avatar}
+                    className="h-12 w-12 rounded-full border-2 border-white shadow-sm"
+                    alt="Avatar"
+                  />
+                  <div>
+                    <p className="font-bold text-slate-900">{user.name}</p>
+                    <p className="text-xs text-slate-500">{user.address}</p>
+                  </div>
                 </div>
-              </div>
               </Link>
             ) : (
               <div className="space-y-4">

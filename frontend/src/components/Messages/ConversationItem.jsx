@@ -29,7 +29,7 @@ const ConversationItem = ({ data, isActive }) => {
       <div className="flex-1 min-w-0">
         <div className="flex justify-between items-baseline mb-0.5">
           <h4
-            className={`text-sm font-bold truncate ${isActive ? "text-indigo-600" : "text-gray-900"}`}
+            className={`text-sm font-bold truncate ${isActive ? "text-blue-500" : "text-gray-900"}`}
           >
             {partner.name} {/* Thay vì data.name */}
           </h4>

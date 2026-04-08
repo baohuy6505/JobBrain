@@ -33,7 +33,7 @@ const Sidebar = ({ isOpen, setIsOpen, activeId }) => {
           <h2 className="text-xl font-bold text-gray-900 leading-none">
             Tin nhắn
           </h2>
-          <p className="text-[10px] text-indigo-600 font-black mt-1 uppercase tracking-tighter">
+          <p className="text-[10px] text-blue-500 font-black mt-1 uppercase tracking-tighter">
             {chats.length} CUỘC HỘI THOẠI
           </p>
         </div>
