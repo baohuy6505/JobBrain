@@ -1,147 +1,153 @@
-import React, { useState, useMemo } from "react";
-import { mockCompanies } from "../../mock/companyData";
+import React, { useState, useEffect } from "react";
+import { fetchCompaniesApi } from "../../mock/CompanyServices";
 import CompanyCard from "../../Components/companies/companyCard";
-// import Pagination from "../../Components/Common/Pagination"; // Sau này import ở đây nhé
+import { Pagination } from "../../Components/common/Pagination";
+import CompanySearch from "../../Components/companies/CompanySearch";
+import CompanyFilter from "../../Components/companies/CompanyFilter";
 
 const CompaniesPage = () => {
-  // --- States ---
-  const [searchTerm, setSearchTerm] = useState("");
-  const [selectedIndustries, setSelectedIndustries] = useState([]);
-
-  // Quản lý trang hiện tại (Giữ lại state này để truyền vào Component phân trang sau này)
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 4;
-
-  // --- Logic Reset ---
-  const handleReset = () => {
-    setSearchTerm("");
-    setSelectedIndustries([]);
-    setCurrentPage(1);
+  const INITIAL_PARAMS = {
+    searchTerm: "",
+    industries: [],
+    size: "",
+    location: "",
+    page: 1,
   };
 
-  // --- 1. Lọc dữ liệu ---
-  const filteredData = useMemo(() => {
-    return mockCompanies.filter((company) => {
-      const matchesSearch = company.name
-        .toLowerCase()
-        .includes(searchTerm.toLowerCase());
-      const matchesIndustry =
-        selectedIndustries.length === 0 ||
-        selectedIndustries.includes(company.industry);
-      return matchesSearch && matchesIndustry;
-    });
-  }, [searchTerm, selectedIndustries]);
+  const [params, setParams] = useState(INITIAL_PARAMS);
+  const [data, setData] = useState({ items: [], totalPages: 0, totalItems: 0 });
+  const [loading, setLoading] = useState(true);
 
-  // --- 2. Tính toán cắt mảng hiển thị ---
-  const totalPages = Math.ceil(filteredData.length / itemsPerPage);
+  // 🔥 chỉ cần state này
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
 
-  const currentItems = useMemo(() => {
-    const indexOfLastItem = currentPage * itemsPerPage;
-    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-    return filteredData.slice(indexOfFirstItem, indexOfLastItem);
-  }, [filteredData, currentPage]);
+  const handleParamChange = (key, value) => {
+    if (key === "reset") {
+      setParams(INITIAL_PARAMS);
+      return;
+    }
 
-  const handlePageChange = (pageNumber) => {
-    setCurrentPage(pageNumber);
+    setParams((prev) => ({
+      ...prev,
+      [key]: value,
+      page: key === "page" ? value : 1,
+    }));
+  };
+
+  const handleSearchChange = (value) => {
+    handleParamChange("searchTerm", value);
+  };
+
+  useEffect(() => {
+    const loadData = async () => {
+      setLoading(true);
+      try {
+        const response = await fetchCompaniesApi(params);
+        setData(response);
+      } catch (error) {
+        console.error("Lỗi:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadData();
     window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+  }, [params]);
 
   return (
-    <div className="bg-[#f9fafb] min-h-screen pt-24 pb-12 px-4 md:px-8 font-sans text-left">
+    <div className="bg-white min-h-screen pt-24 pb-12 px-4 md:px-8">
       <div className="max-w-7xl mx-auto">
-        {/* Header Section */}
-        <section className="mb-12">
-          <h1 className="text-5xl font-black text-slate-900 mb-4 tracking-tighter">
-            The Global <span className="text-[#6344ff]">Architecture</span>{" "}
+        {/* SEARCH */}
+        <div className="mb-12">
+          <h1 className="text-5xl font-black mb-8">
+            The Global <span className="text-blue-600">Architecture</span>{" "}
             Index.
           </h1>
-          <div className="mt-8 flex max-w-xl bg-white p-2 rounded-2xl shadow-sm border border-slate-100">
-            <input
-              type="text"
-              value={searchTerm}
-              onChange={(e) => {
-                setSearchTerm(e.target.value);
-                setCurrentPage(1);
-              }}
-              placeholder="Tìm kiếm công ty..."
-              className="flex-grow px-4 py-2 outline-none"
-            />
+
+          <CompanySearch
+            value={params.searchTerm}
+            onChange={handleSearchChange}
+          />
+
+          {/* 🔥 NÚT LỌC MOBILE */}
+          <div className="flex md:hidden mt-4">
+            <button
+              onClick={() => setIsFilterOpen(true)}
+              className="w-full h-[44px] bg-white border border-gray-200 rounded-xl shadow-sm text-sm font-semibold"
+            >
+              Lọc
+            </button>
           </div>
-        </section>
+        </div>
 
-        <div className="flex flex-col lg:flex-row gap-8">
-          {/* Sidebar Filters */}
-          <aside className="w-full lg:w-64 flex-shrink-0">
-            <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm">
-              <h4 className="text-[11px] font-black text-slate-400 uppercase mb-5 tracking-widest">
-                Ngành nghề
-              </h4>
-              <ul className="space-y-4">
-                {[
-                  "Architecture",
-                  "Engineering",
-                  "Urban Planning",
-                  "Interior Design",
-                ].map((item) => (
-                  <li
-                    key={item}
-                    className="flex items-center gap-3 cursor-pointer"
-                    onClick={() => {
-                      setSelectedIndustries((prev) =>
-                        prev.includes(item)
-                          ? prev.filter((i) => i !== item)
-                          : [...prev, item],
-                      );
-                      setCurrentPage(1);
-                    }}
-                  >
-                    <input
-                      type="checkbox"
-                      checked={selectedIndustries.includes(item)}
-                      readOnly
-                      className="accent-[#6344ff] w-5 h-5"
-                    />
-                    <span className="text-sm font-bold text-slate-600">
-                      {item}
-                    </span>
-                  </li>
+        <div className="flex flex-col md:flex-row gap-12">
+          {/* 🔥 FILTER */}
+          <div
+            className={`fixed inset-0 z-[100] md:relative md:inset-auto md:z-0 ${
+              isFilterOpen ? "block" : "hidden md:block"
+            }`}
+          >
+            {/* Overlay */}
+            <div
+              className="absolute inset-0 bg-black/50 md:hidden"
+              onClick={() => setIsFilterOpen(false)}
+            />
+
+            {/* Sidebar */}
+            <div
+              className="relative w-80 max-w-[85%] h-full md:h-auto 
+                         bg-white md:bg-transparent shadow-2xl md:shadow-none 
+                         flex flex-col"
+            >
+              {/* Header mobile */}
+              <div className="flex justify-between items-center p-5 md:hidden border-b">
+                <span className="font-bold text-lg">Bộ lọc</span>
+                <button onClick={() => setIsFilterOpen(false)}>✕</button>
+              </div>
+
+              <div className="flex-1 overflow-y-auto px-5 md:px-0">
+                <div className="md:sticky md:top-28">
+                  <CompanyFilter
+                    params={params}
+                    onParamChange={handleParamChange}
+                    onReset={() => handleParamChange("reset")}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* MAIN */}
+          <div className="flex-grow w-full min-w-0">
+            {loading ? (
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                {[1, 2, 3].map((i) => (
+                  <div
+                    key={i}
+                    className="h-44 bg-gray-200 rounded-2xl animate-pulse"
+                  />
                 ))}
-              </ul>
-              <button
-                onClick={handleReset}
-                className="w-full mt-8 py-3 bg-indigo-50 text-[#6344ff] rounded-xl text-xs font-black uppercase"
-              >
-                Reset Filter
-              </button>
-            </div>
-          </aside>
+              </div>
+            ) : (
+              <div className="flex flex-col">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {data.items.map((company) => (
+                    <CompanyCard key={company.id} company={company} />
+                  ))}
+                </div>
 
-          {/* Main Content Area */}
-          <div className="flex-grow">
-            {/* Grid hiển thị danh sách công ty */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {currentItems.map((company) => (
-                <CompanyCard key={company.id} company={company} />
-              ))}
-            </div>
-
-            {/* --- VÙNG CHỜ IMPORT PHÂN TRANG --- */}
-            {totalPages > 1 && (
-              <div className="mt-16 flex justify-center">
-                {/* Sau này Vinh Hà chỉ cần gọi Component của bạn mình ở đây.
-                  Ví dụ: 
-                  <Pagination 
-                    currentPage={currentPage} 
-                    totalPages={totalPages} 
-                    onPageChange={handlePageChange} 
-                  /> 
-                */}
-                <p className="text-slate-400 text-sm italic">
-                  -- Pagination Component will be placed here --
-                </p>
+                {data.totalPages > 1 && (
+                  <div className="mt-12 flex justify-center">
+                    <Pagination
+                      totalPages={data.totalPages}
+                      currentPage={params.page}
+                      onPageChange={(p) => handleParamChange("page", p)}
+                    />
+                  </div>
+                )}
               </div>
             )}
-            {/* ---------------------------------- */}
           </div>
         </div>
       </div>

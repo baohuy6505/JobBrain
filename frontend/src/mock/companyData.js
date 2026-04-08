@@ -1,92 +1,58 @@
-// src/mock/companyData.js
-
-const rawNames = [
-  "Nexus Design Studio",
-  "Terraform Global",
-  "Aetheria Interiors",
-  "Apex Urban Planning",
-  "Skyline Architects",
-  "EcoBuild Solutions",
-  "Lumina Design",
-  "Metro Politan Plan",
-];
-
-const rawIndustries = [
+const industries = [
   "Architecture",
   "Engineering",
-  "Interior Design",
   "Urban Planning",
-  "Architecture",
-  "Engineering",
   "Interior Design",
-  "Urban Planning",
+];
+const locations = ["Hà Nội", "TP. HCM", "Đà Nẵng", "Cần Thơ"];
+
+const sampleReviews = [
+  {
+    initials: "JB",
+    author: "User JobBrain",
+    status: "Nhân viên hiện tại",
+    rating: 5,
+    title: "Môi trường chuyên nghiệp",
+    pros: "Quy trình tốt, đồng nghiệp thân thiện.",
+  },
+  {
+    initials: "V",
+    author: "Ẩn danh",
+    status: "Cựu nhân viên",
+    rating: 4,
+    title: "Nhiều cơ hội học hỏi",
+    pros: "Học được nhiều công nghệ mới.",
+  },
 ];
 
-// Danh sách 5 ảnh bìa chất lượng cao để lồng vào
-const poolOfCoverImages = [
-  "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab", // Tòa nhà hiện đại, góc rộng
-  "https://images.unsplash.com/photo-1497366216548-37526070297c", // Không gian văn phòng mở
-  "https://images.unsplash.com/photo-1504384308090-c894fdcc538d", // Tòa nhà kính, hoàng hôn
-  "https://images.unsplash.com/photo-1431540015161-0bf868a2d407", // Góc làm việc tối giản
-  "https://images.unsplash.com/photo-1541888946425-d81bb19240f5", // Công trình xây dựng, góc nhìn trên cao
-];
-
-export const mockCompanies = rawNames.map((name, index) => {
+export const MOCK_COMPANIES = Array.from({ length: 40 }, (_, index) => {
   const id = index + 1;
-  const isDetailed = id % 2 !== 0; // ID lẻ: Chi tiết; ID chẵn: Cơ bản
-
-  // LOGIC CHÈN ĐIỀU KIỆN ẢNH BÌA:
-  // Lấy ra 3 ảnh bìa từ danh sách 5 ảnh trên cho mỗi công ty.
-  // Số thứ tự ảnh bắt đầu sẽ khác nhau dựa trên ID của công ty.
-  // (Ví dụ ID 1 lấy ảnh 0,1,2; ID 2 lấy ảnh 1,2,3; ID 6 lấy ảnh 0,1,2 nhờ phép chia lấy dư)
-  const startIndex = index % poolOfCoverImages.length;
-  const companyCovers = [
-    poolOfCoverImages[startIndex],
-    poolOfCoverImages[(startIndex + 1) % poolOfCoverImages.length],
-    poolOfCoverImages[(startIndex + 2) % poolOfCoverImages.length],
-  ];
+  const name = `Company ${id} Global`;
+  const randIndustry = industries[index % industries.length];
+  const randLocation = locations[index % locations.length];
 
   return {
     id: id,
     name: name,
-    industry: rawIndustries[index],
-    description:
-      "Building the future of infrastructure with sustainable designs.",
-    activeJobs: isDetailed ? 24 : 10,
-    employees: isDetailed ? "500+" : "100+",
-    logo: name.charAt(0),
-    isTopEmployer: id % 3 === 0,
-    rating: isDetailed ? 4.8 : 4.0,
-    reviewsCount: isDetailed ? 1248 : 50,
-    ceoApproval: isDetailed ? "94%" : "80%",
-    recommendFriend: isDetailed ? "89%" : "70%",
-    website: `${name.toLowerCase().replace(/\s/g, "")}.solutions`,
-    workingTime: "Thứ 2 - Thứ 6",
-
-    // Mảng chứa các ảnh bìa để lựa chọn (3 ảnh)
-    coverImages: companyCovers,
-
-    reviews: isDetailed
-      ? [
-          {
-            id: 1,
-            author: "Senior Designer",
-            initials: "JD",
-            status: "Current Employee",
-            rating: 5,
-            title: "Exceptional culture",
-            pros: "Management listens. Great budget.",
-            cons: "Fast-paced.",
-            date: "Oct 24, 2025",
-          },
-        ]
-      : [],
-
-    workspaceImages: isDetailed
-      ? [
-          "https://images.unsplash.com/photo-1497366754035-f200968a6e72",
-          "https://images.unsplash.com/photo-1522202176988-66273c2fd55f",
-        ]
-      : [],
+    industry: randIndustry,
+    location: randLocation,
+    logo: `https://api.dicebear.com/7.x/initials/svg?seed=${id}`,
+    activeJobs: (index % 40) + 5,
+    employees: ((index * 123) % 4950) + 50,
+    featured: id <= 5,
+    description: `Công ty ${name} là đơn vị hàng đầu trong lĩnh vực ${randIndustry}...`,
+    address: randLocation,
+    website: `www.${name.toLowerCase().replace(/\s/g, "")}.com`,
+    workingTime: "Thứ 2 - Thứ 6 (08:00 - 17:30)",
+    rating: parseFloat((4.0 + (index % 10) * 0.1).toFixed(1)),
+    reviewsCount: ((index * 7) % 300) + 20,
+    stats: [
+      { star: 5, percent: 75 },
+      { star: 4, percent: 18 },
+      { star: 3, percent: 5 },
+      { star: 2, percent: 2 },
+      { star: 1, percent: 0 },
+    ],
+    reviews: sampleReviews.map((r, i) => ({ id: i + 1, ...r })),
   };
 });

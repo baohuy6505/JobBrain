@@ -1,6 +1,6 @@
 import { Outlet, useLocation } from "react-router-dom";
 import Header from "../Components/Header/Header";
-import Footer from "../Components/Footer/Footer";
+import FooterUSer from "../Components/Footer/FooterUser";
 
 const MainLayout = () => {
   // 1. Lấy thông tin đường dẫn hiện tại (URL)
@@ -15,7 +15,7 @@ const MainLayout = () => {
         <Outlet />
       </main>
       {/* 3. Chỉ hiển thị Footer nếu KHÔNG PHẢI là trang tin nhắn */}
-      {!isMessagesPage && <Footer />}
+      {!isMessagesPage && <FooterUSer />}
     </div>
   );
 };

@@ -23,3 +23,13 @@ body {
 #root {
   width: 100%;
 }
+
+/* Ẩn scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE */
+  scrollbar-width: none; /* Firefox */
+}

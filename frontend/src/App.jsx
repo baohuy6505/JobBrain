@@ -16,7 +16,7 @@ import JobDetail from "./pages/JobDetailPage/JobDetail";
 import NotificationsPage from "./pages/NotificationsPage/NotificationsPage";
 import Dashboard from "./pages/Admin/DashBoarb";
 import CompanyPage from "./pages/CompanyPage/CompaniesPage";
-import CompanyDetail from "./pages/CompanyPage/CompanyDetail";
+import CompanyDetail from "./pages/CompanyDetail/CompanyDetail";
 
 // import { Provider } from "react-redux";
 // import { store } from ".././src/app/store";
@@ -29,7 +29,7 @@ function App() {
         <Route path="job-posts" element={<JobPosts />} />
         <Route path="messages" element={<MessagesPage />} />
         <Route path="list-job" element={<JobBoard />} />
-        <Route path="job/:id" element={<JobDetail />} />
+        <Route path="list-job/:id" element={<JobDetail />} />
         <Route path="admin" element={<Admin />} />
         <Route path="dashboard" element={<DashboardLayout />}>
           <Route path="my-jobs" element={<MyJobsPage />} />
@@ -40,10 +40,11 @@ function App() {
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="messages" element={<MessagesPage />} />
           <Route path="notifications" element={<NotificationsPage />} />
-          <Route path="companies" element={<CompanyPage />} />
-          <Route path="companies/:id" element={<CompanyDetail />} />
+
           <Route path="admin" element={<Admin />} />
         </Route>
+        <Route path="companies/:id" element={<CompanyDetail />} />
+        <Route path="companies" element={<CompanyPage />} />
       </Route>
       <Route path="login" element={<LoginPage />} />
       <Route path="register" element={<RegisterPage />} />

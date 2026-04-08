@@ -1,14 +1,20 @@
-import React from "react";
 import { MdLocationOn } from "react-icons/md";
 import { FiZap } from "react-icons/fi";
 import { Link } from "react-router-dom";
 
-export const JobCardGrid = ({ job }) => {
+const Card = ({ job }) => {
   // Guard clause để tránh crash nếu job null
   if (!job) return null;
 
   return (
-    <div className="group p-6 bg-white border border-gray-100 rounded-3xl flex flex-col transition-all duration-300 shadow-sm hover:shadow-xl hover:-translate-y-2 cursor-pointer h-full relative overflow-hidden">
+    <div
+      className="
+  group w-full p-6 bg-white border border-gray-100 rounded-3xl 
+  flex flex-col h-full cursor-pointer
+  transition-all duration-300
+  shadow-sm hover:shadow-sm hover:-translate-y-1 hover:scale-[1.01]
+"
+    >
       {/* Badge Featured */}
       {job.isFeatured && (
         <div className="flex items-center gap-1 text-[10px] font-bold text-orange-500 uppercase tracking-wider mb-4">
@@ -24,6 +30,7 @@ export const JobCardGrid = ({ job }) => {
               src={job.company.logo}
               alt={job.company.name}
               className="w-full h-full object-cover"
+              rounded-xl
             />
           ) : (
             <span className="text-xs font-bold uppercase">
@@ -84,7 +91,7 @@ export const JobCardGrid = ({ job }) => {
         </div>
 
         <Link
-          to={`/job/${job.id}`}
+          to={`/list-job/${job.id}`}
           className="w-full bg-gray-50 text-gray-600 py-3 rounded-2xl font-bold text-xs transition-all duration-300 group-hover:bg-blue-600 group-hover:text-white group-hover:shadow-lg group-hover:shadow-blue-200 flex justify-center items-center gap-2"
         >
           Xem chi tiết
@@ -93,3 +100,5 @@ export const JobCardGrid = ({ job }) => {
     </div>
   );
 };
+
+export default Card;
