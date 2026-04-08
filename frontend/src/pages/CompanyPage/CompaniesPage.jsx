@@ -101,7 +101,7 @@ const CompaniesPage = () => {
                          flex flex-col"
             >
               {/* Header mobile */}
-              <div className="flex justify-between items-center p-5 md:hidden border-b">
+              <div className="flex justify-between items-center p-5 mt-4 md:hidden">
                 <span className="font-bold text-lg">Bộ lọc</span>
                 <button onClick={() => setIsFilterOpen(false)}>✕</button>
               </div>

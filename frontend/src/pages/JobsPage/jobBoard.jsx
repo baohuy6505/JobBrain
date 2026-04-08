@@ -79,7 +79,7 @@ export default function JobBoard() {
           {/* Sidebar Panel: Không còn transition và transform */}
           <div className="relative w-80 max-w-[85%] h-full md:h-auto bg-white md:bg-transparent shadow-2xl md:shadow-none flex flex-col">
             {/* Header Mobile */}
-            <div className="flex justify-between items-center p-6 md:hidden bg-white border-b">
+            <div className="flex justify-between items-center p-6 md:hidden bg-white ">
               <span className="font-bold text-xl text-slate-800">Bộ lọc</span>
               <button
                 onClick={() => setIsFilterOpen(false)}
@@ -120,7 +120,7 @@ export default function JobBoard() {
                 <span>Lọc</span>
               </button>
 
-              <div className="flex-1 sm:flex-none h-[42px] bg-white rounded-2xl shadow-sm border border-slate-200 flex items-center overflow-hidden">
+              <div className="flex-1 min-w-[180px] sm:flex-none h-[42px] bg-white rounded-2xl shadow-sm border border-slate-200 flex items-center ">
                 <Dropdown
                   options={sortOptions}
                   value={params.sort}

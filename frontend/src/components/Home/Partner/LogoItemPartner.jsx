@@ -4,7 +4,8 @@ const LogoItem = ({ logoUrl, altText }) => {
       <img
         src={logoUrl}
         alt={altText}
-        className="max-h-12 w-auto object-contain"
+        // Đổi max-h-12 thành max-h-8 (mobile) và md:max-h-12 (PC)
+        className="max-h-8 md:max-h-12 w-auto object-contain transition-all duration-300" 
       />
     </div>
   );

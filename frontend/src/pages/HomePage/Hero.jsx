@@ -9,17 +9,17 @@ const Hero = () => {
       text-white 
       flex items-center justify-center
       mt-16 
-      h-[calc(100dvh-64px)] 
+      h-[calc(100dvh-63px)] 
       min-h-[500px] 
     "
     >
       <div className="max-w-5xl mx-auto flex flex-col items-center w-full px-6">
-        <h1 className="text-4xl md:text-6xl font-bold mb-6 text-center leading-tight">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 text-center leading-tight">
           Tìm kiếm cơ hội nghề nghiệp <br className="hidden md:block" /> lý
           tưởng của bạn
         </h1>
 
-        <p className="text-gray-400 text-center max-w-2xl mb-10 text-sm md:text-base leading-relaxed">
+        <p className="text-gray-400 text-center max-w-2xl mx-auto mb-8 sm:mb-10 text-xs sm:text-sm md:text-base leading-relaxed px-4 sm:px-0">
           Khám phá hàng ngàn công việc từ các công ty hàng đầu và kết nối với
           cộng đồng chuyên gia chuyên nghiệp.
         </p>

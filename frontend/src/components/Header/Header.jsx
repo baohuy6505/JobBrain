@@ -91,14 +91,24 @@ const Header = () => {
                     alt="Avatar"
                   />
                 </Link>
+                
+              </div>
+              <div>
+                <nav className="hidden md:flex space-x-6 font-medium h-full text-sm">
+                  <NavLink to="/manager/" className={navLinkClass}>
+                    Manager
+                  </NavLink>
+                  <NavLink to="/admin/dashboard" className={navLinkClass}>
+                    Admin
+                  </NavLink>
+                </nav>
+              </div>
                 <button
                   onClick={() => dispatch(logout())}
                   className="text-xs text-red-500 font-bold ml-2 hover:underline"
                 >
-                  Thoát
+                  Dang xuat
                 </button>
-              </div>
-
               <button
                 onClick={toggleMenu}
                 className="md:hidden text-2xl text-gray-600 p-1 focus:outline-none"
@@ -156,6 +166,7 @@ const Header = () => {
 
           <div className="p-6 bg-slate-50 border-b border-slate-100">
             {isAuthenticated && user ? (
+              <Link to={`/dashboard/${user?.userId}`} className="flex items-center gap-3">
               <div className="flex items-center gap-3">
                 <img
                   src={user.avatar}
@@ -167,6 +178,7 @@ const Header = () => {
                   <p className="text-xs text-slate-500">{user.address}</p>
                 </div>
               </div>
+              </Link>
             ) : (
               <div className="space-y-4">
                 <p className="text-[10px] text-slate-400 font-black uppercase tracking-widest">
@@ -215,7 +227,7 @@ const Header = () => {
               Company
             </NavLink>
             <NavLink
-              to="/messages"
+              to="/messages/${user?.id}"
               onClick={toggleMenu}
               className="block px-4 py-3 rounded-xl text-gray-600 font-bold hover:bg-indigo-50 hover:text-[#6344ff]"
             >

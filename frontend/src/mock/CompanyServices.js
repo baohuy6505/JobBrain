@@ -25,7 +25,7 @@ export const fetchCompaniesApi = async (params) => {
   }
 
   const page = params.page || 1;
-  const limit = 8;
+  const limit = 4;
   const startIndex = (page - 1) * limit;
 
   return {

@@ -112,25 +112,27 @@ export const mockProfileData = {
   ]
 };
 
+// // Thêm hàm này vào nơi chứa các hàm API giả lập của bạn
+// export const fetchTransactionsApi = async (allTransactions, params) => {
+//   // Giả lập độ trễ mạng để có hiệu ứng loading chân thực
+//   await new Promise((resolve) => setTimeout(resolve, 300));
 
-// export const mockFetchWalletData = () => {
-//   return new Promise((resolve) => {
-//     setTimeout(() => {
-//       resolve({
-//         accountInfo: {
-//           balance: "25.000.000",
-//           currency: "VND",
-//           companyName: "QuangVu Bank",
-//           cardNumber: "**** **** 8888"
-//         },
-//         transactions: [
-//           { id: 1, date: "Oct 24, 2023", desc: "Funds Deposit - Wire Transfer", type: "DEPOSIT", amount: "+$2,500.00", status: "Success" },
-//           { id: 2, date: "Oct 22, 2023", desc: "Job Post: Senior Product Designer", type: "JOB POST", amount: "-$299.00", status: "Success" },
-//           { id: 3, date: "Oct 20, 2023", desc: "Candidate Refund - Ref #9021", type: "REFUND", amount: "+$45.00", status: "Success" },
-//           { id: 4, date: "Oct 18, 2023", desc: "Job Post: Backend Engineer (London)", type: "JOB POST", amount: "-$350.00", status: "Pending" },
-//           { id: 5, date: "Oct 15, 2023", desc: "Subscription Renewal - Enterprise", type: "SUBSCRIPTION", amount: "-$1,200.00", status: "Failed" }
-//         ]
-//       });
-//     }, 600); // Load mất 0.6s
-//   });
+//   let filtered = [...(allTransactions || [])];
+
+//   // Nơi này sau này bạn có thể thêm logic Filter hoặc Search
+//   if (params.searchTerm) {
+//     const search = params.searchTerm.toLowerCase();
+//     filtered = filtered.filter(tx => tx.desc.toLowerCase().includes(search));
+//   }
+
+//   // Logic phân trang chuẩn
+//   const page = params.page || 1;
+//   const limit = params.limit || 4;
+//   const startIndex = (page - 1) * limit;
+
+//   return {
+//     items: filtered.slice(startIndex, startIndex + limit), // Chỉ lấy đúng số dòng của trang đó
+//     totalItems: filtered.length,
+//     totalPages: Math.ceil(filtered.length / limit),
+//   };
 // };
