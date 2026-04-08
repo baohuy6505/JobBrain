@@ -1,18 +1,23 @@
-import { HiOutlineDocumentText, HiOutlineEye, HiOutlineCalendar, HiOutlineChartBar } from "react-icons/hi";
+import {
+  HiOutlineDocumentText,
+  HiOutlineEye,
+  HiOutlineCalendar,
+  HiOutlineChartBar,
+} from "react-icons/hi";
 
 export const mockUserData = {
-    profile: {
-      welcomeMessage: "Chào mừng trở lại! Bạn có 3 lời mời phỏng vấn mới.",
-      },
+  profile: {
+    welcomeMessage: "Chào mừng trở lại! Bạn có 3 lời mời phỏng vấn mới.",
+  },
   stats: [
-   {
+    {
       id: 1,
       type: "APPLIED_JOBS", // Dùng type để định danh
       title: "Việc đã nộp",
       value: "48",
       percent: "+12%",
       isIncrease: true,
-      badgeMode: false
+      badgeMode: false,
     },
     {
       id: 2,
@@ -21,7 +26,7 @@ export const mockUserData = {
       value: "1,204",
       percent: "+5%",
       isIncrease: true,
-      badgeMode: false
+      badgeMode: false,
     },
     {
       id: 3,
@@ -30,7 +35,7 @@ export const mockUserData = {
       value: "3",
       percent: "MỚI",
       isIncrease: true,
-      badgeMode: true
+      badgeMode: true,
     },
     {
       id: 4,
@@ -39,16 +44,82 @@ export const mockUserData = {
       value: "76%",
       percent: "-2%",
       isIncrease: false,
-      badgeMode: false
+      badgeMode: false,
+    },
+  ],
+  statsDashBoardAdmin: [
+    {
+      id: 1,
+      title: "TOTAL USERS",
+      value: "24,892",
+      trend: "↗ 12% from last month",
+      trendColor: "text-green-500",
+    },
+    {
+      id: 2,
+      title: "ACTIVE JOBS",
+      value: "1,402",
+      trend: "↗ 5.2% vs yesterday",
+      trendColor: "text-green-500",
+    },
+    {
+      id: 3,
+      title: "TRANSACTIONS",
+      value: "842",
+      trend: "🕒 Last: 2 mins ago",
+      trendColor: "text-gray-500",
+    },
+    {
+      id: 4,
+      title: "REVENUE",
+      value: "$128.4k",
+      trend: "Target: $150k (85%)",
+      trendColor: "text-blue-500",
     },
   ],
   applications: [
-    { id: 1, company: "TechVina Corp", role: "Senior UI Designer", date: "12/10/2024", status: "ACCEPTED" },
-    { id: 2, company: "Global Soft", role: "Frontend Lead", date: "10/10/2024", status: "INTERVIEW" },
-    { id: 3, company: "Solaris AI", role: "Product Manager", date: "08/10/2024", status: "PENDING" },
-    { id: 4, company: "Fintech Pro", role: "UX Researcher", date: "05/10/2024", status: "REJECTED" },
-    { id: 5, company: "Fintech Pro", role: "UX Researcher", date: "05/10/2024", status: "REJECTED" },
-    { id: 6, company: "Fintech Pro", role: "UX Researcher", date: "05/10/2024", status: "REJECTED" },
+    {
+      id: 1,
+      company: "TechVina Corp",
+      role: "Senior UI Designer",
+      date: "12/10/2024",
+      status: "ACCEPTED",
+    },
+    {
+      id: 2,
+      company: "Global Soft",
+      role: "Frontend Lead",
+      date: "10/10/2024",
+      status: "INTERVIEW",
+    },
+    {
+      id: 3,
+      company: "Solaris AI",
+      role: "Product Manager",
+      date: "08/10/2024",
+      status: "PENDING",
+    },
+    {
+      id: 4,
+      company: "Fintech Pro",
+      role: "UX Researcher",
+      date: "05/10/2024",
+      status: "REJECTED",
+    },
+    {
+      id: 5,
+      company: "Fintech Pro",
+      role: "UX Researcher",
+      date: "05/10/2024",
+      status: "REJECTED",
+    },
+    {
+      id: 6,
+      company: "Fintech Pro",
+      role: "UX Researcher",
+      date: "05/10/2024",
+      status: "REJECTED",
+    },
   ],
 
   // Các thông báo bên cột phải
@@ -77,12 +148,11 @@ export const mockUserData = {
   ],
 };
 
-
 export const mockProfileData = {
   skills: ["React", "Tailwind", "TypeScript", "Node.js"],
   cv: {
     fileName: "CV_2024_Main.pdf",
-    uploadedAt: "Jan 12, 2024"
+    uploadedAt: "Jan 12, 2024",
   },
   experiences: [
     {
@@ -91,7 +161,8 @@ export const mockProfileData = {
       time: "PRESENT",
       role: "Senior Developer at TechMind",
       location: "San Francisco, CA • Full-time",
-      description: "Leading the core architecture team for the SaaS recruitment platform. Scaling distributed systems to handle 2M+ active candidates."
+      description:
+        "Leading the core architecture team for the SaaS recruitment platform. Scaling distributed systems to handle 2M+ active candidates.",
     },
     {
       id: 2,
@@ -99,7 +170,8 @@ export const mockProfileData = {
       time: "2020 — 2022",
       role: "Full Stack Engineer at CloudScale",
       location: "Remote • Contract",
-      description: "Developed responsive dashboards using React and Node.js. Optimized database queries resulting in 40% performance boost."
+      description:
+        "Developed responsive dashboards using React and Node.js. Optimized database queries resulting in 40% performance boost.",
     },
     {
       id: 3,
@@ -107,11 +179,10 @@ export const mockProfileData = {
       time: "2016 — 2020",
       role: "B.Sc. in Computer Science",
       location: "University of Engineering",
-      description: "First Class Honors • Specialized in Software Engineering"
-    }
-  ]
+      description: "First Class Honors • Specialized in Software Engineering",
+    },
+  ],
 };
-
 
 // export const mockFetchWalletData = () => {
 //   return new Promise((resolve) => {
