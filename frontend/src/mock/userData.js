@@ -1,58 +1,54 @@
 import { HiOutlineDocumentText, HiOutlineEye, HiOutlineCalendar, HiOutlineChartBar } from "react-icons/hi";
 
 export const mockUserData = {
-  profile: {
-    welcomeMessage: "Chào mừng trở lại! Bạn có 3 lời mời phỏng vấn mới.",
-    completionPercent: 80,
-  },
+    profile: {
+      welcomeMessage: "Chào mừng trở lại! Bạn có 3 lời mời phỏng vấn mới.",
+      },
   stats: [
+   {
+      id: 1,
+      type: "APPLIED_JOBS", // Dùng type để định danh
+      title: "Việc đã nộp",
+      value: "48",
+      percent: "+12%",
+      isIncrease: true,
+      badgeMode: false
+    },
     {
-            id: 1,
-            title: "Việc đã nộp",
-            value: "48",
-            percent: "+12%",
-            isIncrease: true,
-            icon: HiOutlineDocumentText,
-            iconColor: "text-blue-500",
-            bgColor: "bg-blue-50"
-          },
-          {
-            id: 2,
-            title: "Lượt xem hồ sơ",
-            value: "1,204",
-            percent: "+5%",
-            isIncrease: true,
-            icon: HiOutlineEye,
-            iconColor: "text-purple-500",
-            bgColor: "bg-purple-50"
-          },
-          {
-            id: 3,
-            title: "Mời phỏng vấn",
-            value: "3",
-            percent: "MỚI",
-            isIncrease: true,
-            icon: HiOutlineCalendar,
-            iconColor: "text-orange-500",
-            bgColor: "bg-orange-50",
-            badgeMode: true // Hiển thị dạng badge "MỚI" thay vì %
-          },
-          {
-            id: 4,
-            title: "Tỉ lệ phản hồi",
-            value: "76%",
-            percent: "-2%",
-            isIncrease: false,
-            icon: HiOutlineChartBar,
-            iconColor: "text-gray-500",
-            bgColor: "bg-gray-100"
-          },
+      id: 2,
+      type: "PROFILE_VIEWS",
+      title: "Lượt xem hồ sơ",
+      value: "1,204",
+      percent: "+5%",
+      isIncrease: true,
+      badgeMode: false
+    },
+    {
+      id: 3,
+      type: "INTERVIEW_INVITES",
+      title: "Mời phỏng vấn",
+      value: "3",
+      percent: "MỚI",
+      isIncrease: true,
+      badgeMode: true
+    },
+    {
+      id: 4,
+      type: "RESPONSE_RATE",
+      title: "Tỉ lệ phản hồi",
+      value: "76%",
+      percent: "-2%",
+      isIncrease: false,
+      badgeMode: false
+    },
   ],
   applications: [
-    { id: 1, company: "TechVina Corp", role: "Senior UI Designer", date: "12/10/2024", status: "ACCEPTED", color: "bg-blue-100 text-blue-700", logoText: "T", logoBg: "bg-blue-50 text-blue-600" },
-    { id: 2, company: "Global Soft", role: "Frontend Lead", date: "10/10/2024", status: "INTERVIEW", color: "bg-purple-100 text-purple-700", logoText: "G", logoBg: "bg-purple-50 text-purple-600" },
-    { id: 3, company: "Solaris AI", role: "Product Manager", date: "08/10/2024", status: "PENDING", color: "bg-orange-100 text-orange-700", logoText: "S", logoBg: "bg-orange-50 text-orange-600" },
-    { id: 4, company: "Fintech Pro", role: "UX Researcher", date: "05/10/2024", status: "REJECTED", color: "bg-red-100 text-red-700", logoText: "F", logoBg: "bg-red-50 text-red-600" },
+    { id: 1, company: "TechVina Corp", role: "Senior UI Designer", date: "12/10/2024", status: "ACCEPTED" },
+    { id: 2, company: "Global Soft", role: "Frontend Lead", date: "10/10/2024", status: "INTERVIEW" },
+    { id: 3, company: "Solaris AI", role: "Product Manager", date: "08/10/2024", status: "PENDING" },
+    { id: 4, company: "Fintech Pro", role: "UX Researcher", date: "05/10/2024", status: "REJECTED" },
+    { id: 5, company: "Fintech Pro", role: "UX Researcher", date: "05/10/2024", status: "REJECTED" },
+    { id: 6, company: "Fintech Pro", role: "UX Researcher", date: "05/10/2024", status: "REJECTED" },
   ],
 
   // Các thông báo bên cột phải
@@ -79,4 +75,62 @@ export const mockUserData = {
       active: false,
     },
   ],
+};
+
+
+export const mockProfileData = {
+  skills: ["React", "Tailwind", "TypeScript", "Node.js"],
+  cv: {
+    fileName: "CV_2024_Main.pdf",
+    uploadedAt: "Jan 12, 2024"
+  },
+  experiences: [
+    {
+      id: 1,
+      isPresent: true,
+      time: "PRESENT",
+      role: "Senior Developer at TechMind",
+      location: "San Francisco, CA • Full-time",
+      description: "Leading the core architecture team for the SaaS recruitment platform. Scaling distributed systems to handle 2M+ active candidates."
+    },
+    {
+      id: 2,
+      isPresent: false,
+      time: "2020 — 2022",
+      role: "Full Stack Engineer at CloudScale",
+      location: "Remote • Contract",
+      description: "Developed responsive dashboards using React and Node.js. Optimized database queries resulting in 40% performance boost."
+    },
+    {
+      id: 3,
+      isPresent: false,
+      time: "2016 — 2020",
+      role: "B.Sc. in Computer Science",
+      location: "University of Engineering",
+      description: "First Class Honors • Specialized in Software Engineering"
+    }
+  ]
+};
+
+
+export const mockFetchWalletData = () => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve({
+        accountInfo: {
+          balance: "25.000.000",
+          currency: "VND",
+          companyName: "QuangVu Bank",
+          cardNumber: "**** **** 8888"
+        },
+        transactions: [
+          { id: 1, date: "Oct 24, 2023", desc: "Funds Deposit - Wire Transfer", type: "DEPOSIT", amount: "+$2,500.00", status: "Success" },
+          { id: 2, date: "Oct 22, 2023", desc: "Job Post: Senior Product Designer", type: "JOB POST", amount: "-$299.00", status: "Success" },
+          { id: 3, date: "Oct 20, 2023", desc: "Candidate Refund - Ref #9021", type: "REFUND", amount: "+$45.00", status: "Success" },
+          { id: 4, date: "Oct 18, 2023", desc: "Job Post: Backend Engineer (London)", type: "JOB POST", amount: "-$350.00", status: "Pending" },
+          { id: 5, date: "Oct 15, 2023", desc: "Subscription Renewal - Enterprise", type: "SUBSCRIPTION", amount: "-$1,200.00", status: "Failed" }
+        ]
+      });
+    }, 600); // Load mất 0.6s
+  });
 };

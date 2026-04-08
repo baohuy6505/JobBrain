@@ -1,54 +1,48 @@
 import React from "react";
-import { useSelector } from "react-redux"; // Import hook để lấy data từ Redux
-import { mockUserData } from "../../mock/userData"; // Đường dẫn file mock của bạn
+import { useSelector } from "react-redux";
+import { mockUserData } from "../../mock/userData";
+import { HiOutlineCalendar, HiOutlineArrowRight } from "react-icons/hi";
 
 const ProfileBanner = () => {
-  // 1. Lấy thông tin user (tên, avatar) từ Redux store
-  // (Giả sử trong store bạn đặt tên reducer là 'user')
   const { userInfo } = useSelector((state) => state.user);
+  const { welcomeMessage } = mockUserData.profile;
 
-  // 2. Lấy thông tin profile (câu chào, phần trăm) từ file mock
-  const { welcomeMessage, completionPercent } = mockUserData.profile;
+  // Lấy ngày hiện tại
+  const today = new Date().toLocaleDateString('vi-VN', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
 
   return (
-    <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 flex flex-col md:flex-row items-center justify-between mb-8 gap-6">
+    <div className="bg-[#9810fa] rounded-3xl p-8 shadow-lg shadow-purple-500/20 flex flex-col md:flex-row items-center justify-between mb-8 gap-8 relative overflow-hidden">
       
+      {/* Pattern chìm trang trí */}
+      <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
+      <div className="absolute bottom-0 left-10 w-40 h-40 bg-purple-900 opacity-20 rounded-full blur-2xl translate-y-1/2"></div>
+
       {/* Thông tin User */}
-      <div className="flex items-center gap-4">
-        <div className="relative">
+      <div className="flex items-center gap-6 relative z-10">
+        <div className="relative group cursor-pointer">
           <img
-            // Thay src và alt bằng dữ liệu động từ Redux
             src={userInfo?.avatar || "https://i.pravatar.cc/150"} 
             alt={userInfo?.name || "User Avatar"}
-            className="w-16 h-16 rounded-full border border-gray-200 bg-gray-50 object-cover"
+            className="w-20 h-20 md:w-24 md:h-24 rounded-full border-4 border-white/20 shadow-xl object-cover transition-transform duration-300 group-hover:scale-105"
           />
-          {/* Nút xanh nhỏ ở avatar */}
-          <div className="absolute bottom-0 right-0 w-4 h-4 bg-blue-600 border-2 border-white rounded-full"></div>
+          <div className="absolute bottom-1 right-1 w-5 h-5 bg-green-400 border-2 border-white rounded-full shadow-sm"></div>
         </div>
         
-        <div>
-          {/* Đổ tên user từ Redux */}
-          <h1 className="text-2xl font-bold text-gray-900">Xin chào, {userInfo?.name || "Khách"}</h1>
-          {/* Đổ câu chào từ Mock Data */}
-          <p className="text-gray-500 text-sm mt-1">{welcomeMessage}</p>
+        <div className="text-white">
+          <div className="flex items-center gap-2 text-purple-100 text-sm mb-1 font-medium">
+            <HiOutlineCalendar className="text-lg" />
+            <span>{today}</span>
+          </div>
+          <h1 className="text-2xl md:text-3xl font-bold mb-2">Xin chào, {userInfo?.name || "Khách"}! 👋</h1>
+          <p className="text-purple-100 text-sm md:text-base opacity-90">{welcomeMessage}</p>
         </div>
       </div>
 
-      {/* Process Bar Hồ sơ */}
-      <div className="w-full md:w-1/3">
-        <div className="flex justify-between text-sm mb-2">
-          <span className="font-semibold text-gray-700">Hồ sơ hoàn tất</span>
-          {/* Đổ phần trăm từ Mock Data */}
-          <span className="font-bold text-blue-600">{completionPercent}%</span>
-        </div>
-        <div className="w-full bg-gray-100 rounded-full h-2.5 mb-2">
-          {/* Style width động theo phần trăm */}
-          <div 
-            className="bg-blue-600 h-2.5 rounded-full" 
-            style={{ width: `${completionPercent}%` }}
-          ></div>
-        </div>
-        <p className="text-xs text-gray-400 text-right">Cập nhật thêm kinh nghiệm để đạt 100%</p>
+      {/* Nút Call-to-action */}
+      <div className="w-full md:w-auto relative z-10">
+        <button className="w-full md:w-auto bg-white text-[#6344ff] hover:bg-gray-50 font-bold py-3 px-6 rounded-xl shadow-md flex items-center justify-center gap-2 transition-all active:scale-[0.98]">
+          Tìm việc ngay <HiOutlineArrowRight />
+        </button>
       </div>
 
     </div>

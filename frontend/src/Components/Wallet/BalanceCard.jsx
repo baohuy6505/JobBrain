@@ -26,10 +26,9 @@ const BalanceCard = ({ info }) => {
           <p className="text-blue-200 text-sm tracking-[0.2em] mt-2 font-mono">{info.cardNumber}</p>
         </div>
         
-        {/* Giả lập logo của thẻ */}
         <div className="flex gap-1">
-          <div className="w-8 h-5 bg-blue-400 rounded-sm opacity-80"></div>
-          <div className="w-8 h-5 bg-blue-300 rounded-sm opacity-60 -ml-4"></div>
+          {/* <div className="w-8 h-5 bg-blue-400 rounded-sm opacity-80"></div>
+          <div className="w-8 h-5 bg-blue-300 rounded-sm opacity-60 -ml-4"></div> */}
         </div>
       </div>
     </div>

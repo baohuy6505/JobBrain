@@ -4,6 +4,7 @@ import { Link, NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../../mock/userSlice";
 
+
 const Header = () => {
   const dispatch = useDispatch();
 
@@ -56,21 +57,22 @@ const Header = () => {
             <button className="text-gray-500 hover:text-[#6344ff] text-xl p-1">
               <HiOutlineMoon />
             </button>
-
             <div className="flex items-center space-x-3 ml-2 border-l pl-4 border-gray-200">
+            <Link to={`/dashboard/${user?.userId}`} className="flex items-center gap-3">
               <div className="text-right hidden sm:block">
                 <p className="text-sm font-semibold text-gray-800">
-                  {user.name}
+                  {user?.name}
                 </p>
                 <p className="text-[10px] text-gray-400 uppercase tracking-wider">
-                  {user.address}
+                  {user?.address}
                 </p>
               </div>
               <img
-                src={user.avatar}
+                src={user?.avatar}
                 className="h-10 w-10 rounded-full object-cover border"
                 alt="Avatar"
               />
+            </Link>
               <button
                 onClick={() => dispatch(logout())}
                 className="text-xs text-red-500 font-medium hover:bg-red-50 px-2 py-1 rounded-md"

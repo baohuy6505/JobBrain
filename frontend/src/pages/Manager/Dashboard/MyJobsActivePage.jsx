@@ -1,6 +1,6 @@
-import JobsHeaderManager from "../../Components/Header/JobsHeaderManager";
-import DashboardStats from "../../Components/dashboard/DashboardStats";
-import JobCard from "../../Components/dashboard/JobCard";
+import JobsHeaderManager from "../../../Components/Header/HeaderManager";
+import DashboardStats from "../../../Components/manager/dashboard/DashboardStats";
+import JobCard from "../../../Components/manager/dashboard/JobCard";
 
 export default function MyJobsActivePage() {
   const jobs = [

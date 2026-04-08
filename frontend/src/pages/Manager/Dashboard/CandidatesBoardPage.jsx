@@ -1,6 +1,5 @@
-import CandidatesHeaderManager from "../../Components/Header/CandidatesHeaderManager";
-import CandidateColumn from "../../Components/dashboard/CandidateColumn";
-import CandidateStats from "../../Components/dashboard/CandidateStats";
+import CandidateColumn from "../../../Components/manager/dashboard/CandidateColumn";
+import CandidateStats from "../../../Components/manager/dashboard/CandidateStats";
 
 export default function CandidatesBoardPage() {
   const columns = [

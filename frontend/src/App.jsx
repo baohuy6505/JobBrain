@@ -1,59 +1,68 @@
-import { Routes, Route } from "react-router-dom";
-import MainLayout from "./layouts/MainLayout";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import LoginPage from "./pages/LoginPage/LoginPage";
-import RegisterPage from "./pages/RegisterPage/RegisterPage";
+// Layouts
+import MainLayout from "./layouts/MainLayout";
+import ManagerLayout from "./layouts/ManagerLayout";
+import AdminLayout from "./layouts/AdminLayout";
+
+// General Pages
 import HomePage from "./pages/HomePage/Homepage";
-import Admin from "./pages/Admin";
 import JobPosts from "./pages/JobPosts/JobPosts";
-import MessagesPage from "./pages/MessagesPage/MessagesPage";
-import DashboardLayout from "./layouts/Dashboard/DashboardLayout";
-import MyJobsPage from "./pages/Dashboard/MyJobsPage";
-import MyJobsActivePage from "./pages/Dashboard/MyJobsActivePage";
-import CandidatesBoardPage from "./pages/Dashboard/CandidatesBoardPage";
 import JobBoard from "./pages/JobsPage/jobBoard";
 import JobDetail from "./pages/JobDetailPage/JobDetail";
+import MessagesPage from "./pages/MessagesPage/MessagesPage";
 import NotificationsPage from "./pages/NotificationsPage/NotificationsPage";
-import Dashboard from "./pages/Admin/DashBoarb";
 import CompanyPage from "./pages/CompanyPage/CompaniesPage";
 import CompanyDetail from "./pages/CompanyPage/CompanyDetail";
-
-import UserDashboardPage from "./pages/UserDashboardPage/UserDashboardPage";
-import ProfilePage from "./pages/ProfilePage/ProfilePage";
-import WalletPage from "./pages/WalletPage/WalletPage";
+import UserDashboard from "./pages/UserDashboardPage/UserDashboardPage";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
+import UserProfile from "./pages/UserProfilePage/UserProfilePage";
+// Dashboard Pages
+// import MyJobsPage from "./pages/Manager/Dashboard/MyJobsPage";
+import MyJobsActivePage from "./pages/Manager/Dashboard/MyJobsActivePage";
+import CandidatesBoardPage from "./pages/Manager/Dashboard/CandidatesBoardPage";
+import Wallet from "./pages/WalletPage/WalletPage"
+
+// Admin Pages
+import AdminDashboard from "./pages/Admin/Dashboard/AdminDashboard";
+
+// Authentication Pages
+import LoginPage from "./pages/LoginPage/LoginPage";
+import RegisterPage from "./pages/RegisterPage/RegisterPage";
 
 function App() {
   return (
     <Routes>
+      {/* 1. Nhóm Main Layout & Public Routes */}
       <Route path="/" element={<MainLayout />}>
         <Route index element={<HomePage />} />
+        <Route path="home" element={<HomePage />} />
 
-        <Route path="job-posts" element={<JobPosts />} />
-        <Route path="messages" element={<MessagesPage />} />
         <Route path="list-job" element={<JobBoard />} />
         <Route path="job/:id" element={<JobDetail />} />
-
-        <Route path="user-dashboard" element={<UserDashboardPage />} />
-        <Route path="profile" element={<ProfilePage />} />
+        <Route path="messages" element={<MessagesPage />} />
+        
         <Route path="notifications" element={<NotificationsPage />} />
-
-        <Route path="admin" element={<Admin />} />
-
+        <Route path="companies" element={<CompanyPage />} />
+        <Route path="companies/:id" element={<CompanyDetail />} />
+        <Route path="dashboard/:id" element={<UserDashboard />} />
+        <Route path="profile/:id" element={<UserProfile />} />
       </Route>
-        {/* DASHBOARD */}
-        <Route path="dashboard" element={<DashboardLayout />}>
-          <Route index element={<Dashboard />} />
-          <Route path="my-jobs" element={<MyJobsPage />} />
-          <Route path="my-jobs-active" element={<MyJobsActivePage />} />
-          <Route path="candidates-board" element={<CandidatesBoardPage />} />
-          <Route path="messages" element={<MessagesPage />} />
-          <Route path="companies" element={<CompanyPage />} />
-          <Route path="companies/:id" element={<CompanyDetail />} />
-          <Route path="wallet" element={<WalletPage />} />
-        </Route>
 
-      {/* AUTH */}
+      {/* 2. Nhóm Dashboard (Nằm trong Main Layout) */}
+      <Route path="manager" element={<ManagerLayout />}>
+        <Route path="job-posts" element={<JobPosts />} />
+        <Route path="wallet" element={<Wallet />} />
+        <Route path="my-jobs-active" element={<MyJobsActivePage />} />
+        <Route path="candidates-board" element={<CandidatesBoardPage />} />
+      </Route>
+
+      {/* 3. Nhóm Admin Layout */}
+      <Route path="admin" element={<AdminLayout />}>
+        <Route path="dashboard" element={<AdminDashboard />} />
+      </Route>
+
+      {/* 4. Nhóm Authentication */}
       <Route path="login" element={<LoginPage />} />
       <Route path="register" element={<RegisterPage />} />
 

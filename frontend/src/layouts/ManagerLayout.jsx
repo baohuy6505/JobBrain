@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
-import Sidebar from "../../Components/dashboard/Sidebar";
-import Topbar from "../../Components/dashboard/Topbar";
-import FooterManager from "../../Components/Footer/FooterManager";
+import Sidebar from "../Components/manager/dashboard/Sidebar";
+import Topbar from "../Components/manager/dashboard/Topbar";
+import FooterManager from "../Components/Footer/FooterManager";
 
 export default function DashboardLayout() {
   return (
@@ -17,7 +17,7 @@ export default function DashboardLayout() {
           </div>
         </main>
 
-        <FooterManager />
+        {/* <FooterManager /> */}
       </div>
     </div>
   );
