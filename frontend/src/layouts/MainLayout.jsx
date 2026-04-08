@@ -1,6 +1,6 @@
 import { Outlet, useLocation } from "react-router-dom";
-import Header from "../Components/Header/Header";
-import FooterUSer from "../Components/Footer/FooterUser";
+import Header from "../components/Header/Header";
+import FooterUSer from "../components/Footer/FooterUser";
 
 const MainLayout = () => {
   // 1. Lấy thông tin đường dẫn hiện tại (URL)

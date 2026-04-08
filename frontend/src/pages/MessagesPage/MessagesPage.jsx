@@ -5,9 +5,9 @@ import { useSelector, useDispatch } from "react-redux";
 // 1. IMPORT HÀM GỌI API TỪ REDUX SLICE
 import { fetchConversations } from "../../features/Messages/messageSlice";
 
-import Sidebar from "../../Components/Messages/Sidebar";
-import ChatWindow from "../../Components/Messages/ChatWindow";
-import UserDetailSidebar from "../../Components/Messages/UserDetailSidebar";
+import Sidebar from "../../components/Messages/Sidebar";
+import ChatWindow from "../../components/Messages/ChatWindow";
+import UserDetailSidebar from "../../components/Messages/UserDetailSidebar";
 
 const MessagesPage = () => {
   const { id } = useParams();

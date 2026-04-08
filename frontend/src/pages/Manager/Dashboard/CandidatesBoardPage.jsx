@@ -1,5 +1,5 @@
-import CandidateColumn from "../../../Components/manager/dashboard/CandidateColumn";
-import CandidateStats from "../../../Components/manager/dashboard/CandidateStats";
+import CandidateColumn from "../../../components/manager/dashboard/CandidateColumn";
+import CandidateStats from "../../../components/manager/dashboard/CandidateStats";
 
 export default function CandidatesBoardPage() {
   const columns = [

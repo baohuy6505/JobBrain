@@ -1,6 +1,6 @@
 import { HiChevronRight } from "react-icons/hi";
 import { ALL_JOBS } from "../../mock/JobData";
-import Card from "../../Components/common/Card";
+import Card from "../../components/common/Card";
 import { Link } from "react-router-dom";
 const Featured = () => {
   const jobs = ALL_JOBS.slice(0, 6);

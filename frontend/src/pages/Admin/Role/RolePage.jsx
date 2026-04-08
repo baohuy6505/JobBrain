@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import RoleList from "../../../Components/admin/Role/RoleList";
-import PermissionPanel from "../../../Components/admin/Role/PermissionPanel";
-import AuditPanel from "../../../Components/admin/Role/AuditPanel";
+import RoleList from "../../../components/admin/Role/RoleList";
+import PermissionPanel from "../../../components/admin/Role/PermissionPanel";
+import AuditPanel from "../../../components/admin/Role/AuditPanel";
 import {
   rolesMock,
   permissionsMock,

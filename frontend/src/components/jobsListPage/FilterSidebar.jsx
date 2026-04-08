@@ -3,7 +3,7 @@ import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
 
 import { MdLocationOn } from "react-icons/md";
-import FilterTag from "../../Components/common/FilterTag";
+import FilterTag from "../common/FilterTag";
 
 export const FilterSidebar = ({ params, onParamChange }) => {
   const handleToggleArray = (key, value) => {

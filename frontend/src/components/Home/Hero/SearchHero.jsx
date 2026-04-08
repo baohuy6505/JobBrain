@@ -4,7 +4,7 @@ import {
   HiOutlineBriefcase,
   HiOutlineLocationMarker,
 } from "react-icons/hi";
-import Dropdown from "../../../Components/common/Dropdown";
+import Dropdown from "../../common/Dropdown";
 import Button from "../../common/Button";
 
 const SearchHero = () => {

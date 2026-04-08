@@ -8,8 +8,8 @@ import {
   FiActivity,
   FiSettings,
 } from "react-icons/fi";
-import RevenueChart from "../../../Components/admin/DashBoard/RevenueChart";
-import UserGrowthChart from "../../../Components/admin/DashBoard/UserGrowthChart";
+import RevenueChart from "../../../components/admin/DashBoard/RevenueChart";
+import UserGrowthChart from "../../../components/admin/DashBoard/UserGrowthChart";
 
 // --- 1. MOCK DATA ---
 const statsData = [

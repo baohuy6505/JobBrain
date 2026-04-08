@@ -1,4 +1,4 @@
-import StepCard from "../../Components/Home/Works/StepWork";
+import StepCard from "../../components/Home/Works/StepWork";
 import { steps } from "../../mock/stepsWorkData";
 
 const HowItWorks = () => {

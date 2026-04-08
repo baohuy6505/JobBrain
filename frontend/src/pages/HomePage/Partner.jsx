@@ -1,5 +1,5 @@
 import { partners } from "../../mock/partnersData";
-import LogoItem from "../../Components/Home/Partner/LogoItemPartner";
+import LogoItem from "../../components/Home/Partner/LogoItemPartner";
 const PartnerSection = () => {
   return (
     <section className="py-12 bg-gray-50/50">
