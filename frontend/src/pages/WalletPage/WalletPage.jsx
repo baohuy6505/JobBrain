@@ -1,9 +1,9 @@
 import React from "react";
 import { useSelector } from "react-redux"; // Import Hook của Redux
 
-import BalanceCard from "../../components/wallet/BalanceCard";
-import TopUpForm from "../../components/wallet/TopUpForm";
-import TransactionHistory from "../../components/wallet/TransactionHistory";
+import BalanceCard from "../../components/Wallet/BalanceCard";
+import TopUpForm from "../../components/Wallet/TopUpForm";
+import TransactionHistory from "../../components/Wallet/TransactionHistory";
 
 const WalletPage = () => {
   // 1. MÓC DỮ LIỆU TỪ REDUX RA
