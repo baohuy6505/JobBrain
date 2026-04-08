@@ -65,7 +65,7 @@ const jobsData = [
 ];
 
 // ==========================================
-// 2. SUB-COMPONENTS
+// 2. SUB-components
 // ==========================================
 
 const KpiCard = ({ title, value, trend, trendType, icon }) => (

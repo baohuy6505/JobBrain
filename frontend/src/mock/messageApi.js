@@ -1,25 +1,39 @@
-// src/services/messageApi.js
-import { fakeConversations } from "./messageData";
+import { masterData } from "../mock/masterData";
 
 export const messageApi = {
-  // Giả lập API gọi danh sách tin nhắn (mất 0.8 giây)
-  getConversations: async () => {
+  /**
+   * Lọc danh sách các cuộc hội thoại của một người dùng cụ thể
+   * @param {string} userId - ID của người đang đăng nhập (ví dụ: "vinh_ha_21")
+   */
+  getConversations: async (userId) => {
     return new Promise((resolve) => {
       setTimeout(() => {
-        resolve(fakeConversations);
+        // 1. Tìm dữ liệu của người dùng trong hệ thống
+        const userData = masterData.usersData[userId];
+
+        if (userData && userData.chats) {
+          // 2. Trả về toàn bộ mảng chats (đã bao gồm partner và messages)
+          // Đây chính là nội dung Hà cần để đổ vào Sidebar và khung Chat
+          resolve(userData.chats);
+        } else {
+          resolve([]); // Trả về mảng rỗng nếu không tìm thấy người dùng
+        }
       }, 800);
     });
   },
 
-  // Giả lập API gửi tin nhắn mới (mất 0.3 giây)
-  sendMessage: async (chatId, text) => {
+  /**
+   * Giả lập gửi tin nhắn mới vào một cuộc hội thoại cụ thể
+   */
+  sendMessage: async (chatId, text, senderId) => {
     return new Promise((resolve) => {
       setTimeout(() => {
+        // Trả về một object tin nhắn đúng cấu trúc của masterData
         resolve({
-          id: Date.now(),
+          id: `m_${Date.now()}`,
+          senderId: senderId, // ID người gửi (ví dụ: "vinh_ha_21")
           text: text,
-          sender: "me",
-          timestamp: new Date().toLocaleTimeString([], {
+          time: new Date().toLocaleTimeString([], {
             hour: "2-digit",
             minute: "2-digit",
           }),

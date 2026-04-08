@@ -1,5 +1,4 @@
 import { Outlet } from "react-router-dom";
-// import Sidebar from "../components/manager/navigations/Sidebar";
 import Sidebar from "../components/manager/navigations/Sidebar";
 import Topbar from "../components/manager/navigations/Topbar";
 import FooterManager from "../components/Footer/FooterManager";

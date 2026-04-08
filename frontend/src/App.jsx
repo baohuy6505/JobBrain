@@ -23,7 +23,6 @@ import WalletPage from "./pages/WalletPage/WalletPage";
 import InterviewManager from "./pages/Manager/Interviews/InterviewManager";
 import JobPosts from "./pages/Manager/JobPosts/JobPosts";
 
-
 // Admin Pages
 import AdminDashboard from "./pages/Admin/Dashboard/AdminDashboard";
 import RolePage from "./pages/Admin/Role/RolePage";
@@ -47,7 +46,7 @@ function App() {
         <Route path="home" element={<HomePage />} />
         <Route path="list-job" element={<JobBoard />} />
         <Route path="list-job/:id" element={<JobDetail />} />
-        <Route path="messages/:id" element={<MessagesPage />} />
+        <Route path="messages" element={<MessagesPage />} />
         <Route path="messages/profile/:id" element={<MessagesProfilePage />} />
         <Route path="notifications" element={<NotificationsPage />} />
         <Route path="companies" element={<CompanyPage />} />
