@@ -134,3 +134,39 @@ export const apiKeysMock = [
     status: "REVOKED",
   },
 ];
+
+export const MOCK_MODERATION_STATS = {
+  pendingReviews: 24,
+  weeklyApprovalRate: "94.2%"
+};
+
+export const MOCK_MODERATION_JOBS = [
+  { id: 1, title: "Lead Crypto Strategist", company: "Nexus Ventures", postedDate: "Oct 24, 2023", riskScore: 92, status: "Flagged" },
+  { id: 2, title: "Senior Software Engineer", company: "Skyline Systems", postedDate: "Oct 24, 2023", riskScore: 45, status: "Pending" },
+  { id: 3, title: "Operations Manager", company: "Apex Manufacturing", postedDate: "Oct 23, 2023", riskScore: 12, status: "Pending" },
+  { id: 4, title: "Remote Data Entry (Urgent)", company: "Global Logistics Inc", postedDate: "Oct 23, 2023", riskScore: 88, status: "Flagged" },
+  { id: 5, title: "Marketing Director", company: "Stellar Agency", postedDate: "Oct 22, 2023", riskScore: 25, status: "Pending" },
+  { id: 6, title: "Investment Analyst", company: "WealthCorp", postedDate: "Oct 22, 2023", riskScore: 75, status: "Flagged" },
+  { id: 7, title: "Customer Support Rep", company: "TechFlow", postedDate: "Oct 21, 2023", riskScore: 15, status: "Pending" }
+];
+
+export const fetchModerationJobsApi = async (params) => {
+  await new Promise((resolve) => setTimeout(resolve, 400)); // Hiệu ứng loading
+
+  let filtered = [...MOCK_MODERATION_JOBS];
+
+  // Lọc theo Status (All, Pending, Flagged)
+  if (params.filterStatus && params.filterStatus !== "ALL") {
+    filtered = filtered.filter(job => job.status.toUpperCase() === params.filterStatus.toUpperCase());
+  }
+
+  const page = params.page || 1;
+  const limit = params.limit || 4; // Trong hình hiển thị 4 dòng
+  const startIndex = (page - 1) * limit;
+
+  return {
+    items: filtered.slice(startIndex, startIndex + limit),
+    totalItems: filtered.length,
+    totalPages: Math.ceil(filtered.length / limit),
+  };
+};
