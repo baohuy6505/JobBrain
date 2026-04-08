@@ -14,6 +14,7 @@ import NotificationsPage from "./pages/NotificationsPage/NotificationsPage";
 import CompanyPage from "./pages/CompanyPage/CompaniesPage";
 import CompanyDetail from "./pages/CompanyPage/CompanyDetail";
 
+<<<<<<< HEAD
 // Manager Pages
 import MyJobsActivePage from "./pages/Manager/Dashboard/MyJobsActivePage";
 import CandidatesBoardPage from "./pages/Manager/Dashboard/CandidatesBoardPage";
@@ -32,6 +33,12 @@ import AnalyticsAdminPage from "./pages/Admin/Analytics/AnalyticsAdminPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
+=======
+import UserDashboardPage from "./pages/UserDashboardPage/UserDashboardPage";
+import ProfilePage from "./pages/ProfilePage/ProfilePage";
+import WalletPage from "./pages/WalletPage/WalletPage";
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
+>>>>>>> feature/dashboarh-and-profile-ui-Vu
 
 function App() {
   return (
@@ -39,6 +46,7 @@ function App() {
       {/* 1. Nhóm Main Layout & Public Routes */}
       <Route path="/" element={<MainLayout />}>
         <Route index element={<HomePage />} />
+<<<<<<< HEAD
         <Route path="home" element={<HomePage />} />
 
         <Route path="list-job" element={<JobBoard />} />
@@ -70,8 +78,39 @@ function App() {
       </Route>
 
       {/* 4. Nhóm Authentication */}
+=======
+
+        <Route path="job-posts" element={<JobPosts />} />
+        <Route path="messages" element={<MessagesPage />} />
+        <Route path="list-job" element={<JobBoard />} />
+        <Route path="job/:id" element={<JobDetail />} />
+
+        <Route path="user-dashboard" element={<UserDashboardPage />} />
+        <Route path="profile" element={<ProfilePage />} />
+        <Route path="notifications" element={<NotificationsPage />} />
+
+        <Route path="admin" element={<Admin />} />
+
+      </Route>
+        {/* DASHBOARD */}
+        <Route path="dashboard" element={<DashboardLayout />}>
+          <Route index element={<Dashboard />} />
+          <Route path="my-jobs" element={<MyJobsPage />} />
+          <Route path="my-jobs-active" element={<MyJobsActivePage />} />
+          <Route path="candidates-board" element={<CandidatesBoardPage />} />
+          <Route path="messages" element={<MessagesPage />} />
+          <Route path="companies" element={<CompanyPage />} />
+          <Route path="companies/:id" element={<CompanyDetail />} />
+          <Route path="wallet" element={<WalletPage />} />
+        </Route>
+
+      {/* AUTH */}
+>>>>>>> feature/dashboarh-and-profile-ui-Vu
       <Route path="login" element={<LoginPage />} />
       <Route path="register" element={<RegisterPage />} />
+
+      {/* NOT FOUND */}
+      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );
 }

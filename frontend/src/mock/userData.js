@@ -1,3 +1,5 @@
+import { HiOutlineDocumentText, HiOutlineEye, HiOutlineCalendar, HiOutlineChartBar } from "react-icons/hi";
+
 export const mockUserData = {
   profile: {
     welcomeMessage: "Chào mừng trở lại! Bạn có 3 lời mời phỏng vấn mới.",
@@ -5,93 +7,52 @@ export const mockUserData = {
   },
   stats: [
     {
-      id: 1,
-      title: "Việc đã nộp",
-      value: "48",
-      trend: "+12%",
-      type: "success",
-      icon: "📄",
-    },
-    {
-      id: 2,
-      title: "Lượt xem hồ sơ",
-      value: "1,204",
-      trend: "+5%",
-      type: "success",
-      icon: "👁️",
-    },
-    {
-      id: 3,
-      title: "Mời phỏng vấn",
-      value: "3",
-      trend: "MỚI",
-      type: "primary",
-      icon: "📅",
-    },
-    {
-      id: 4,
-      title: "Tỉ lệ phản hồi",
-      value: "76%",
-      trend: "-2%",
-      type: "danger",
-      icon: "📈",
-    },
+            id: 1,
+            title: "Việc đã nộp",
+            value: "48",
+            percent: "+12%",
+            isIncrease: true,
+            icon: HiOutlineDocumentText,
+            iconColor: "text-blue-500",
+            bgColor: "bg-blue-50"
+          },
+          {
+            id: 2,
+            title: "Lượt xem hồ sơ",
+            value: "1,204",
+            percent: "+5%",
+            isIncrease: true,
+            icon: HiOutlineEye,
+            iconColor: "text-purple-500",
+            bgColor: "bg-purple-50"
+          },
+          {
+            id: 3,
+            title: "Mời phỏng vấn",
+            value: "3",
+            percent: "MỚI",
+            isIncrease: true,
+            icon: HiOutlineCalendar,
+            iconColor: "text-orange-500",
+            bgColor: "bg-orange-50",
+            badgeMode: true // Hiển thị dạng badge "MỚI" thay vì %
+          },
+          {
+            id: 4,
+            title: "Tỉ lệ phản hồi",
+            value: "76%",
+            percent: "-2%",
+            isIncrease: false,
+            icon: HiOutlineChartBar,
+            iconColor: "text-gray-500",
+            bgColor: "bg-gray-100"
+          },
   ],
   applications: [
-    {
-      id: 101,
-      company: "TechVina Corp",
-      logo: "T",
-      position: "Senior UI Designer",
-      date: "12/10/2024",
-      status: "ACCEPTED",
-      color: "bg-[#6344ff]", // Màu tím chủ đạo của bạn
-    },
-    {
-      id: 102,
-      company: "Global Soft",
-      logo: "G",
-      position: "Frontend Lead",
-      date: "10/10/2024",
-      status: "INTERVIEW",
-      color: "bg-purple-500",
-    },
-    {
-      id: 103,
-      company: "Solaris AI",
-      logo: "S",
-      position: "Product Manager",
-      date: "08/10/2024",
-      status: "PENDING",
-      color: "bg-gray-400",
-    },
-    {
-      id: 104,
-      company: "Fintech Pro",
-      logo: "F",
-      position: "UX Researcher",
-      date: "05/10/2024",
-      status: "REJECTED",
-      color: "bg-red-500",
-    },
-    {
-      id: 105,
-      company: "VinGroup",
-      logo: "V",
-      position: "Fullstack Developer",
-      date: "01/10/2024",
-      status: "ACCEPTED",
-      color: "bg-[#6344ff]",
-    },
-    {
-      id: 106,
-      company: "FPT Software",
-      logo: "F",
-      position: "React Native Developer",
-      date: "28/09/2024",
-      status: "PENDING",
-      color: "bg-gray-400",
-    },
+    { id: 1, company: "TechVina Corp", role: "Senior UI Designer", date: "12/10/2024", status: "ACCEPTED", color: "bg-blue-100 text-blue-700", logoText: "T", logoBg: "bg-blue-50 text-blue-600" },
+    { id: 2, company: "Global Soft", role: "Frontend Lead", date: "10/10/2024", status: "INTERVIEW", color: "bg-purple-100 text-purple-700", logoText: "G", logoBg: "bg-purple-50 text-purple-600" },
+    { id: 3, company: "Solaris AI", role: "Product Manager", date: "08/10/2024", status: "PENDING", color: "bg-orange-100 text-orange-700", logoText: "S", logoBg: "bg-orange-50 text-orange-600" },
+    { id: 4, company: "Fintech Pro", role: "UX Researcher", date: "05/10/2024", status: "REJECTED", color: "bg-red-100 text-red-700", logoText: "F", logoBg: "bg-red-50 text-red-600" },
   ],
 
   // Các thông báo bên cột phải

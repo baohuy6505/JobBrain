@@ -142,14 +142,14 @@ export default function JobBoard() {
                   value={params.sort}
                   onChange={(e) => handleParamChange("sort", e.target.value)}
                   className="
-      w-full
-      bg-white border border-gray-200 
-      rounded-xl 
-      px-4 py-2.5 pr-10   /* 🔥 thêm dòng này */
-      text-xs font-bold 
-      shadow-sm outline-none cursor-pointer 
-      appearance-none
-    "
+                              w-full
+                              bg-white border border-gray-200 
+                              rounded-xl 
+                              px-4 py-2.5 pr-10   /* 🔥 thêm dòng này */
+                              text-xs font-bold 
+                              shadow-sm outline-none cursor-pointer 
+                              appearance-none
+                            "
                 >
                   <option value="newest">Mới nhất</option>
                   <option value="salary-desc">Lương cao</option>
@@ -157,10 +157,10 @@ export default function JobBoard() {
 
                 <FaChevronDown
                   className="
-      absolute right-3 top-1/2 -translate-y-1/2
-      text-gray-400 text-xs
-      pointer-events-none
-    "
+                      absolute right-3 top-1/2 -translate-y-1/2
+                      text-gray-400 text-xs
+                      pointer-events-none
+                    "
                 />
               </div>
 

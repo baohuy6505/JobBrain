@@ -16,6 +16,8 @@ const menuItems = [
   { name: "Candidates", icon: FiUsers, to: "/manager/candidates-board" },
   { name: "Interviews", icon: FiCalendar, to: "/manager/interviews" },
   { name: "Messages", icon: FiMessageCircle, to: "/manager/messages" },
+  { name: "Wallet & Billing", icon: FiFileText, to: "/dashboard/wallet" },
+      { name: "Settings", icon: FiSettings, to: "/dashboard/settings" },
 ];
 
 export default function Sidebar() {
@@ -26,7 +28,7 @@ export default function Sidebar() {
     location.pathname === "/manager/my-jobs-active";
 
   return (
-    <aside className="sticky top-0 flex h-screen w-[210px] shrink-0 flex-col border-r border-gray-200 bg-white">
+    <aside className="sticky top-0 flex h-screen w-[310px] shrink-0 flex-col border-r border-gray-200 bg-white">
       <div className="px-6 pt-6">
         <div className="mb-10 flex items-center gap-3">
           {/* <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-600 text-white shadow-[4px_4px_0px_#1e2875]">
