@@ -7,7 +7,7 @@ const MainLayout = () => {
   const location = useLocation();
 
   // 2. Kiểm tra xem trang hiện tại có phải là trang tin nhắn không
-  const isMessagesPage = location.pathname === "/messages";
+  const isMessagesPage = location.pathname.startsWith("/messages");
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
       <Header />

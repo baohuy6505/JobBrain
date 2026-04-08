@@ -26,6 +26,7 @@ import AdminDashboard from "./pages/Admin/Dashboard/AdminDashboard";
 // Authentication Pages
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
+import ProfilePage from "./pages/ProfilePage/ProfilePage";
 
 function App() {
   return (
@@ -38,6 +39,8 @@ function App() {
         <Route path="list-job" element={<JobBoard />} />
         <Route path="job/:id" element={<JobDetail />} />
         <Route path="messages" element={<MessagesPage />} />
+        <Route path="messages/:id" element={<MessagesPage />} />
+        <Route path="profile/:id" element={<ProfilePage />} />
         <Route path="notifications" element={<NotificationsPage />} />
         <Route path="companies" element={<CompanyPage />} />
         <Route path="companies/:id" element={<CompanyDetail />} />
