@@ -17,7 +17,7 @@ const CandidateStats = () => {
   const gridItems = statsData.map((stat) => {
     const config = statConfig[stat.type] || statConfig["APPLIED_JOBS"];
 
-      let badgeUI = null;
+    let badgeUI = null;
     if (stat.badgeMode) {
       badgeUI = (
         <span className="text-[10px] font-bold text-blue-600 uppercase tracking-wider bg-blue-50 px-2 py-0.5 rounded-md">

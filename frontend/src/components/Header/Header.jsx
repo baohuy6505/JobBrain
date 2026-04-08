@@ -51,7 +51,7 @@ const Header = () => {
             <NavLink to="/companies" className={navLinkClass}>
               Company
             </NavLink>
-            <NavLink to="/messages" className={navLinkClass}>
+            <NavLink to={`/messages/${user.id}`} className={navLinkClass}>
               Messages
             </NavLink>
           </nav>
@@ -76,19 +76,21 @@ const Header = () => {
               </button>
 
               <div className="hidden md:flex items-center space-x-3 border-l pl-4 border-gray-200 h-full">
-                <div className="text-right">
-                  <p className="text-sm font-semibold text-gray-800 leading-none">
-                    {user.name}
-                  </p>
-                  <p className="text-[10px] text-gray-400 uppercase mt-1 tracking-wider">
-                    {user.address}
-                  </p>
-                </div>
-                <img
-                  src={user.avatar}
-                  className="h-9 w-9 rounded-full object-cover border border-slate-100"
-                  alt="User"
-                />
+                <Link to={`/dashboard/${user?.userId}`} className="flex items-center gap-3">
+                  <div className="text-right hidden sm:block">
+                    <p className="text-sm font-semibold text-gray-800">
+                      {user?.name}
+                    </p>
+                    <p className="text-[10px] text-gray-400 uppercase tracking-wider">
+                      {user?.address}
+                    </p>
+                  </div>
+                  <img
+                    src={user?.avatar}
+                    className="h-10 w-10 rounded-full object-cover border"
+                    alt="Avatar"
+                  />
+                </Link>
                 <button
                   onClick={() => dispatch(logout())}
                   className="text-xs text-red-500 font-bold ml-2 hover:underline"

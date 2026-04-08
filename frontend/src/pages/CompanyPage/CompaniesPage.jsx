@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { fetchCompaniesApi } from "../../mock/CompanyServices";
-import CompanyCard from "../../components/companies/companyCard";
+import CompanyCard from "../../components/companies/CompanyCard";
 import { Pagination } from "../../components/common/Pagination";
 import CompanySearch from "../../components/companies/CompanySearch";
 import CompanyFilter from "../../components/companies/CompanyFilter";
