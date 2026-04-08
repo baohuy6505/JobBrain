@@ -3,16 +3,9 @@ import { Link } from "react-router-dom";
 const CompanyCard = ({ company }) => {
   return (
     <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 flex flex-col relative hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-      {/* Badge Top Employer */}
-      {company.isTopEmployer && (
-        <span className="absolute top-4 right-4 bg-[#6344ff] text-white text-[9px] font-bold px-2 py-1 rounded uppercase tracking-widest">
-          Top Employer
-        </span>
-      )}
-
       {/* Logo Công ty */}
-      <div className="w-14 h-14 bg-slate-900 rounded-xl flex items-center justify-center text-white font-bold text-xl mb-4 shadow-inner">
-        {company.logo}
+      <div className="w-14 h-14 bg-slate-900 rounded-xl flex items-center justify-center text-white font-bold text-xl mb-4 shadow-inner overflow-hidden">
+        <img src={company.logo} className="w-full h-full object-cover" alt="" />
       </div>
 
       {/* Thông tin chính */}
@@ -21,6 +14,10 @@ const CompanyCard = ({ company }) => {
       </h3>
       <p className="text-[#6344ff] text-xs font-bold mb-4 uppercase tracking-wide">
         {company.industry}
+      </p>
+
+      <p className=" text-xs font-bold mb-4 uppercase tracking-wide">
+        {company.location}
       </p>
 
       <p className="text-slate-500 text-sm leading-relaxed mb-6 flex-grow line-clamp-3">

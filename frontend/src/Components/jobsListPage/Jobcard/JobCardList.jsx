@@ -4,13 +4,22 @@ import { Link } from "react-router-dom";
 import { FiZap } from "react-icons/fi";
 
 export const JobCardList = ({ job }) => (
-  <div className="group p-6 bg-white border-l-4 border-transparent rounded-2xl flex flex-col md:flex-row justify-between items-start transition-all duration-300 shadow-sm hover:border-blue-600 hover:shadow-md cursor-pointer gap-6">
+  <div className="group p-6 bg-white border-l-4 border-transparent rounded-2xl flex flex-col md:flex-row justify-between items-start transition-all duration-300 shadow-sm hover:shadow-sm hover:-translate-y-1 hover:scale-[1.01] cursor-pointer gap-6">
     {/* CỘT TRÁI: Logo + Nội dung chính */}
     <div className="flex gap-5 flex-1 min-w-0">
       {/* Logo Công ty */}
-      <div className="w-14 h-14 bg-black rounded-xl flex items-center justify-center text-white text-[10px] font-bold shrink-0 uppercase tracking-tighter shadow-sm group-hover:shadow-md transition-shadow">
-        {/* FIX: Lấy chữ cái đầu của name */}
-        {job.company?.name?.charAt(0) || "S"}
+      <div className="w-12 h-12 bg-black rounded-xl flex items-center justify-center text-white overflow-hidden shrink-0 shadow-inner">
+        {job.company?.logo ? (
+          <img
+            src={job.company.logo}
+            alt={job.company.name}
+            className="w-full h-full object-cover"
+          />
+        ) : (
+          <span className="text-xs font-bold uppercase">
+            {job.company?.name?.charAt(0) || "S"}
+          </span>
+        )}
       </div>
 
       <div className="flex-1 min-w-0">
@@ -81,7 +90,7 @@ export const JobCardList = ({ job }) => (
       </div>
 
       <Link
-        to={`/job/${job.id}`}
+        to={`/list-job/${job.id}`}
         className="w-full md:w-auto bg-gray-100 text-gray-600 px-8 py-2.5 rounded-xl font-bold text-sm transition-all duration-300 group-hover:bg-blue-600 group-hover:text-white group-hover:shadow-lg group-hover:shadow-blue-200 text-center whitespace-nowrap"
       >
         View Details

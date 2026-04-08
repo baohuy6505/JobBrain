@@ -1,6 +1,6 @@
 import React from "react";
 import { FiDollarSign, FiSend, FiHeart, FiShare2 } from "react-icons/fi";
-
+import Button from "../common/Button";
 const JobActionSidebar = ({ job }) => {
   return (
     <div className="sticky top-24 space-y-4">
@@ -16,9 +16,7 @@ const JobActionSidebar = ({ job }) => {
         </div>
 
         <div className="flex flex-col gap-3">
-          <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 rounded-xl flex items-center justify-center gap-2 transition-all shadow-lg shadow-blue-100">
-            <FiSend /> ỨNG TUYỂN NGAY
-          </button>
+          <Button icon={<FiSend />}>Ứng tuyển ngay</Button>
 
           <div className="grid grid-cols-2 gap-3">
             <button className="bg-white border border-gray-200 hover:bg-gray-50 text-gray-700 py-3 rounded-xl flex items-center justify-center gap-2 transition-all">

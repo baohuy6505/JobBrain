@@ -12,7 +12,7 @@ import JobDetail from "./pages/JobDetailPage/JobDetail";
 import MessagesPage from "./pages/MessagesPage/MessagesPage";
 import NotificationsPage from "./pages/NotificationsPage/NotificationsPage";
 import CompanyPage from "./pages/CompanyPage/CompaniesPage";
-import CompanyDetail from "./pages/CompanyPage/CompanyDetail";
+import CompanyDetail from "./pages/CompanyDetail/CompanyDetail";
 import UserDashboardPage from "./pages/UserDashboardPage/UserDashboardPage";
 import UserProfilePage from "./pages/UserProfilePage/UserProfilePage";
 
@@ -46,7 +46,7 @@ function App() {
         <Route index element={<HomePage />} />
         <Route path="home" element={<HomePage />} />
         <Route path="list-job" element={<JobBoard />} />
-        <Route path="job/:id" element={<JobDetail />} />
+        <Route path="list-job/:id" element={<JobDetail />} />
         <Route path="messages/:id" element={<MessagesPage />} />
         <Route path="messages/profile/:id" element={<MessagesProfilePage />} />
         <Route path="notifications" element={<NotificationsPage />} />

@@ -1,7 +1,7 @@
 import Hero from "./Hero";
 import Featured from "./Featured";
-import HowItWorks from "./HowItWorks";
-import PartnerSection from "./Partner";
+import HowItWorks from "./Works";
+import Partner from "./Partner";
 
 const Homepage = () => {
   return (
@@ -9,7 +9,7 @@ const Homepage = () => {
       <Hero />
       <Featured />
       <HowItWorks />
-      <PartnerSection />
+      <Partner />
     </div>
   );
 };

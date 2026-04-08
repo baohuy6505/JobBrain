@@ -1,25 +1,27 @@
-import React from "react";
 import {
   HiOutlineGlobeAlt,
   HiOutlineMail,
   HiOutlineChatAlt2,
 } from "react-icons/hi";
+import CopyBright from "../common/CopyBright1";
 
 const Footer = () => {
   return (
     <footer className="bg-white pt-16 pb-8 border-t border-gray-100">
       <div className="max-w-7xl mx-auto px-6">
-        {/* Main Footer Content */}
+        {/* Main Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-          {/* Column 1: Brand & Social */}
+          {/* Column 1 */}
           <div className="space-y-6">
             <h2 className="text-2xl font-bold text-gray-900">
               Job<span className="text-[#6344ff]">Brain</span>
             </h2>
+
             <p className="text-gray-500 text-sm leading-relaxed">
               Mạng lưới tuyển dụng chuyên nghiệp hàng đầu Việt Nam, giúp kết nối
               nhân tài và doanh nghiệp một cách chính xác.
             </p>
+
             <div className="flex items-center space-x-4 text-gray-400">
               <a
                 href="#"
@@ -42,66 +44,57 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Column 2: Quick Links */}
+          {/* Column 2 */}
           <div>
             <h3 className="font-bold text-gray-900 mb-6">Quick Links</h3>
             <ul className="space-y-4 text-sm text-gray-500">
-              <li>
-                <a href="#" className="hover:text-[#6344ff] transition-colors">
-                  About
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-[#6344ff] transition-colors">
-                  Privacy Policy
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-[#6344ff] transition-colors">
-                  Terms of Service
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-[#6344ff] transition-colors">
-                  Help Center
-                </a>
-              </li>
+              {[
+                "About",
+                "Privacy Policy",
+                "Terms of Service",
+                "Help Center",
+              ].map((item) => (
+                <li key={item}>
+                  <a
+                    href="#"
+                    className="hover:text-[#6344ff] transition-colors"
+                  >
+                    {item}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Column 3: Jobs by Category */}
+          {/* Column 3 */}
           <div>
             <h3 className="font-bold text-gray-900 mb-6">Jobs by Category</h3>
             <ul className="space-y-4 text-sm text-gray-500">
-              <li>
-                <a href="#" className="hover:text-[#6344ff] transition-colors">
-                  Information Technology
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-[#6344ff] transition-colors">
-                  Marketing & Sales
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-[#6344ff] transition-colors">
-                  Finance & Accounting
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-[#6344ff] transition-colors">
-                  Creative & Design
-                </a>
-              </li>
+              {[
+                "Information Technology",
+                "Marketing & Sales",
+                "Finance & Accounting",
+                "Creative & Design",
+              ].map((item) => (
+                <li key={item}>
+                  <a
+                    href="#"
+                    className="hover:text-[#6344ff] transition-colors"
+                  >
+                    {item}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Column 4: Newsletter */}
+          {/* Column 4 */}
           <div>
             <h3 className="font-bold text-gray-900 mb-6">Newsletter</h3>
             <p className="text-sm text-gray-500 mb-4">
               Nhận cập nhật về các cơ hội việc làm mới nhất.
             </p>
+
             <div className="space-y-3">
               <input
                 type="email"
@@ -115,13 +108,8 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Bottom Bar: Copyright */}
-        <div className="pt-8 border-t border-gray-50 text-center">
-          <p className="text-gray-400 text-xs tracking-wide">
-            © {new Date().getFullYear()} ProRecruit Network. All rights
-            reserved.
-          </p>
-        </div>
+        {/* Bottom */}
+        <CopyBright company="JobBrain" />
       </div>
     </footer>
   );
