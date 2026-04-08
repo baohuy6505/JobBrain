@@ -3,28 +3,8 @@ import BalanceCard from "../../Components/Wallet/BalanceCard";
 import TopUpForm from "../../Components/Wallet/TopUpForm";
 import TransactionHistory from "../../Components/Wallet/TransactionHistory";
 
-// GIẢ LẬP API
-const mockFetchWalletData = () => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve({
-        accountInfo: {
-          balance: "25.000.000",
-          currency: "VNF", // Trong ảnh ghi VNF
-          companyName: "TechFlow Vietnam",
-          cardNumber: "**** **** 8888"
-        },
-        transactions: [
-          { id: 1, date: "Oct 24, 2023", desc: "Funds Deposit - Wire Transfer", type: "DEPOSIT", amount: "+$2,500.00", status: "Success" },
-          { id: 2, date: "Oct 22, 2023", desc: "Job Post: Senior Product Designer", type: "JOB POST", amount: "-$299.00", status: "Success" },
-          { id: 3, date: "Oct 20, 2023", desc: "Candidate Refund - Ref #9021", type: "REFUND", amount: "+$45.00", status: "Success" },
-          { id: 4, date: "Oct 18, 2023", desc: "Job Post: Backend Engineer (London)", type: "JOB POST", amount: "-$350.00", status: "Pending" },
-          { id: 5, date: "Oct 15, 2023", desc: "Subscription Renewal - Enterprise", type: "SUBSCRIPTION", amount: "-$1,200.00", status: "Failed" }
-        ]
-      });
-    }, 600); // Load mất 0.6s
-  });
-};
+// LƯU Ý: Import phải có ngoặc nhọn {} và đúng tên hàm
+import { mockFetchWalletData } from "../../mock/userData";
 
 const WalletPage = () => {
   const [walletData, setWalletData] = useState(null);
@@ -49,7 +29,7 @@ const WalletPage = () => {
 
   return (
     <div className="min-h-screen bg-[#f8f9fb] p-8">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-6xl mx-auto mt-14">
         
         {/* Header */}
         <div className="mb-8">
@@ -64,6 +44,7 @@ const WalletPage = () => {
         </div>
 
         {/* Bottom Section: Table */}
+        {/* Dữ liệu transactions được truyền xuống đây rất chuẩn xác */}
         <TransactionHistory transactions={walletData.transactions} />
 
       </div>

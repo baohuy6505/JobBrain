@@ -48,7 +48,7 @@ const mockFetchProfileData = () => {
   });
 };
 
-const ProfilePage = () => {
+const MessagesProfilePage = () => {
   const [profileData, setProfileData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -106,4 +106,4 @@ const ProfilePage = () => {
   );
 };
 
-export default ProfilePage;
+export default MessagesProfilePage;
