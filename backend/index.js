@@ -1,26 +1,47 @@
-const express = require('express');
-const cors = require('cors');
+const express = require("express");
+const cors = require("cors");
+const cookieParser = require("cookie-parser");
+require("dotenv").config();
 
+// Import kết nối DB (Đảm bảo file này tồn tại)
+const connectDB = require("./src/config/db");
+const routes = require("./src/routes/index");
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
-// Cấu hình Middleware
-app.use(cors());
+// --- 1. Middleware ---
+app.use(
+  cors({
+    origin: true,
+    credentials: true,
+  }),
+);
 app.use(express.json());
+app.use(cookieParser());
 
-// Dữ liệu mẫu gửi về cho Frontend
-const jobs = [
-  { id: 1, title: "Kỹ sư AI/ML", company: "JobBrain Corp", salary: "30-50tr" },
-  { id: 2, title: "Frontend Developer", company: "Tech Hub", salary: "20-35tr" },
-  { id: 3, title: "Data Scientist", company: "Big Data Co", salary: "40-60tr" }
-];
-
-// API Lấy danh sách việc làm
-app.get('/', (req, res) => {
-  res.json(jobs);
+app.use("/api/v1", routes);
+app.get("/", (req, res) => {
+  res.json("Welcome to JobBrain API");
 });
+app.use(cors({
+    origin: "http://localhost:5173", 
+    credentials: true
+}));
+// --- 4. Khởi chạy Server ---
+const startServer = async () => {
+  try {
+    await connectDB();
+    app.listen(PORT, () => {
+      console.log(`=================================`);
+      console.log(
+        `Server Backend (index.js) đang chạy tại: http://localhost:${PORT}`,
+      );
+      console.log(`=================================`);
+    });
+  } catch (error) {
+    console.error("Lỗi khởi động:", error.message);
+    process.exit(1);
+  }
+};
 
-// Chạy server
-app.listen(PORT, () => {
-  console.log(`Server Backend đang chạy tại http://localhost:${PORT}`);
-});
+startServer();

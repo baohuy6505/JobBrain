@@ -1,12 +1,43 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import PasswordInput from "../../common/PasswordInput";
 import { useState } from "react";
+import axios from "axios";
+
 const LoginForm = () => {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false); // Quản lý trạng thái loading
+  const navigate = useNavigate();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // Kiểm tra nhanh ở Client
+    if (!email || !password) {
+      return alert("Vui lòng nhập đầy đủ email và mật khẩu!");
+    }
+
+    setLoading(true);
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/api/v1/auth/login",
+        { email, password },
+      );
+      if (response.data.success) {
+        localStorage.setItem("token", response.data.accessToken);
+        localStorage.setItem("user", JSON.stringify(response.data.data));
+        navigate("/");
+      }
+    } catch (error) {
+      const errorMsg = error.response?.data?.message || "Đăng nhập thất bại!";
+      alert(errorMsg);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="bg-white p-8 rounded-lg shadow-md max-w-md w-full">
-      <form onSubmit={(e) => e.preventDefault()}>
+      <form onSubmit={handleSubmit}>
         <h2 className="text-lg font-bold">ĐĂNG NHẬP</h2>
         <p className="text-sm text-slate-600">Chào mừng trở lại</p>
 
