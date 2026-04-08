@@ -1,4 +1,5 @@
 import { FiChevronDown, FiPlus, FiSearch } from "react-icons/fi";
+import { Link, NavLink } from "react-router-dom";
 
 export default function JobsHeaderManager() {
   return (
@@ -24,7 +25,9 @@ export default function JobsHeaderManager() {
 
       <button className="flex h-14 items-center justify-center gap-2 rounded-xl bg-indigo-600 px-6 font-semibold text-white shadow-[4px_4px_0px_#1e2875] transition hover:translate-y-[1px]">
         <FiPlus size={18} />
-        <span>Đăng tin mới</span>
+         <NavLink to="/manager/job-posts" className="flex items-center gap-2">
+            Đăng tin mới
+          </NavLink>
       </button>
     </div>
   );

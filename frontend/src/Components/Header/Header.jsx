@@ -14,6 +14,7 @@ const Header = () => {
     (state) => state.notification?.unreadCount || 0,
   );
 
+  // Hàm để xác định class cho NavLink
   const navLinkClass = ({ isActive }) =>
     isActive
       ? "text-[#6344ff] border-b-2 border-[#6344ff] pb-1 font-bold"
