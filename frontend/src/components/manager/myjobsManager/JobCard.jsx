@@ -25,7 +25,7 @@ export default function JobCard({
       <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
         <div className="flex items-start gap-4">
           <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-black text-[9px] font-bold text-white">
-          MMM
+            MMM
           </div>
 
           <div>
@@ -49,13 +49,11 @@ export default function JobCard({
 
       <div className="mt-6 flex flex-wrap items-center gap-4">
         <div className="rounded-xl bg-gray-100 px-4 py-3 text-sm text-gray-600">
-          Nộp:{" "}
-          <span className="font-semibold text-indigo-600">{submitted}</span>
+          Nộp: <span className="font-semibold text-blue-600">{submitted}</span>
         </div>
 
         <div className="rounded-xl bg-gray-100 px-4 py-3 text-sm text-gray-600">
-          Duyệt:{" "}
-          <span className="font-semibold text-indigo-600">{approved}</span>
+          Duyệt: <span className="font-semibold text-blue-600">{approved}</span>
         </div>
 
         <div className="flex items-center gap-2 rounded-xl border border-orange-200 bg-orange-50 px-4 py-3 text-sm text-orange-700">
@@ -68,7 +66,7 @@ export default function JobCard({
 
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex items-center gap-8 text-gray-600">
-          <button className="flex items-center gap-2 text-sm font-medium hover:text-indigo-600">
+          <button className="flex items-center gap-2 text-sm font-medium hover:text-blue-600">
             <FiEdit2 size={15} />
             Sửa
           </button>
@@ -79,7 +77,7 @@ export default function JobCard({
           </button>
         </div>
 
-        <button className="flex items-center gap-2 text-sm font-semibold text-indigo-600 hover:underline">
+        <button className="flex items-center gap-2 text-sm font-semibold text-blue-600 hover:underline">
           Xem ứng viên
           <FiArrowRight size={15} />
         </button>

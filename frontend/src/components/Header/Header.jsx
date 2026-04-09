@@ -10,6 +10,7 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../../mock/userSlice";
 
+
 const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -79,12 +80,12 @@ const Header = () => {
             )}
           </nav>
             
-            <NavLink to="/admin/dashboard" className={navLinkClass}>
+            {/* <NavLink to="/admin/dashboard" className={navLinkClass}>
               Admin
           </NavLink>
            <NavLink to="/manager" className={navLinkClass}>
               Manager
-            </NavLink>
+            </NavLink> */}
         </div>
 
         {/* --- RIGHT: Actions --- */}
@@ -102,18 +103,19 @@ const Header = () => {
                 )}
               </Link>
 
-              {/* User Profile Info */}
-              <div className="hidden md:flex items-center space-x-3 border-l pl-4 border-gray-200 h-full">
-                <div className="text-right hidden sm:block">
-                  <p className="text-sm font-bold text-gray-800 leading-tight">
-                    {user?.fullName || user?.name || "User"}
-                  </p>
-                  <span className="text-[9px] bg-indigo-50 text-[#6344ff] px-2 py-0.5 rounded-full font-black uppercase tracking-tighter">
-                    {userRole}
-                  </span>
-                </div>
-
-                <Link to={`/dashboard/${user?.userId}`} className="shrink-0">
+              <button className="hidden md:block text-gray-500 text-xl p-1">
+                <HiOutlineMoon />
+              </button>
+<div className="hidden md:flex items-center space-x-3 border-l pl-4 border-gray-200 h-full">
+                <Link to={`/dashboard/${user?.userId}`} className="flex items-center gap-3">
+                  <div className="text-right hidden sm:block">
+                    <p className="text-sm font-semibold text-gray-800">
+                      {user?.name}
+                    </p>
+                    <p className="text-[10px] text-gray-400 uppercase tracking-wider">
+                      {user?.address}
+                    </p>
+                  </div>
                   <img
                     src={
                       user?.avatar || "https://ui-avatars.com/api/?name=User"
@@ -122,7 +124,16 @@ const Header = () => {
                     alt="Avatar"
                   />
                 </Link>
-
+                
+              </div>
+              <div>
+                <nav className="hidden md:flex space-x-6 font-medium h-full text-sm">
+                  <NavLink to="/manager/" className={navLinkClass}>
+                    Manager
+                  </NavLink>
+                  <NavLink to="/admin/dashboard" className={navLinkClass}>
+                    Admin
+                  </NavLink>
                 <button
                   onClick={handleLogout}
                   className="p-1.5 text-gray-400 hover:text-red-500 hover:bg-red-50 rounded-lg transition-all"
@@ -130,9 +141,8 @@ const Header = () => {
                 >
                   <HiOutlineLogout size={22} />
                 </button>
+                </nav>
               </div>
-
-              {/* Nút Toggle Mobile Menu */}
               <button
                 onClick={toggleMenu}
                 className="md:hidden text-2xl text-gray-600 p-1"
@@ -175,9 +185,7 @@ const Header = () => {
       />
 
       <div
-        className={`fixed top-0 right-0 h-full w-72 bg-white z-[70] md:hidden transition-transform duration-300 ease-in-out shadow-2xl ${
-          isMenuOpen ? "translate-x-0" : "translate-x-full"
-        }`}
+className={`fixed top-0 right-0 h-full w-72 bg-white z-[70] md:hidden ${isMenuOpen ? "block" : "hidden"}`}
       >
         <div className="flex flex-col h-full">
           <div className="p-6 flex justify-between items-center border-b">
@@ -254,6 +262,57 @@ const Header = () => {
                   </NavLink>
             </nav>
           </div>
+          
+          <nav className="flex-1 px-4 py-6 space-y-1">
+            <div className="flex items-center gap-2 py-1">
+              <NavLink 
+                to="/manager/" 
+                onClick={toggleMenu}
+                className="flex-1 text-center text-purple-500 px-4 py-3 rounded-xl text-gray-600 font-bold hover:bg-indigo-50 hover:text-[#6344ff]"
+              >
+                Manager
+              </NavLink>
+              <NavLink 
+                to="/admin/dashboard" 
+                onClick={toggleMenu}
+                className="flex-1 text-center text-red-500 px-4 py-3 rounded-xl text-gray-600 font-bold hover:bg-indigo-50 hover:text-[#6344ff]"
+              >
+                Admin
+              </NavLink>
+            </div>
+
+            {/* <NavLink
+              to="/"
+              onClick={toggleMenu}
+className="block px-4 py-3 rounded-xl text-gray-600 font-bold hover:bg-indigo-50 hover:text-[#6344ff]"
+            >
+              Home
+            </NavLink>
+            
+            <NavLink
+              to="/list-job"
+              onClick={toggleMenu}
+              className="block px-4 py-3 rounded-xl text-gray-600 font-bold hover:bg-indigo-50 hover:text-[#6344ff]"
+            >
+              Jobs
+            </NavLink>
+            
+            <NavLink
+              to="/companies"
+              onClick={toggleMenu}
+              className="block px-4 py-3 rounded-xl text-gray-600 font-bold hover:bg-indigo-50 hover:text-[#6344ff]"
+            >
+              Company
+            </NavLink>
+            
+            <NavLink
+              to="/messages"
+              onClick={toggleMenu}
+              className="block px-4 py-3 rounded-xl text-gray-600 font-bold hover:bg-indigo-50 hover:text-[#6344ff]"
+            >
+              Messages
+            </NavLink> */}
+          </nav>
 
           {isAuthenticated && (
             <div className="p-6 border-t">

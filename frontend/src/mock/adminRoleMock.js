@@ -91,3 +91,39 @@ export const auditMock = [
     sub: "Updated by Admin Sarah • 3 days ago",
   },
 ];
+
+
+export const MOCK_ADMIN_STATS = [
+  { type: "TOTAL_USERS", title: "TOTAL USERS", value: "5,420", badgeText: "+12%", badgeTheme: "blue" },
+  { type: "ACTIVE_ADMINS", title: "ACTIVE ADMINS", value: "24", badgeText: "Protected", badgeTheme: "gray" },
+  { type: "NEW_THIS_MONTH", title: "NEW THIS MONTH", value: "182", badgeText: "Trend Up", badgeTheme: "emerald" },
+  { type: "BANNED_USERS", title: "BANNED USERS", value: "12", badgeText: "Alert", badgeTheme: "red" }
+];
+
+export const MOCK_ADMIN_USERS = [
+  { id: 1, name: "Marcus Sterling", email: "marcus.s@company.com", role: "ADMIN", status: "Active", joinedDate: "Oct 12, 2023", lastLogin: "2 hours ago" },
+  { id: 2, name: "Sarah Jenkins", email: "sarah.j@enterprise.io", role: "EMPLOYER", status: "Active", joinedDate: "Nov 05, 2023", lastLogin: "Yesterday" },
+  { id: 3, name: "James Dunning", email: "james.d@cloud.net", role: "CANDIDATE", status: "Inactive", joinedDate: "Dec 20, 2023", lastLogin: "3 weeks ago" },
+  { id: 4, name: "Rick Thorne", suspendedReason: "Suspended for Policy Violation", role: "CANDIDATE", status: "Banned", joinedDate: "Jan 02, 2024", lastLogin: "Never" },
+  { id: 5, name: "Alex Mercer", email: "alex.m@dev.com", role: "CANDIDATE", status: "Active", joinedDate: "Jan 10, 2024", lastLogin: "1 hour ago" },
+  { id: 6, name: "Elena Gilbert", email: "elena@vampire.com", role: "EMPLOYER", status: "Active", joinedDate: "Feb 14, 2024", lastLogin: "Just now" },
+  { id: 7, name: "Damon Salvatore", suspendedReason: "Spam Posting", role: "EMPLOYER", status: "Banned", joinedDate: "Mar 01, 2024", lastLogin: "1 month ago" }
+];
+
+// Hàm giả lập API lấy danh sách user có phân trang
+export const fetchAdminUsersApi = async (params) => {
+  await new Promise((resolve) => setTimeout(resolve, 400)); // Cố tình delay 0.4s để tạo hiệu ứng loading
+
+  let filtered = [...MOCK_ADMIN_USERS];
+
+  // Logic phân trang
+  const page = params.page || 1;
+  const limit = params.limit || 5; // Mình set 5 dòng/trang để bạn dễ test
+  const startIndex = (page - 1) * limit;
+
+  return {
+    items: filtered.slice(startIndex, startIndex + limit),
+    totalItems: filtered.length,
+    totalPages: Math.ceil(filtered.length / limit),
+  };
+};

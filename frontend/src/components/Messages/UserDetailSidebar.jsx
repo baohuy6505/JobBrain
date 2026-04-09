@@ -27,7 +27,7 @@ const UserDetailSidebar = ({ user }) => {
       {/* 4. Sửa lại logic onClick của nút bấm */}
       <button
         onClick={() => navigate(`/profile/${user.id}`)}
-        className="w-full border-2 border-[#6344ff] text-[#6344ff] font-bold py-3 rounded-xl hover:bg-blue-50 transition-all text-sm"
+        className="w-full border-2 border-[#60a5fa] text-[#60a5fa] font-bold py-3 rounded-xl hover:bg-blue-50 transition-all text-sm"
       >
         Xem hồ sơ đầy đủ
       </button>

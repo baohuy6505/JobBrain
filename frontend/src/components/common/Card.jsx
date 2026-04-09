@@ -30,7 +30,6 @@ const Card = ({ job }) => {
               src={job.company.logo}
               alt={job.company.name}
               className="w-full h-full object-cover"
-              rounded-xl
             />
           ) : (
             <span className="text-xs font-bold uppercase">

@@ -14,7 +14,7 @@ const Footer = () => {
           {/* Column 1 */}
           <div className="space-y-6">
             <h2 className="text-2xl font-bold text-gray-900">
-              Job<span className="text-[#6344ff]">Brain</span>
+              Job<span className="text-[#60a5fa]">Brain</span>
             </h2>
 
             <p className="text-gray-500 text-sm leading-relaxed">
@@ -25,19 +25,19 @@ const Footer = () => {
             <div className="flex items-center space-x-4 text-gray-400">
               <a
                 href="#"
-                className="hover:text-[#6344ff] transition-colors text-xl"
+                className="hover:text-blue-500 transition-colors text-xl"
               >
                 <HiOutlineGlobeAlt />
               </a>
               <a
                 href="#"
-                className="hover:text-[#6344ff] transition-colors text-xl"
+                className="hover:text-blue-500 transition-colors text-xl"
               >
                 <HiOutlineMail />
               </a>
               <a
                 href="#"
-                className="hover:text-[#6344ff] transition-colors text-xl"
+                className="hover:text-blue-500 transition-colors text-xl"
               >
                 <HiOutlineChatAlt2 />
               </a>
@@ -55,10 +55,7 @@ const Footer = () => {
                 "Help Center",
               ].map((item) => (
                 <li key={item}>
-                  <a
-                    href="#"
-                    className="hover:text-[#6344ff] transition-colors"
-                  >
+                  <a href="#" className="hover:text-blue-500 transition-colors">
                     {item}
                   </a>
                 </li>
@@ -77,10 +74,7 @@ const Footer = () => {
                 "Creative & Design",
               ].map((item) => (
                 <li key={item}>
-                  <a
-                    href="#"
-                    className="hover:text-[#6344ff] transition-colors"
-                  >
+                  <a href="#" className="hover:text-blue-500 transition-colors">
                     {item}
                   </a>
                 </li>
@@ -99,9 +93,9 @@ const Footer = () => {
               <input
                 type="email"
                 placeholder="Email của bạn"
-                className="w-full px-4 py-3 rounded-xl border border-gray-200 outline-none focus:border-[#6344ff] transition-all text-sm bg-gray-50"
+                className="w-full px-4 py-3 rounded-xl border border-gray-200 outline-none focus:border-[#60a5fa] transition-all text-sm bg-gray-50"
               />
-              <button className="w-full py-3 bg-[#6344ff] hover:bg-[#5235d9] text-white font-bold rounded-xl transition-all shadow-lg shadow-purple-100 active:scale-95">
+              <button className="w-full py-3 bg-[#3b82f6] hover:bg-[#60a5fa] text-white font-bold rounded-xl transition-all shadow-lg shadow-purple-100 active:scale-95">
                 Đăng ký
               </button>
             </div>

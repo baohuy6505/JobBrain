@@ -64,3 +64,15 @@ export const getRelatedJobsApi = async (currentJob, limit = 4) => {
   // Trả về số lượng giới hạn (ví dụ chỉ lấy 4 cái đầu tiên)
   return related.slice(0, limit);
 };
+
+export const fetchJobIsFeatured = async () => {
+  return new Promise((resolve) => {
+    // Lọc dữ liệu dựa trên trường isFeatured trong mảng ALL_JOBS
+    const featuredJobs = ALL_JOBS.filter((job) => job.isFeatured === true);
+
+    // Giả lập delay 300ms để sau này lắp API vào không bị khựng UI
+    setTimeout(() => {
+      resolve(featuredJobs);
+    }, 300);
+  });
+};

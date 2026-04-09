@@ -27,7 +27,7 @@ export const ALL_JOBS = Array.from({ length: 45 }, (_, i) => {
     minSalary: minSal,
     maxSalary: maxSal,
     salaryText: `${Math.round(minSal / 1000000)}M - ${Math.round(maxSal / 1000000)}M`,
-    type: isEven ? "Full-time" : "Remote",
+    type: isEven ? "Full-time" : "Part-time",
     category: isEven ? "Software Engineering" : "UI/UX Design",
     experience: isEven ? "1-3 năm" : "Chưa có kinh nghiệm",
     level: isEven ? "Senior" : "Junior",

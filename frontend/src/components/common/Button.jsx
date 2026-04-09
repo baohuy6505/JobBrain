@@ -13,7 +13,7 @@ const Button = ({
   // Xác định thẻ render: Link hoặc button
   const Component = to ? Link : "button";
 
-  const baseStyles = `flex items-center justify-center gap-2 px-6 py-3 bg-[#6344ff] hover:bg-[#5235d9] text-white font-bold rounded-xl transition-all active:scale-95 disabled:opacity-50 disabled:pointer-events-none ${className}`;
+  const baseStyles = `flex items-center justify-center gap-2 px-6 py-3 bg-[#2563eb] hover:bg-[#3b82f6] text-white font-bold rounded-xl transition-all active:scale-95 disabled:opacity-50 disabled:pointer-events-none ${className}`;
 
   return (
     <Component

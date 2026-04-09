@@ -9,7 +9,8 @@ const uiConfig = {
   },
   total_applies: {
     icon: FiUsers,
-    className: "border border-gray-200 bg-white text-gray-900 shadow-[4px_4px_0px_#6b7280]",
+    className:
+      "border border-gray-200 bg-white text-gray-900 shadow-[4px_4px_0px_#6b7280]",
     descClass: "text-gray-500",
   },
   hiring_index: {
@@ -44,8 +45,8 @@ export default function DashboardStats() {
   return (
     <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-3">
       {apiData.map((item) => {
-        const ui = uiConfig[item.id] || {}; 
-        
+        const ui = uiConfig[item.id] || {};
+
         const DynamicIcon = ui.icon;
 
         return (

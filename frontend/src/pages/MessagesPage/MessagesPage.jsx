@@ -33,7 +33,7 @@ const MessagesPage = () => {
   if (status === "loading" || status === "idle") {
     return (
       <div className="flex h-screen items-center justify-center bg-[#f8f9fb]">
-        <div className="w-10 h-10 border-4 border-[#6344ff] border-t-transparent rounded-full animate-spin"></div>
+        <div className="w-10 h-10 border-4 border-[#3b82f6] border-t-transparent rounded-full animate-spin"></div>
       </div>
     );
   }

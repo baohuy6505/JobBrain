@@ -12,7 +12,7 @@ const PartnerSection = () => {
               Đối tác chiến lược
             </h2>
 
-            <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 h-1 bg-[#6344ff] rounded-full w-12 transition-all duration-500 group-hover:w-full"></div>
+            <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 h-1 bg-[#60a5fa] rounded-full w-12 transition-all duration-500 group-hover:w-full"></div>
           </div>
         </div>
 
