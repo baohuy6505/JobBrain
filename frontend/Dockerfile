@@ -1,34 +1,36 @@
 # Stage 1: Build ứng dụng
 FROM node:22-alpine AS build-stage
-
 WORKDIR /app
-
-# Copy package.json trước để tận dụng cache của Docker (giúp npm install nhanh hơn)
 COPY package*.json ./
 RUN npm install
-
-# Copy toàn bộ code vào container
 COPY . .
-
-# Build dự án (Vite sẽ tạo ra thư mục dist)
 RUN npm run build
 
-# Stage 2: Serve bằng Nginx (Nhẹ và nhanh)
+# Stage 2: Serve bằng Nginx
 FROM nginx:stable-alpine
 
-# Copy file đã build từ stage 1 sang Nginx
+# 1. Cài đặt thêm công cụ để xử lý file config động
+RUN apk add --no-cache gettext
+
+# 2. Copy file đã build
 COPY --from=build-stage /app/dist /usr/share/nginx/html
 
-# Cấu hình để React Router hoạt động bình thường (tránh lỗi 404 khi refresh trang)
+# 3. Tạo một file template cho Nginx (Sử dụng $PORT thay vì cứng cổng 80)
+# Việc dùng $PORT giúp Render nhận diện được ứng dụng đang chạy đúng cổng nó cấp.
 RUN printf 'server {\n\
-    listen 80;\n\
+    listen ${PORT};\n\
     location / {\n\
         root /usr/share/nginx/html;\n\
         index index.html index.htm;\n\
         try_files $uri $uri/ /index.html;\n\
     }\n\
-}\n' > /etc/nginx/conf.d/default.conf
+    location /healthz {\n\
+        return 200 "OK";\n\
+    }\n\
+}\n' > /etc/nginx/conf.d/default.conf.template
 
-EXPOSE 80
+# 4. Giới hạn worker để tiết kiệm RAM (Render gói Free rất ít RAM)
+RUN sed -i '1s/^/worker_processes 1;\n/' /etc/nginx/nginx.conf
 
-CMD ["nginx", "-g", "daemon off;"]
+# 5. Sử dụng Script để thay thế biến $PORT trước khi chạy Nginx
+CMD ["/bin/sh", "-c", "envsubst '${PORT}' < /etc/nginx/conf.d/default.conf.template > /etc/nginx/conf.d/default.conf && exec nginx -g 'daemon off;'"]
