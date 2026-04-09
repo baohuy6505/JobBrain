@@ -59,7 +59,7 @@ const Header = () => {
             </NavLink>
 
             {/* Menu cho Candidate & Khách vãng lai */}
-            {(userRole === "candidate" || !isAuthenticated) && (
+            {/* {(userRole === "candidate" || !isAuthenticated) && (
               <>
                 <NavLink to="/list-job" className={navLinkClass}>
                   Việc làm
@@ -68,16 +68,25 @@ const Header = () => {
                   Công ty
                 </NavLink>
               </>
-            )}
+            )} */}
+              <NavLink to="/list-job" className={navLinkClass}>
+                  Việc làm
+                </NavLink>
+                <NavLink to="/companies" className={navLinkClass}>
+                  Công ty
+                </NavLink>
 
 
             {/* Mục chung cho người đã đăng nhập */}
-            {isAuthenticated && (
+            {/* {isAuthenticated && (
               <NavLink to="/messages" className={navLinkClass}>
                 Tin nhắn
               </NavLink>
               
-            )}
+            )} */}
+              <NavLink to="/messages" className={navLinkClass}>
+                Tin nhắn
+              </NavLink>
           </nav>
             
             {/* <NavLink to="/admin/dashboard" className={navLinkClass}>
@@ -226,7 +235,7 @@ className={`fixed top-0 right-0 h-full w-72 bg-white z-[70] md:hidden ${isMenuOp
                 Trang chủ
               </NavLink>
 
-              {userRole === "candidate" && (
+              {/* {userRole === "candidate" && (
                 <>
                   <NavLink
                     to="/list-job"
@@ -243,8 +252,21 @@ className={`fixed top-0 right-0 h-full w-72 bg-white z-[70] md:hidden ${isMenuOp
                     Công ty
                   </NavLink>
                 </>
-              )}
-
+              )} */}
+<NavLink
+                    to="/list-job"
+                    onClick={toggleMenu}
+                    className="block px-4 py-3 rounded-xl font-bold text-gray-600 hover:bg-indigo-50"
+                  >
+                    Việc làm
+                  </NavLink>
+                  <NavLink
+                    to="/companies"
+                    onClick={toggleMenu}
+                    className="block px-4 py-3 rounded-xl font-bold text-gray-600 hover:bg-indigo-50"
+                  >
+                    Công ty
+                  </NavLink>
             
                   <NavLink
                     to="/manager"
