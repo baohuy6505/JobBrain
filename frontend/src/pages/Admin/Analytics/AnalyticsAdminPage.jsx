@@ -97,7 +97,7 @@ const FunnelChart = () => (
                 className={`h-full ${item.color} rounded-lg flex items-center px-3 justify-between transition-all duration-1000 shadow-sm`}
                 style={{ width: `${item.percentage}%`, minWidth: '40px' }}
               >
-                <span className="text-white font-bold text-xs">{item.count}</span>
+                <span className="text-white font-bold text-xs">{item.count}</span> 
                 <span className="text-white/70 font-bold text-[10px]">{item.percentage}%</span>
               </div>
             </div>
